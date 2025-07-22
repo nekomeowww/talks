@@ -13,6 +13,8 @@
 
 |  |  |
 | --- | --- |
+| ![](http://raw.githubusercontent.com/BaizeAI/talks/main/packages/2025-06-11-kubecon-hk/public/screenshot.png) | 2025.06.11 @ Hong Kong |
+| Taming Dependency Chaos for LLM in K8S (🇬🇧) | [Slides](https://baizeai.github.io/talks/2025-06-11-kubecon-hk/) |
 | ![](https://github.com/user-attachments/assets/1486cc4a-9f14-42e4-9720-037736a6e0fe) | 2025.05.10 @ Hangzhou |
 | [AIRI](https://github.com/moeru-ai/airi): 我们是如何从零实现外网爆火的 AI 主播的 (🇨🇳) | [Slides](https://talks.ayaka.io/nekoayaka/2025-05-10-airi-how-we-recreated-it/) |
 | ![](https://github.com/user-attachments/assets/5cc04015-681d-4f6e-a0d2-91fd65dd2e3f) | 2025.04.12 @ Shanghai |
