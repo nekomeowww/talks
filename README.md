@@ -9,7 +9,7 @@
 |  |  |
 | --- | --- |
 | TBD | 2025.08 @ Shanghai |
-| 什么？用什么推理模型？Rust？！ (🇨🇳) | TBD |
+| 不要 Python，让我们用 Rust 实现跨平台高性能的 AI 推理！ (🇨🇳) | TBD |
 
 ## Presented...
 
