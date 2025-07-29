@@ -26,7 +26,7 @@
 | ![](https://github.com/user-attachments/assets/e82484ce-58d1-4e9d-a0dd-2c9c616b0da5) | 2024.11.14 @ Shanghai |
 | 深入浅出 LLM 3：训练后范式的开启 (🇨🇳) | [Slides](https://talks.ayaka.io/nekoayaka/2024-11-14-deep-dive-llm-era-of-post-training/) |
 | ![](https://github.com/user-attachments/assets/ddbe1f6c-e692-4bea-967c-95eda4a2b808) | 2024.09.01 @ Shanghai |
-| Seamless agent toolkit, and unified LLM gateway (🇬🇧) | [Slides](https://talks.ayaka.io/nekoayaka/2024-09-01-demo-inn/) |
+| Seamless agent toolkit, and unified LLM gateway (🇬🇧) | [Slides](https://talks.ayaka.io/nekoayaka/2024-09-01-demo-inn-sh/) |
 | ![](https://i.ytimg.com/vi/XWjZQfSXKDg/hq720.jpg) | 2024.08.23 @ Hong Kong |
 | No More Runtime Setup! Let's Bundle, Distribute, Deploy, Scale LLMs Seamlessly with Ollama Operator (🇬🇧) | [Slides](https://talks.ayaka.io/nekoayaka/2024-08-23-kubecon-hk/) |
 | ![](https://i.ytimg.com/vi/SlRMvDUY7lI/hq720.jpg) | 2024.08.21 @ Hong Kong |
