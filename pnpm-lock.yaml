@@ -247,6 +247,27 @@ importers:
         specifier: ^0.3.6
         version: 0.3.6
 
+  packages/2025-08-09-rust-with-ai-for-better-portability:
+    devDependencies:
+      '@iconify-json/devicon':
+        specifier: ^1.2.23
+        version: 1.2.23
+      '@iconify-json/logos':
+        specifier: ^1.2.4
+        version: 1.2.4
+      '@iconify-json/simple-icons':
+        specifier: ^1.2.31
+        version: 1.2.31
+      '@iconify-json/solar':
+        specifier: ^1.2.2
+        version: 1.2.2
+      '@iconify/utils':
+        specifier: ^2.3.0
+        version: 2.3.0
+      '@proj-airi/lobe-icons':
+        specifier: ^0.3.6
+        version: 0.3.6
+
   packages/talks: {}
 
 packages:

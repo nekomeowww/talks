@@ -1,0 +1,19 @@
+{
+  "name": "2025-08-09-rust-with-ai-for-better-portability",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "build": "slidev build",
+    "build-base": "slidev build --out ../../dist/nekoayaka/2025-08-09-rust-with-ai-for-better-portability --base /nekoayaka/2025-08-09-rust-with-ai-for-better-portability/",
+    "dev": "slidev  --open --remote",
+    "export": "slidev export --with-clicks --per-slide --wait-until none"
+  },
+  "devDependencies": {
+    "@iconify-json/devicon": "^1.2.23",
+    "@iconify-json/logos": "^1.2.4",
+    "@iconify-json/simple-icons": "^1.2.31",
+    "@iconify-json/solar": "^1.2.2",
+    "@iconify/utils": "^2.3.0",
+    "@proj-airi/lobe-icons": "^0.3.6"
+  }
+}
