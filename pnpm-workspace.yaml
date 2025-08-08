@@ -4,3 +4,4 @@ packages:
 onlyBuiltDependencies:
   - esbuild
   - playwright-chromium
+  - vue-demi
