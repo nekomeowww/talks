@@ -58,7 +58,7 @@ importers:
         version: 2.15.1(asciinema-player@3.9.0)(typescript@5.8.2)(vitepress@1.3.3(@algolia/client-search@4.24.0)(@types/node@22.13.10)(axios@1.7.3)(drauu@0.4.3)(fuse.js@7.0.0)(less@4.2.2)(postcss@8.5.3)(search-insights@2.16.3)(typescript@5.8.2))
       '@slidev/cli':
         specifier: ^0.49.29
-        version: 0.49.29(@babel/parser@7.26.10)(@nuxt/kit@3.16.0)(@types/markdown-it@14.1.2)(@types/node@22.13.10)(@vue/compiler-sfc@3.5.13)(less@4.2.2)(playwright-chromium@1.51.0)(postcss@8.5.3)(rollup@4.35.0)
+        version: 0.49.29(@babel/parser@7.26.10)(@nuxt/kit@3.16.0)(@types/markdown-it@14.1.2)(@types/node@22.13.10)(@vue/compiler-sfc@3.5.13)(less@4.2.2)(playwright-chromium@1.54.2)(postcss@8.5.3)(rollup@4.35.0)
       '@slidev/client':
         specifier: ^0.49.29
         version: 0.49.29(@nuxt/kit@3.16.0)(@vue/compiler-sfc@3.5.13)(postcss@8.5.3)(rollup@4.35.0)(vite@6.2.1(@types/node@22.13.10)(jiti@2.4.2)(less@4.2.2)(tsx@4.17.0)(yaml@2.7.0))
@@ -126,8 +126,8 @@ importers:
         specifier: ^9.22.0
         version: 9.22.0(jiti@2.4.2)
       playwright-chromium:
-        specifier: ^1.51.0
-        version: 1.51.0
+        specifier: ^1.52.0
+        version: 1.54.2
       rimraf:
         specifier: ^6.0.1
         version: 6.0.1
@@ -246,6 +246,48 @@ importers:
       '@proj-airi/lobe-icons':
         specifier: ^0.3.6
         version: 0.3.6
+
+  packages/2025-06-11-kubecon-hk:
+    devDependencies:
+      '@iconify-json/bi':
+        specifier: ^1.2.4
+        version: 1.2.4
+      '@iconify-json/carbon':
+        specifier: ^1.2.8
+        version: 1.2.8
+      '@iconify-json/devicon':
+        specifier: ^1.2.24
+        version: 1.2.36
+      '@iconify-json/fluent':
+        specifier: ^1.2.22
+        version: 1.2.28
+      '@iconify-json/icon-park-outline':
+        specifier: ^1.2.2
+        version: 1.2.2
+      '@iconify-json/logos':
+        specifier: ^1.2.4
+        version: 1.2.4
+      '@iconify-json/ph':
+        specifier: ^1.2.2
+        version: 1.2.2
+      '@iconify-json/ri':
+        specifier: ^1.2.5
+        version: 1.2.5
+      '@iconify-json/simple-icons':
+        specifier: ^1.2.36
+        version: 1.2.46
+      '@iconify-json/svg-spinners':
+        specifier: ^1.2.2
+        version: 1.2.2
+      '@iconify-json/twemoji':
+        specifier: ^1.2.2
+        version: 1.2.2
+      '@iconify/utils':
+        specifier: ^2.3.0
+        version: 2.3.0
+      '@proj-airi/lobe-icons':
+        specifier: ^1.0.7
+        version: 1.0.10
 
   packages/2025-08-09-rust-with-ai-for-better-portability:
     devDependencies:
@@ -1150,6 +1192,9 @@ packages:
   '@iconify-json/bi@1.2.2':
     resolution: {integrity: sha512-f/Wm+RTdBosw3cI/gmg5uSFmdumkw2thUk4qVFS56jTerdal6wqWnWAbRTSJJ/vhH9/y16pRKnvE8F2+M23dzw==}
 
+  '@iconify-json/bi@1.2.4':
+    resolution: {integrity: sha512-ipD8nm86ovjgXGEJj/B5oSJGaEIsGgzrKqNT1ei66nRExzK6Mgh4an/efG30Xtvp2eQjz9eWN5kHmadbnjUmzw==}
+
   '@iconify-json/carbon@1.2.8':
     resolution: {integrity: sha512-6xh4YiFBz6qoSnB3XMe23WvjTJroDFXB17J1MbiT7nATFe+70+em1acRXr8hgP/gYpwFMHFc4IvjA/IPTPnTzg==}
 
@@ -1159,11 +1204,17 @@ packages:
   '@iconify-json/devicon@1.2.23':
     resolution: {integrity: sha512-JpDWec56q5FKZINnK6iewDIfZulmNw6K2StlxhTLcBAPGRqX/8/o/W3yx0W9Yy0VYt2rtku6sLMqHoIBiNXB7g==}
 
+  '@iconify-json/devicon@1.2.36':
+    resolution: {integrity: sha512-UUg3jcKqUbnaiSPdUgXphp1bI25It4XTBsZ3v8U5kp7kd/zNQ0CSrBOt7Jj0+xjxT58BNlLY9zlWG9mciDwOcA==}
+
   '@iconify-json/fluent-emoji@1.2.3':
     resolution: {integrity: sha512-q9oSqx463rVTQbPbVwvpOkeVii+9BifvJcluv5lqs5ybdab4lnVnpQ/uE2zAseFGOWNygKJsXZl6HbgV9HGhZw==}
 
   '@iconify-json/fluent@1.2.15':
     resolution: {integrity: sha512-Xxbq0c7y+nGim6zgv+ZRh9MAAEsjXAYqUOvAZnwcTdXTdplGleLVM1d/xAuAje9CKFdbQN6zlfcfqJ26X39MPA==}
+
+  '@iconify-json/fluent@1.2.28':
+    resolution: {integrity: sha512-Lnaf38ruWopJv8PdEsK8vXgxKpFSsKED2kI0/575ZXg6XHUMvzSuLlldAVAOEWZmMVPJFC0MXe07Ybnh1ziLvw==}
 
   '@iconify-json/gravity-ui@1.2.5':
     resolution: {integrity: sha512-7uf4xG2ijmcte4AqPpzNTqnEBqxvHBKW/gI0VTZeP0nLtZSvoCybNt5QsJ7f/xyrIQDgCJ4usEmRaX7G86NueA==}
@@ -1185,6 +1236,9 @@ packages:
 
   '@iconify-json/simple-icons@1.2.31':
     resolution: {integrity: sha512-xBUPtvkcSAiXs9DfVtudhLddQtQYin3I3Ph/W5FNYA0oE6r2hmLB8TgOog9OjOt1Sxn3IB5+4n5+64DMf2xNmQ==}
+
+  '@iconify-json/simple-icons@1.2.46':
+    resolution: {integrity: sha512-MJfKQDhOMQD5Fc8PcTtCdFX0oBf/nKVfp69ScdEKIXW0JXELX5V2Ld45EsjShi8aJ6DNhdDtSDZvKuDnkDiKnw==}
 
   '@iconify-json/solar@1.2.2':
     resolution: {integrity: sha512-lcTb6DWL4HZObiY1W3fHfuxxuQHUc6CFHFeywKEx7Ry0k+dU6POZCMC7oVLr0F8vuf+KgaQ3oOoGO/yFzOwrNg==}
@@ -4180,13 +4234,13 @@ packages:
   plantuml-encoder@1.4.0:
     resolution: {integrity: sha512-sxMwpDw/ySY1WB2CE3+IdMuEcWibJ72DDOsXLkSmEaSzwEUaYBT6DWgOfBiHGCux4q433X6+OEFWjlVqp7gL6g==}
 
-  playwright-chromium@1.51.0:
-    resolution: {integrity: sha512-vvTfgpnpy/OHzszS6jtRxvltC0J3x2Eko925FciIC0IN3KC1fg76veqV9AVWIasR+JTq9ZQh9V5Yqz8DPl38Lg==}
+  playwright-chromium@1.54.2:
+    resolution: {integrity: sha512-8ytI6xNjB//5zWSZUvOvn+N9xkXw6GXiDuBePOejcDiyUmzl5R5rvAU7MTl6h633sS3JVmlCS10EhYCt4Crzsg==}
     engines: {node: '>=18'}
     hasBin: true
 
-  playwright-core@1.51.0:
-    resolution: {integrity: sha512-x47yPE3Zwhlil7wlNU/iktF7t2r/URR3VLbH6EknJd/04Qc/PSJ0EY3CMXipmglLG+zyRxW6HNo2EGbKLHPWMg==}
+  playwright-core@1.54.2:
+    resolution: {integrity: sha512-n5r4HFbMmWsB4twG7tJLDN9gmBUeSPcsBZiWSE4DnYz9mJMAFqr2ID7+eGC9kpEnxExJ1epttwR59LEWCk8mtA==}
     engines: {node: '>=18'}
     hasBin: true
 
@@ -6055,6 +6109,10 @@ snapshots:
     dependencies:
       '@iconify/types': 2.0.0
 
+  '@iconify-json/bi@1.2.4':
+    dependencies:
+      '@iconify/types': 2.0.0
+
   '@iconify-json/carbon@1.2.8':
     dependencies:
       '@iconify/types': 2.0.0
@@ -6067,11 +6125,19 @@ snapshots:
     dependencies:
       '@iconify/types': 2.0.0
 
+  '@iconify-json/devicon@1.2.36':
+    dependencies:
+      '@iconify/types': 2.0.0
+
   '@iconify-json/fluent-emoji@1.2.3':
     dependencies:
       '@iconify/types': 2.0.0
 
   '@iconify-json/fluent@1.2.15':
+    dependencies:
+      '@iconify/types': 2.0.0
+
+  '@iconify-json/fluent@1.2.28':
     dependencies:
       '@iconify/types': 2.0.0
 
@@ -6100,6 +6166,10 @@ snapshots:
       '@iconify/types': 2.0.0
 
   '@iconify-json/simple-icons@1.2.31':
+    dependencies:
+      '@iconify/types': 2.0.0
+
+  '@iconify-json/simple-icons@1.2.46':
     dependencies:
       '@iconify/types': 2.0.0
 
@@ -6465,7 +6535,7 @@ snapshots:
   '@sindresorhus/merge-streams@2.3.0':
     optional: true
 
-  '@slidev/cli@0.49.29(@babel/parser@7.26.10)(@nuxt/kit@3.16.0)(@types/markdown-it@14.1.2)(@types/node@22.13.10)(@vue/compiler-sfc@3.5.13)(less@4.2.2)(playwright-chromium@1.51.0)(postcss@8.5.3)(rollup@4.35.0)':
+  '@slidev/cli@0.49.29(@babel/parser@7.26.10)(@nuxt/kit@3.16.0)(@types/markdown-it@14.1.2)(@types/node@22.13.10)(@vue/compiler-sfc@3.5.13)(less@4.2.2)(playwright-chromium@1.54.2)(postcss@8.5.3)(rollup@4.35.0)':
     dependencies:
       '@antfu/ni': 0.22.4
       '@antfu/utils': 0.7.10
@@ -6539,7 +6609,7 @@ snapshots:
       yaml: 2.5.0
       yargs: 17.7.2
     optionalDependencies:
-      playwright-chromium: 1.51.0
+      playwright-chromium: 1.54.2
     transitivePeerDependencies:
       - '@babel/parser'
       - '@nuxt/kit'
@@ -10209,11 +10279,11 @@ snapshots:
 
   plantuml-encoder@1.4.0: {}
 
-  playwright-chromium@1.51.0:
+  playwright-chromium@1.54.2:
     dependencies:
-      playwright-core: 1.51.0
+      playwright-core: 1.54.2
 
-  playwright-core@1.51.0: {}
+  playwright-core@1.54.2: {}
 
   pluralize@8.0.0: {}
 
