@@ -27,6 +27,7 @@ export default mergeConfigs([
           sans: 'DM Sans',
           cn: 'Noto Serif SC',
           hand: 'Playwrite IT Moderna',
+          rounded: 'Comfortaa',
         },
         timeouts: {
           failure: 30000,
