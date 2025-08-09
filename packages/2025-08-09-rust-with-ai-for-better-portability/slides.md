@@ -817,14 +817,8 @@ class: py-10
 
 <div mt-6 />
 
-<div class="bg-neutral-900/50 border border-neutral-500/30 rounded-lg p-8 text-center">
-  <div v-click="2" mb-32>
-    <div i-carbon:construction text-6xl text-cyan-400 />
-    <div text-xl text-cyan-300 mt-14>Live Demo</div>
-    <div text-sm text-neutral-400>
-      现场演示 HuggingFace Inspector 的功能
-    </div>
-  </div>
+<div class="bg-neutral-900/50 border border-neutral-500/30 rounded-lg text-center">
+  <img src="/huggingface-inspector.png" />
 </div>
 
 ---
