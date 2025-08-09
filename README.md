@@ -14,7 +14,7 @@
 |  |  |
 | --- | --- |
 | ![](./packages/2025-08-09-rust-with-ai-for-better-portability/public/cover.png) | 2025.08 @ Shanghai x Kong |
-| 不要 Python，让我们用 Rust 实现跨平台高性能的 AI 推理！ (🇨🇳) | [Slides](2025-08-09-rust-with-ai-for-better-portability) |
+| 不要 Python，让我们用 Rust 实现跨平台高性能的 AI 推理！ (🇨🇳) | [Slides](https://talks.ayaka.io/nekoayaka/2025-08-09-rust-with-ai-for-better-portability) |
 | ![](http://raw.githubusercontent.com/BaizeAI/talks/main/packages/2025-06-11-kubecon-hk/public/screenshot.png) | 2025.06.11 @ Hong Kong x KubeCon |
 | Taming Dependency Chaos for LLM in K8S (🇬🇧) | [Slides](https://baizeai.github.io/talks/2025-06-11-kubecon-hk/) |
 | ![](https://github.com/user-attachments/assets/1486cc4a-9f14-42e4-9720-037736a6e0fe) | 2025.05.10 @ Hangzhou |
