@@ -8,6 +8,8 @@
 
 |  |  |
 | --- | --- |
+| ![](./packages/2025-10-24-fudan-university-airi-dev-talk/public/cover.png) | 2025.10 @ Shanghai x 复旦大学 |
+| 我也想做 Neuro-sama！从小众 side project 到 GitHub 万星的开发幕后 (🇨🇳) | [Slides](https://talks.ayaka.io/nekoayaka/2025-10-24-fudan-university-airi-dev-talk) |
 
 ## Presented...
 

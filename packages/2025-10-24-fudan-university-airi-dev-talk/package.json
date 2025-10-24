@@ -1,0 +1,19 @@
+{
+  "name": "2025-10-24-fudan-university-airi-dev-talk",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "build": "slidev build",
+    "build-base": "slidev build --out ../../dist/nekoayaka/2025-10-24-fudan-university-airi-dev-talk --base /nekoayaka/2025-10-24-fudan-university-airi-dev-talk/",
+    "dev": "slidev  --open --remote",
+    "export": "slidev export --with-clicks --per-slide --wait-until none"
+  },
+  "devDependencies": {
+    "@iconify-json/devicon": "^1.2.45",
+    "@iconify-json/logos": "^1.2.9",
+    "@iconify-json/simple-icons": "^1.2.55",
+    "@iconify-json/solar": "^1.2.4",
+    "@iconify/utils": "^3.0.2",
+    "@proj-airi/lobe-icons": "^1.0.13"
+  }
+}
