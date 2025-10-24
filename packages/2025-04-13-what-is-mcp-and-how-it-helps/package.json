@@ -9,10 +9,10 @@
     "export": "slidev export --with-clicks --per-slide --wait-until none"
   },
   "devDependencies": {
-    "@iconify-json/devicon": "^1.2.23",
-    "@iconify-json/logos": "^1.2.4",
-    "@iconify-json/simple-icons": "^1.2.31",
-    "@iconify/utils": "^2.3.0",
-    "@proj-airi/lobe-icons": "^0.3.6"
+    "@iconify-json/devicon": "^1.2.45",
+    "@iconify-json/logos": "^1.2.9",
+    "@iconify-json/simple-icons": "^1.2.55",
+    "@iconify/utils": "^3.0.2",
+    "@proj-airi/lobe-icons": "^1.0.13"
   }
 }

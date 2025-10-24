@@ -9,6 +9,6 @@
     "export": "slidev export --with-clicks --per-slide --wait-until none"
   },
   "devDependencies": {
-    "@iconify-json/logos": "^1.2.4"
+    "@iconify-json/logos": "^1.2.9"
   }
 }
