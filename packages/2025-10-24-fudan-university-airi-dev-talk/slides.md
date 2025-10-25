@@ -109,6 +109,52 @@ glowSeed: 128
 </div>
 
 ---
+title: The previous ones
+glowSeed: 203
+---
+
+<div>
+  <div grid="~ cols-2" gap-4>
+    <div
+      relative
+      class="[&_.qr]:hover:opacity-100 [&_.img]:hover:opacity-20 hover:cursor-pointer hover:grayscale-100"
+      rounded-lg overflow-hidden  bg="black" h-fit
+      transition="all duration-250 ease-in-out"
+    >
+      <img src="/session-1.png" class="img" opacity-100 transition="all duration-250 ease-in-out">
+      <img src="/session-1-qr.png" class="qr" w-60 absolute top-0 left="0" translate-x="[40%]" opacity-0 transition="all duration-250 ease-in-out">
+    </div>
+    <div
+      relative
+      class="[&_.qr]:hover:opacity-100 [&_.img]:hover:opacity-50 hover:cursor-pointer hover:grayscale-100"
+      rounded-lg overflow-hidden  bg="black" h-fit
+      transition="all duration-250 ease-in-out"
+    >
+      <img src="/session-2.png" class="img" opacity-100 transition="all duration-250 ease-in-out">
+      <img src="/session-2-qr.png" class="qr" w-60 absolute top-0 left="0" translate-x="[40%]" opacity-0 transition="all duration-250 ease-in-out">
+    </div>
+    <div
+      relative
+      class="[&_.qr]:hover:opacity-100 [&_.img]:hover:opacity-50 hover:cursor-pointer hover:grayscale-100"
+      rounded-lg overflow-hidden  bg="black" h-fit
+      transition="all duration-250 ease-in-out"
+    >
+      <img src="/session-3.png" class="img" opacity-100 transition="all duration-250 ease-in-out">
+      <img src="/session-3-qr.png" class="qr" w-60 absolute top-0 left="0" translate-x="[40%]" opacity-0 transition="all duration-250 ease-in-out">
+    </div>
+    <div
+      relative
+      class="[&_.qr]:hover:opacity-100 [&_.img]:hover:opacity-50 hover:cursor-pointer hover:grayscale-100"
+      rounded-lg overflow-hidden  bg="black" h-fit
+      transition="all duration-250 ease-in-out"
+    >
+      <img src="/session-4.png" class="img" opacity-100 transition="all duration-250 ease-in-out">
+      <img src="/session-4-qr.png" class="qr" w-60 absolute top-0 left="0" translate-x="[40%]" opacity-0 transition="all duration-250 ease-in-out">
+    </div>
+  </div>
+</div>
+
+---
 class: py-10 text-center
 ---
 
