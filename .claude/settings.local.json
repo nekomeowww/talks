@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//Users/neko/Git/moeru-ai/airi/docs/content/zh-Hans/blog/DreamLog-0x1/**)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
