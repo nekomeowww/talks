@@ -8,13 +8,13 @@
 
 |  |  |
 | --- | --- |
-| ![](./packages/2025-10-24-fudan-university-airi-dev-talk/public/cover.png) | 2025.10 @ Shanghai x 复旦大学 |
-| 我也想做 Neuro-sama！从小众 side project 到 GitHub 万星的开发幕后 (🇨🇳) | [Slides](https://talks.ayaka.io/nekoayaka/2025-10-24-fudan-university-airi-dev-talk) |
 
 ## Presented...
 
 |  |  |
 | --- | --- |
+| ![](./packages/2025-10-24-fudan-university-airi-dev-talk/public/cover.png) | 2025.10 @ Shanghai x 复旦大学 |
+| 我也想做 Neuro-sama！从小众 side project 到 GitHub 万星的开发幕后 (🇨🇳) | [Slides](https://talks.ayaka.io/nekoayaka/2025-10-24-fudan-university-airi-dev-talk) |
 | ![](./packages/2025-08-09-rust-with-ai-for-better-portability/public/cover.png) | 2025.08 @ Shanghai x Kong |
 | 不要 Python，让我们用 Rust 实现跨平台高性能的 AI 推理！ (🇨🇳) | [Slides](https://talks.ayaka.io/nekoayaka/2025-08-09-rust-with-ai-for-better-portability) |
 | ![](http://raw.githubusercontent.com/BaizeAI/talks/main/packages/2025-06-11-kubecon-hk/public/screenshot.png) | 2025.06.11 @ Hong Kong x KubeCon |
