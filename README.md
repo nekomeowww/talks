@@ -8,6 +8,8 @@
 
 |  |  |
 | --- | --- |
+| ![](./packages/2026-01-24-ai-rust-robot/public/cover.gif) | 2025.01 @ Shanghai x Kong |
+| 爱，螃蟹，机器人：具身智能的冒险 (🇨🇳) | [Slides](https://talks.ayaka.io/nekoayaka/2026-01-24-ai-rust-robot) |
 
 ## Presented...
 

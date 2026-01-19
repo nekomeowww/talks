@@ -15,7 +15,6 @@
   },
   "devDependencies": {
     "@antfu/eslint-config": "^4.19.0",
-    "@antfu/ni": "^24.4.0",
     "@iconify-json/bi": "^1.2.6",
     "@iconify-json/carbon": "^1.2.14",
     "@iconify-json/devicon": "^1.2.45",
