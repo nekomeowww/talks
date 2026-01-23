@@ -39,295 +39,250 @@ routerMode: hash
 ---
 layout: intro
 class: px-35
-glowSeed: 128
+glowSeed: 205
 ---
 
-<div flex items-center gap-3>
+<div flex>
   <div
-    v-click="1"
-    :class="$clicks < 1 ? 'translate-x--5 opacity-0' : 'translate-x-0 opacity-100'"
-    flex flex-col items-start transition duration-500 ease-in-out min-w-60
+    v-click="1" flex flex-col items-center transition duration-500 ease-in-out
+    :class="$clicks < 1 ? 'translate-y-20 opacity-0' : 'translate-y-0 opacity-100'"
   >
-    <img src="/person/neko.jpeg" w-40 h-40 rounded-full object-cover mb-5>
-    <span font-semibold text-3xl>Neko</span>
-    <div>
+    <img src="/person/neko.jpeg" w-50 h-50 rounded-full object-cover mb-5>
+    <span font-semibold text-3xl >Neko</span>
+    <div items-center>
       <div>
-        <span class="opacity-70">Literally Full-stack Developer</span>
+        <span class="opacity-70">Software Engineer</span>
       </div>
-      <div text-sm flex items-center gap-2 mt-4>
+      <div text-sm flex items-center justify-center gap-2 mt-4>
         <div i-ri:github-fill /><span underline decoration-dashed font-mono decoration-zinc-300>nekomeowww</span>
       </div>
     </div>
   </div>
   <div flex-1 />
-  <div flex flex-col gap-8>
-    <div mb-4 v-click="2">
-      <div mb-4 text-zinc-400>
-        <span>社区</span>
+  <div
+    v-click="2" flex flex-col items-center transition duration-500 ease-in-out
+    :class="$clicks < 2 ? 'translate-y-20 opacity-0' : 'translate-y-0 opacity-100'"
+  >
+    <img src="/person/sumimakito.jpeg" w-50 h-50 rounded-full object-cover mb-5>
+    <span font-semibold text-3xl>Makito</span>
+    <div items-center>
+      <div class="opacity-70 flex items-center gap-2">
+        <div i-simple-icons:kong></div><span>Kong Staff</span>
       </div>
-      <div
-        flex flex-wrap items-start content-start gap-4 transition duration-500 ease-in-out
-        :class="$clicks < 2 ? 'translate-y-5' : 'translate-y-0'"
-      >
-        <div flex items-center gap-2 text-2xl w-fit h-fit>
-          <img src="/proj-airi-logo.svg" size="6.5" >
-          <div>Project AIRI</div>
-        </div>
-        <div flex items-center gap-2 text-2xl w-fit h-fit>
-          <div i-logos:hugging-face-icon inline-block /> Hugging Face
-        </div>
-        <div flex items-center gap-2 text-2xl w-fit h-fit>
-          <div i-logos:vue /><div>Vue</div>
-        </div>
-        <div flex items-center gap-2 text-2xl w-fit h-fit>
-          <div i-simple-icons:ollama inline-block /> Ollama
-        </div>
-        <div flex items-center gap-2 text-2xl w-fit h-fit>
-          <div i-devicon:go /><div>Golang</div>
-        </div>
-        <div flex items-center gap-2 text-2xl w-fit h-fit>
-          <div i-devicon:kubernetes inline-block /> Kubernetes
-        </div>
+      <div text-sm flex items-center justify-center gap-2 mt-4>
+        <div i-ri:github-fill /><span underline decoration-dashed font-mono decoration-zinc-300>sumimakito</span>
       </div>
     </div>
-    <div v-click="3">
-      <div mb-4 text-zinc-400>
-        <span>其他项目 / 组织</span>
+  </div>
+  <div flex-1 />
+  <div
+    v-click="3" flex flex-col items-center transition duration-500 ease-in-out
+    :class="$clicks < 3 ? 'translate-y-20 opacity-0' : 'translate-y-0 opacity-100'"
+  >
+    <img src="/person/lietblue.jpeg" w-50 h-50 rounded-full object-cover mb-5>
+    <span font-semibold text-3xl>Liet</span>
+    <div flex-col items-center>
+      <div>
+        <span class="opacity-70">Software engineer</span>
       </div>
-      <div
-        flex flex-wrap items-start content-start gap-4 transition duration-500 ease-in-out
-        :class="$clicks < 3 ? 'translate-y-5' : 'translate-y-0'"
-      >
-        <div flex items-center gap-2 text-2xl w-fit h-fit>
-          <img src="/moeru-ai-logo.png" size="6.5" />
-          <div>Moeru AI</div>
-        </div>
-        <div flex items-center gap-2 text-2xl w-fit h-fit>
-          <div i-fluent-emoji:notebook-with-decorative-cover /><div>Nolebase</div>
-        </div>
+      <div text-sm flex items-center justify-center gap-2 mt-4>
+        <div i-ri:github-fill /><span underline decoration-dashed font-mono decoration-zinc-300>lietblue</span>
       </div>
     </div>
   </div>
 </div>
 
-<div v-click="3" w-full absolute bottom-0 left-0 flex items-center transform="translate-x--10 translate-y--10">
-  <div w-full flex items-center justify-end gap-4>
-    <img src="/nekomeoww-qr.png" h-50>
+---
+title: The previous ones
+glowSeed: 203
+---
+
+<div>
+  <div grid="~ cols-2" gap-4>
+    <div
+      relative
+      class="[&_.qr]:hover:opacity-100 [&_.img]:hover:opacity-50 hover:cursor-pointer hover:grayscale-100"
+      rounded-lg overflow-hidden  bg="black" h-fit
+      transition="all duration-250 ease-in-out"
+    >
+      <img src="/session-1.png" class="img" opacity-100 transition="all duration-250 ease-in-out">
+      <img src="/session-1-qr.png" class="qr" w-60 absolute top-0 left="0" translate-x="[40%]" opacity-0 transition="all duration-250 ease-in-out">
+    </div>
+    <div
+      relative
+      class="[&_.qr]:hover:opacity-100 [&_.img]:hover:opacity-50 hover:cursor-pointer hover:grayscale-100"
+      rounded-lg overflow-hidden  bg="black" h-fit
+      transition="all duration-250 ease-in-out"
+    >
+      <img src="/session-2.png" class="img" opacity-100 transition="all duration-250 ease-in-out">
+      <img src="/session-2-qr.png" class="qr" w-60 absolute top-0 left="0" translate-x="[40%]" opacity-0 transition="all duration-250 ease-in-out">
+    </div>
+    <div
+      relative
+      class="[&_.qr]:hover:opacity-100 [&_.img]:hover:opacity-50 hover:cursor-pointer hover:grayscale-100"
+      rounded-lg overflow-hidden  bg="black" h-fit
+      transition="all duration-250 ease-in-out"
+    >
+      <img src="/session-3.png" class="img" opacity-100 transition="all duration-250 ease-in-out">
+      <img src="/session-3-qr.png" class="qr" w-60 absolute top-0 left="0" translate-x="[40%]" opacity-0 transition="all duration-250 ease-in-out">
+    </div>
+    <div
+      relative
+      class="[&_.qr]:hover:opacity-100 [&_.img]:hover:opacity-50 hover:cursor-pointer hover:grayscale-100"
+      rounded-lg overflow-hidden  bg="black" h-fit
+      transition="all duration-250 ease-in-out"
+    >
+      <img src="/session-4.png" class="img" opacity-100 transition="all duration-250 ease-in-out">
+      <img src="/session-4-qr.png" class="qr" w-60 absolute top-0 left="0" translate-x="[40%]" opacity-0 transition="all duration-250 ease-in-out">
+    </div>
   </div>
 </div>
+
+---
+class: py-10 text-center
+---
+
+<h1 font-rounded>
+Project AIRI
+</h1>
+
+尝试重现 Neuro-sama，可以看作是装载 AI 角色的灵魂容器
+
+<img src="/airi-screenshot-2.png" w-full rounded-xl />
+
+---
+class: py-10 relative text-center
+---
+
+<h1 font-rounded>
+Project AIRI
+</h1>
+
+<img src="/airi-github_qr.png" w-50 absolute bottom-3 />
+
+<img src="/airi-screenshot-1.png" w-full />
+
+---
+class: py-10 text-center
+---
+
+<h1 font-rounded>
+我们有超过 17000 颗星星
+</h1>
+
+<img src="/airi-stars.png" w-full rounded-xl />
+
+---
+class: px-0! pt-6!
+---
+
+<div px-10 text-4xl mb-4>
+  一起玩 异星工厂 Factorio
+</div>
+
+<video autoplay muted loop>
+  <source src="/airi-plays-factorio.mp4" />
+</video>
 
 ---
 class: py-10
+glow: bottom
+glowSeed: 350
 ---
 
-# 今天聊什么
+# 那今天有什么好东西？
 
-<span>用机械臂的视角串起 AIRI 的具身之路</span>
-
-<div mt-6 />
-
-<v-clicks>
-<div flex items-center gap-3 text-2xl>
-  <div i-carbon:folder-details-reference text-blue-300 /> 项目背景与公开视频
-</div>
-<div flex items-center gap-3 text-2xl>
-  <div i-carbon:iot-platform text-emerald-300 /> 机械臂怎么做，能学到什么
-</div>
-<div flex items-center gap-3 text-2xl>
-  <div i-carbon:chart-relationship text-amber-300 /> 逆运动学、模型架构、现状
-</div>
-<div flex items-center gap-3 text-2xl>
-  <div i-carbon:cloud-upload text-purple-300 /> 开发流程、数采与仿真
-</div>
-<div flex items-center gap-3 text-2xl>
-  <div i-carbon:container-software text-cyan-300 /> 我们的 Rust 组件与现场 demo
-</div>
-</v-clicks>
-
----
-class: py-10
----
-
-# 项目背景
-
-<span>看看大家的视频</span>
-
-<div mt-6 />
-
-<div grid="~ cols-2" gap-4>
-  <div
-    class="rounded-lg overflow-hidden border-2 border-amber-800/50 bg-amber-900/20 h-40 flex items-center justify-center"
-  >
-    <div text="sm white/60">公开视频 1：装配 / 起步</div>
-  </div>
-  <div
-    class="rounded-lg overflow-hidden border-2 border-yellow-800/50 bg-yellow-900/20 h-40 flex items-center justify-center"
-  >
-    <div text="sm white/60">公开视频 2：操作 / 任务</div>
-  </div>
-  <div
-    class="rounded-lg overflow-hidden border-2 border-orange-800/50 bg-orange-900/20 h-40 flex items-center justify-center"
-  >
-    <div text="sm white/60">公开视频 3：交互 / 抓取</div>
-  </div>
-  <div
-    class="rounded-lg overflow-hidden border-2 border-rose-800/50 bg-rose-900/20 h-40 flex items-center justify-center"
-  >
-    <div text="sm white/60">公开视频 4：复盘 / 对比</div>
-  </div>
-</div>
-
-<div mt-8 />
-
-<div grid="~ cols-2" gap-4>
-  <div border="2 solid amber-800/50" rounded-lg overflow-hidden>
-    <div flex items-center bg="amber-800/30" px-3 py-2 text-amber-200>
-      <div i-carbon:cloud-app text-sm mr-1 />
-      <div text-xs>
-        <em>Hugging Face Hub</em>
-      </div>
-    </div>
-    <div bg="amber-800/10" px-4 py-3>
-      <div text="sm white/80">LeRobot 组织页，集中放模型、数据集与 Spaces</div>
-      <div text="xs white/50" mt-2>huggingface.co/lerobot</div>
-    </div>
-  </div>
-  <div border="2 solid orange-800/50" rounded-lg overflow-hidden>
-    <div flex items-center bg="orange-800/30" px-3 py-2 text-orange-200>
-      <div i-carbon:book text-sm mr-1 />
-      <div text-xs>
-        <em>LeRobot 文档</em>
-      </div>
-    </div>
-    <div bg="orange-800/10" px-4 py-3>
-      <div text="sm white/80">从安装、教程、硬件、仿真到策略与数据工具的入口</div>
-      <div text="xs white/50" mt-2>huggingface.co/docs/lerobot</div>
-    </div>
-  </div>
-</div>
-
----
-class: py-10
----
-
-# 机械臂是怎么做的
-
-<span>拆解成感知、规划、控制三层</span>
-
-<div mt-6 />
-
-<div grid grid-cols-3 gap-3 h-75>
-
-<v-clicks>
-
-<div border="2 solid yellow-800/50" rounded-lg overflow-hidden bg="yellow-900/10" backdrop-blur-sm h-full>
-  <div flex items-center bg="yellow-800/30" px-3 py-2 text-yellow-200>
-    <div i-carbon:camera text-sm mr-2 />
-    <div font-semibold>感知层</div>
-  </div>
-  <div bg="yellow-900/5" px-4 py-3>
-    <div flex flex-col gap-3>
-      <div>
-        <div text-sm font-medium>多模态输入</div>
-        <div text-xs opacity-70>RGB-D / 触觉 / 状态量</div>
-      </div>
-      <div>
-        <div text-sm font-medium>状态估计</div>
-        <div text-xs opacity-70>目标、夹爪、环境</div>
-      </div>
-      <div>
-        <div text-sm font-medium>语义理解</div>
-        <div text-xs opacity-70>语言 + 视觉对齐</div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div border="2 solid orange-800/50" rounded-lg overflow-hidden bg="orange-900/10" backdrop-blur-sm h-full>
-  <div flex items-center bg="orange-800/30" px-3 py-2 text-orange-200>
-    <div i-carbon:schematics text-sm mr-2 />
-    <div font-semibold>规划层</div>
-  </div>
-  <div bg="orange-900/5" px-4 py-3>
-    <div flex flex-col gap-3>
-      <div>
-        <div text-sm font-medium>任务分解</div>
-        <div text-xs opacity-70>语言到子目标</div>
-      </div>
-      <div>
-        <div text-sm font-medium>动作生成</div>
-        <div text-xs opacity-70>轨迹 + 动作序列</div>
-      </div>
-      <div>
-        <div text-sm font-medium>约束处理</div>
-        <div text-xs opacity-70>碰撞 / 能力边界</div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div border="2 solid amber-800/50" rounded-lg overflow-hidden bg="amber-900/10" backdrop-blur-sm h-full>
-  <div flex items-center bg="amber-800/30" px-3 py-2 text-amber-200>
-    <div i-carbon:control-panel text-sm mr-2 />
-    <div font-semibold>控制层</div>
-  </div>
-  <div bg="amber-900/5" px-4 py-3>
-    <div flex flex-col gap-3>
-      <div>
-        <div text-sm font-medium>底层控制</div>
-        <div text-xs opacity-70>力控 / 位置控制</div>
-      </div>
-      <div>
-        <div text-sm font-medium>安全策略</div>
-        <div text-xs opacity-70>限幅 / 触发回退</div>
-      </div>
-      <div>
-        <div text-sm font-medium>实时反馈</div>
-        <div text-xs opacity-70>关节状态闭环</div>
-      </div>
-    </div>
-  </div>
-</div>
-
-</v-clicks>
-
-</div>
-
----
-class: py-10
----
-
-# 机械臂视频并排介绍
-
-<span>从视频中我们学到什么</span>
-
-<div mt-6 />
-
-<div grid="~ cols-3" gap-4>
-  <div class="rounded-lg overflow-hidden border-2 border-amber-800/50 bg-amber-900/20 h-40 flex items-center justify-center">
-    <div text="sm white/60">视频 A：可重复性</div>
-  </div>
-  <div class="rounded-lg overflow-hidden border-2 border-yellow-800/50 bg-yellow-900/20 h-40 flex items-center justify-center">
-    <div text="sm white/60">视频 B：泛化能力</div>
-  </div>
-  <div class="rounded-lg overflow-hidden border-2 border-orange-800/50 bg-orange-900/20 h-40 flex items-center justify-center">
-    <div text="sm white/60">视频 C：人机协作</div>
-  </div>
-</div>
+<span>异星工厂好玩，我也想要 AIRI 有现实世界里的机械臂可以操作！</span>
 
 <div mt-8 />
 
 <v-clicks>
-  <div flex items-center gap-3 text-xl>
-    <div i-carbon:arrow-right text-zinc-400 /> 对比流程差异：观测、动作、反馈
-  </div>
-  <div flex items-center gap-3 text-xl>
-    <div i-carbon:arrow-right text-zinc-400 /> 观察失败案例：卡顿、掉落、遮挡
-  </div>
-  <div flex items-center gap-3 text-xl>
-    <div i-carbon:arrow-right text-zinc-400 /> 预估成本：采样、标注、部署
-  </div>
+
+- 具身智能都有些啥？
+- 怎么样可以自己拥有一个？
+- 流程都有什么？
+- 如何利用现有的 Rust 生态一起共建自己的具身智能？
+- 还有什么值得做的？
+
 </v-clicks>
+
+---
+class: py-10
+---
+
+<div class="relative">
+  <video v-click autoplay muted loop class="relative rounded-md w-120" :class="[$clicks === 1 ? 'opacity-100 scale-100' : 'opacity-0 scale-100', $clicks > 1 ? 'opacity-30 scale-75' : '']" transition="all duration-500 ease-in-out">
+    <source src="/videos/pistar06-coffee.mp4" />
+  </video>
+  <video v-click  autoplay muted loop class="absolute rounded-md w-120 top-1/4 left-[calc(25%-4rem)]" :class="[$clicks === 2 ? 'opacity-100 scale-100' : 'opacity-0 scale-100', $clicks > 2 ? 'opacity-30 scale-75' : '']" transition="all duration-500 ease-in-out">
+    <source src="/videos/pistar06-folding-box.mp4" />
+  </video>
+  <video v-click autoplay muted loop class="absolute rounded-md w-120 top-1/2 left-[calc(50%-8rem)] " :class="[$clicks === 3 ? 'opacity-100 scale-100' : 'opacity-0 scale-100', $clicks > 3 ? 'opacity-30 scale-75' : '']" transition="all duration-500 ease-in-out">
+    <source src="/videos/pistar06-laundry.mp4" />
+  </video>
+</div>
+
+---
+class: py-10
+---
+
+# 机器人？不写 Agent 了吗？怎么想研究机器人了
+
+<span>从“机器人学”到“机器人学习”的学习起点</span>
+
+<div mt-12 />
+
+<div grid grid-cols-2 gap-3 h-75>
+
+<v-clicks>
+
+  <div border="2 solid white/5" rounded-lg overflow-hidden bg="white/5" backdrop-blur-sm h-full>
+    <div flex items-center bg="white/10" backdrop-blur px-3 py-2 rounded-md>
+      <div i-carbon:flag text-amber-300 text-sm mr-2 />
+      <div font-semibold>还能做什么，扭秧歌？</div>
+    </div>
+    <div px-4 py-3>
+      <div text-sm font-medium>机器人挺有意思的</div>
+      <div text-xs opacity-70>像是 pi0 的视频里可以帮忙做咖啡叠衣物，未来大有可用</div>
+    </div>
+  </div>
+
+  <div border="2 solid white/5" rounded-lg overflow-hidden bg="white/5" backdrop-blur-sm h-full>
+    <div flex items-center bg="white/10" backdrop-blur px-3 py-2 rounded-md>
+      <div i-carbon:chip text-yellow-300 text-sm mr-2 />
+      <div font-semibold>难道目前的机器人不够用吗？</div>
+    </div>
+    <div px-4 py-3>
+      <div text-sm font-medium>有不同的 approach 正在寻找办法受限场景的运动学建模</div>
+      <div text-xs opacity-70>数据 + 算力替代手工建模</div>
+    </div>
+  </div>
+
+  <div border="2 solid white/5" rounded-lg overflow-hidden bg="white/5" backdrop-blur-sm h-full>
+    <div flex items-center bg="white/10" backdrop-blur px-3 py-2 rounded-md>
+      <div i-carbon:connect text-orange-300 text-sm mr-2 />
+      <div font-semibold>参与到如今在快速变化和发展的行业</div>
+    </div>
+    <div px-4 py-3>
+      <div text-sm font-medium>目前还没有彻底研究透整个 pipeline 和 研发 的流程</div>
+      <div text-xs opacity-70>比如感知到动作的端到端策略</div>
+    </div>
+  </div>
+
+  <div border="2 solid white/5" rounded-lg overflow-hidden bg="white/5" backdrop-blur-sm h-full>
+    <div flex items-center bg="white/10" backdrop-blur px-3 py-2 rounded-md>
+      <div i-carbon:data-base text-rose-300 text-sm mr-2 />
+      <div font-semibold>值得动手尝试</div>
+    </div>
+    <div px-4 py-3>
+      <div text-sm font-medium>多模态数据与开放数据生态</div>
+      <div text-xs opacity-70>生态很丰富，从 3D 打印，到 VR/MR 设备融合，游戏引擎，世界模型...</div>
+    </div>
+  </div>
+
+</v-clicks>
+
+</div>
 
 ---
 class: flex justify-center items-center gap-20 px-40 text-xl
@@ -338,120 +293,67 @@ class: flex justify-center items-center gap-20 px-40 text-xl
   :class="$clicks < 1 ? 'text-white' : 'translate-y--18 scale-40 text-white/30'"
   transition duration-500 ease-in-out
 >
-  <span>还有什么问题？</span>
+  <span>所以是什么样的机器人？机械臂？</span>
 </div>
 
-<v-clicks>
-  <div text-2xl leading-10 text-center>
-    机器人为什么这么难做？
-  </div>
-  <div text-2xl leading-10 text-center>
-    虚拟骨骼与真实机械臂的差异在哪里？
-  </div>
-</v-clicks>
+---
+class: px-0! pt-6! text-center
+---
+
+<div px-10 text-4xl mb-4>
+  看看它是什么样的
+</div>
+
+<video autoplay muted loop>
+  <source src="/videos/lerobot-teleop-demo.mp4" />
+</video>
 
 ---
 class: py-10
 ---
 
-# 逆运动学综述
+# 具身智能常见三类形态
 
-<span>机器人难点 & AIRI 的差异</span>
-
-<div mt-6 />
-
-<div grid="~ cols-2" gap-6>
-  <div>
-    <div text-xl font-semibold mb-3>机器人难点</div>
-    <v-clicks>
-      <div flex items-center gap-3 text-lg>
-        <div i-carbon:close-outline text-rose-300 /> 逆解不唯一，需做约束选择
-      </div>
-      <div flex items-center gap-3 text-lg>
-        <div i-carbon:warning-alt text-amber-300 /> 物理碰撞与安全边界
-      </div>
-      <div flex items-center gap-3 text-lg>
-        <div i-carbon:chart-line text-emerald-300 /> 误差累计导致漂移
-      </div>
-      <div flex items-center gap-3 text-lg>
-        <div i-carbon:time text-sky-300 /> 实时性要求极高
-      </div>
-    </v-clicks>
-  </div>
-  <div>
-    <div text-xl font-semibold mb-3>与 Project AIRI 的区别</div>
-    <v-clicks>
-      <div flex items-center gap-3 text-lg>
-        <div i-carbon:person text-purple-300 /> 虚拟骨骼可理想化
-      </div>
-      <div flex items-center gap-3 text-lg>
-        <div i-carbon:box text-cyan-300 /> 真实机械臂有硬件约束
-      </div>
-      <div flex items-center gap-3 text-lg>
-        <div i-carbon:humidity text-blue-300 /> 真实世界噪声不可控
-      </div>
-      <div flex items-center gap-3 text-lg>
-        <div i-carbon:science text-emerald-300 /> 需要系统级联调
-      </div>
-    </v-clicks>
-  </div>
-</div>
-
----
-class: py-10
----
-
-# 模型架构简述
-
-<span>VLM / VLA / Flow Matching Policy</span>
+<span>机械臂、人形机器人、灵巧手各做什么</span>
 
 <div mt-6 />
 
-<div grid grid-cols-3 gap-3 h-70>
+<div grid="~ cols-3" gap-4 h-75>
 
 <v-clicks>
 
-<div border="2 solid amber-800/50" rounded-lg overflow-hidden bg="amber-900/10" backdrop-blur-sm h-full>
-  <div flex items-center bg="amber-800/30" px-3 py-2 text-amber-200>
-    <div i-carbon:chip text-sm mr-2 />
-    <div font-semibold>VLM</div>
-  </div>
-  <div bg="amber-900/5" px-4 py-3>
-    <div flex flex-col gap-3>
-      <div text-sm font-medium>视觉 + 语言理解</div>
-      <div text-xs opacity-70>将观察转成语义目标</div>
-      <div text-xs opacity-70>适合任务理解与指令解析</div>
+  <div border="2 solid amber-800/50" rounded-lg overflow-hidden bg="amber-900/10" backdrop-blur-sm flex flex-col h-full>
+    <div flex flex-col justify-center items-center bg="amber-800/30" px-3 py-2 text-amber-200 h="70%">
+      <div i-mdi:arm-flex text-6xl mb-4 />
+      <div font-semibold>机械臂（Manipulator）</div>
+    </div>
+    <div bg="amber-900/5" px-4 py-3 flex items-center justify-center flex-col h="30%">
+      <div text-sm font-medium>固定底座 + 末端执行器</div>
+      <div text-xs opacity-70>擅长抓取、装配、精确操作</div>
     </div>
   </div>
-</div>
 
-<div border="2 solid orange-800/50" rounded-lg overflow-hidden bg="orange-900/10" backdrop-blur-sm h-full>
-  <div flex items-center bg="orange-800/30" px-3 py-2 text-orange-200>
-    <div i-carbon:connect text-sm mr-2 />
-    <div font-semibold>VLA</div>
-  </div>
-  <div bg="orange-900/5" px-4 py-3>
-    <div flex flex-col gap-3>
-      <div text-sm font-medium>视觉 + 语言 + 动作</div>
-      <div text-xs opacity-70>统一表征与动作预测</div>
-      <div text-xs opacity-70>面向端到端控制</div>
+  <div border="2 solid yellow-800/50" rounded-lg overflow-hidden bg="yellow-900/10" backdrop-blur-sm flex flex-col h-full>
+    <div flex flex-col justify-center items-center bg="yellow-800/30" px-3 py-2 text-yellow-200 h="70%">
+      <div i-mdi:human text-6xl mb-4 />
+      <div font-semibold>人形机器人（Humanoid）</div>
+    </div>
+    <div bg="yellow-900/5" px-4 py-3 flex items-center justify-center flex-col h="30%">
+      <div text-sm font-medium>多关节 + 平衡控制</div>
+      <div text-xs opacity-70>擅长移动、协作、复杂场景任务</div>
     </div>
   </div>
-</div>
 
-<div border="2 solid rose-800/50" rounded-lg overflow-hidden bg="rose-900/10" backdrop-blur-sm h-full>
-  <div flex items-center bg="rose-800/30" px-3 py-2 text-rose-200>
-    <div i-carbon:flame text-sm mr-2 />
-    <div font-semibold>Flow Matching Policy</div>
-  </div>
-  <div bg="rose-900/5" px-4 py-3>
-    <div flex flex-col gap-3>
-      <div text-sm font-medium>连续控制策略</div>
-      <div text-xs opacity-70>建模动作分布与动力学</div>
-      <div text-xs opacity-70>适合细粒度执行</div>
+  <div border="2 solid orange-800/50" rounded-lg overflow-hidden bg="orange-900/10" backdrop-blur-sm flex flex-col h-full>
+    <div flex flex-col justify-center items-center bg="orange-800/30" px-3 py-2 text-orange-200 h="70%">
+      <div i-mdi:hand-back-left text-6xl mb-4 />
+      <div font-semibold>灵巧手（Dexterous Hand）</div>
+    </div>
+    <div bg="orange-900/5" px-4 py-3 flex items-center justify-center flex-col h="30%">
+      <div text-sm font-medium>高自由度、多指接触</div>
+      <div text-xs opacity-70>擅长精细抓取与复杂物体操作</div>
     </div>
   </div>
-</div>
 
 </v-clicks>
 
@@ -461,57 +363,487 @@ class: py-10
 class: py-10
 ---
 
-# LeRobot 能做什么
+# 几种不同级别的机器人动作控制
 
-<span>Hugging Face 发起，我们围绕它做了延展</span>
+<span>理解「改变什么状态」</span>
+
+<div mt-6 />
+
+<div flex items-center gap-4 h-75>
+
+<v-clicks>
+
+<div
+  :class="$clicks < 1 ? 'translate-x--20 opacity-0' : 'translate-x-0 opacity-100'"
+  rounded-lg
+  border="2 solid amber-900" bg="amber-900/20"
+  backdrop-blur
+  flex-1 h-full
+  transition duration-500 ease-in-out
+  flex flex-col items-center
+>
+  <img src="/category-manipulation.avif" class="aspect-[1.32] object-cover rounded-md h-full">
+  <div bg="amber-900/30" w-full px-4 py-2 h="5rem" flex items-center justify-center text-center text-base>
+    <span>Manipulation</span>
+  </div>
+</div>
+
+<div
+  :class="$clicks < 2 ? 'translate-x--20 opacity-0' : 'translate-x-0 opacity-100'"
+  rounded-lg
+  border="2 solid amber-800" bg="amber-800/20"
+  backdrop-blur
+  flex-1 h-full
+  transition duration-500 ease-in-out
+  flex flex-col items-center
+>
+  <img src="/category-locomotion.jpg" class="aspect-[1.32] object-cover rounded-md h-full">
+  <div bg="amber-800/30" w-full px-4 py-2 h="5rem" flex items-center justify-center text-center text-base>
+    <span>Locomotion</span>
+  </div>
+</div>
+
+<div
+  :class="$clicks < 3 ? 'translate-x--20 opacity-0' : 'translate-x-0 opacity-100'"
+  rounded-lg
+  border="2 solid yellow-800" bg="yellow-800/20"
+  backdrop-blur
+  flex-1 h-full
+  transition duration-500 ease-in-out
+  flex flex-col items-center
+>
+  <img src="/category-full-body.jpg" class="aspect-[1.32] object-cover rounded-md h-full">
+  <div bg="yellow-800/30" w-full px-4 py-2 h="5rem" flex items-center justify-center text-center text-base>
+    <span>Whole-Body Control</span>
+  </div>
+</div>
+
+</v-clicks>
+
+</div>
+
+---
+class: py-10
+---
+
+# 机械臂从 0 到落地，会经历什么？
+
+<span>非常非常复杂，超乎你的想象</span>
+
+<div mt-8 />
+
+<div flex items-center gap-4>
+
+<v-clicks>
+
+<div
+  :class="$clicks < 1 ? 'translate-x--20 opacity-0' : 'translate-x-0 opacity-100'"
+  rounded-lg
+  border="2 solid amber-900" bg="amber-900/20"
+  backdrop-blur
+  flex-1 h-full
+  transition duration-500 ease-in-out
+>
+  <div px-5 py-16 flex items-center justify-center>
+    <div i-solar:reel-bold-duotone size-20 />
+  </div>
+  <div bg="amber-900/30" w-full px-4 py-2 h="5rem" flex items-center justify-center text-center text-base>
+    <span>任务定义</span>
+  </div>
+</div>
+
+<div
+  :class="$clicks < 2 ? 'translate-x--20 opacity-0' : 'translate-x-0 opacity-100'"
+  rounded-lg
+  border="2 solid amber-800" bg="amber-800/20"
+  backdrop-blur
+  flex-1 h-full
+  transition duration-500 ease-in-out
+>
+  <div px-5 py-16 flex items-center justify-center>
+    <div i-solar:database-bold-duotone size-20 />
+  </div>
+  <div bg="amber-800/30" w-full px-4 py-2 h="5rem" flex items-center justify-center text-center text-base>
+    <span>环境搭建</span>
+  </div>
+</div>
+
+<div
+  :class="$clicks < 3 ? 'translate-x--20 opacity-0' : 'translate-x-0 opacity-100'"
+  rounded-lg
+  border="2 solid yellow-800" bg="yellow-800/20"
+  backdrop-blur
+  flex-1 h-full
+  transition duration-500 ease-in-out
+>
+  <div px-5 py-16 flex items-center justify-center>
+    <div i-solar:screencast-bold-duotone size-20 />
+  </div>
+  <div bg="yellow-800/30" w-full px-4 py-2 h="5rem" flex items-center justify-center text-center text-base>
+    <span>数据采集</span>
+  </div>
+</div>
+
+<div
+  :class="$clicks < 4 ? 'translate-x--20 opacity-0' : 'translate-x-0 opacity-100'"
+  rounded-lg
+  border="2 solid orange-800" bg="orange-800/20"
+  backdrop-blur
+  flex-1 h-full
+  transition duration-500 ease-in-out
+>
+  <div px-5 py-16 flex items-center justify-center>
+    <div i-solar:gamepad-minimalistic-bold-duotone size-20 />
+  </div>
+  <div bg="orange-800/30" w-full px-4 py-2 h="5rem" flex items-center justify-center text-center>
+    <span>数字孪生</span>
+  </div>
+</div>
+
+<div
+  :class="$clicks < 5 ? 'translate-x--20 opacity-0' : 'translate-x-0 opacity-100'"
+  rounded-lg
+  border="2 solid orange-700" bg="orange-700/20"
+  backdrop-blur
+  flex-1 h-full
+  transition duration-500 ease-in-out
+>
+  <div px-5 py-16 flex items-center justify-center>
+    <div i-solar:bill-check-bold-duotone size-20 />
+  </div>
+  <div bg="orange-700/30" w-full px-4 py-2 h="5rem" flex items-center justify-center text-center>
+    <span>评估</span>
+  </div>
+</div>
+
+<div
+  :class="$clicks < 5 ? 'translate-x--20 opacity-0' : 'translate-x-0 opacity-100'"
+  rounded-lg
+  border="2 solid orange-700" bg="orange-700/20"
+  backdrop-blur
+  flex-1 h-full
+  transition duration-500 ease-in-out
+>
+  <div px-5 py-16 flex items-center justify-center>
+    <div i-solar:scooter-bold-duotone size-20 />
+  </div>
+  <div bg="orange-700/30" w-full px-4 py-2 h="5rem" flex items-center justify-center text-center>
+    <span>实机测试</span>
+  </div>
+</div>
+
+</v-clicks>
+
+</div>
+
+---
+class: flex justify-center items-center gap-20 px-40 text-xl
+---
+
+<div
+  absolute text-6xl
+  :class="$clicks < 1 ? 'text-white' : 'translate-y--18 scale-40 text-white/30'"
+  transition duration-500 ease-in-out
+>
+  <span>机械臂哪里来？很贵吗？</span>
+</div>
+
+<div flex flex-col items-center>
+  <v-clicks>
+    <div mt-4>
+      <h1 flex items-center text="5xl!">
+        <span>¥1300 就可以做到</span>
+      </h1>
+    </div>
+  </v-clicks>
+</div>
+
+---
+class: flex justify-center items-center gap-20 px-40 text-xl
+---
+
+<div
+  absolute text-5xl
+  :class="$clicks < 1 ? 'text-white' : 'translate-y--18 scale-40 text-white/30'"
+  transition duration-500 ease-in-out
+>
+  <span>数据从哪里来？哪里学？</span>
+</div>
+
+---
+class: px-0! pt-6! text-center
+---
+
+<div px-10 text-4xl mb-4>
+  可以自己录
+</div>
+
+<video autoplay muted loop>
+  <source src="/videos/lerobot-pick-and-place-record.mp4" />
+</video>
+
+---
+class: flex justify-center items-center gap-20 px-40 text-xl
+---
+
+<div
+  absolute text-5xl
+  :class="$clicks < 1 ? 'text-white' : 'translate-y--18 scale-40 text-white/30'"
+  transition duration-500 ease-in-out
+>
+  <span>这么多复杂的东西都要自己研究吗？</span>
+</div>
+
+---
+class: py-0! px-0! bg-[#ff9d00] relative
+---
+
+<div class="absolute bg-[#ff9d00] flex items-center justify-center h-full translate-y--15">
+  <img src="/lerobot.png" class="scale-85" >
+</div>
+
+<div grid="~ cols-2" gap-4 class="relative z-10 translate-y-100 px-6">
+  <div border="2 solid amber-800/95" rounded-lg overflow-hidden>
+    <div flex items-center bg="amber-800/50" px-3 py-2 text-amber-200>
+      <div i-carbon:document text-sm mr-1 />
+      <div text-xs><em>教程定位</em></div>
+    </div>
+    <div bg="amber-800/90" px-4 py-3>
+      <div text="sm white/80">系统化入门：经典机器人学 → 机器人学习 → 通用策略</div>
+      <div text="xs white/50" mt-2>Robot Learning: A Tutorial（Space）</div>
+    </div>
+  </div>
+  <div border="2 solid orange-800/95" rounded-lg overflow-hidden>
+    <div flex items-center bg="orange-800/50" px-3 py-2 text-orange-200>
+      <div i-carbon:cloud-app text-sm mr-1 />
+      <div text-xs><em>LeRobot 意义</em></div>
+    </div>
+    <div bg="orange-800/90" px-4 py-3>
+      <div text="sm white/80">把“论文内容”变成“能跑的机器人代码”</div>
+      <div text="xs white/50" mt-2>开源、可复现、适合爱好者们上手</div>
+    </div>
+  </div>
+</div>
+
+---
+class: py-10
+---
+
+# 能做什么？
+
+<span>从基础到通用策略的工具包</span>
+
+<div mt-6 />
+
+<div grid grid-cols-3 gap-3 h-75>
+
+<v-clicks>
+
+  <div border="2 solid yellow-800/50" rounded-lg overflow-hidden bg="yellow-900/10" backdrop-blur-sm h-full>
+    <div flex items-center bg="yellow-800/30" px-3 py-2 text-yellow-200>
+      <div i-carbon:tree-view text-sm mr-2 />
+      <div font-semibold>基础与工具</div>
+    </div>
+    <div bg="yellow-900/5" px-4 py-3>
+      <div flex flex-col gap-3>
+        <div>
+          <div text-sm font-medium>数据集与采集</div>
+          <div text-xs opacity-70>LeRobotDataset / 采集流程 / 批处理</div>
+        </div>
+        <div>
+          <div text-sm font-medium>经典机器人学</div>
+          <div text-xs opacity-70>模型、运动、反馈与局限</div>
+        </div>
+        <div>
+          <div text-sm font-medium>平面操作示例</div>
+          <div text-xs opacity-70>从理论到可运行 demo</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div border="2 solid orange-800/50" rounded-lg overflow-hidden bg="orange-900/10" backdrop-blur-sm h-full>
+    <div flex items-center bg="orange-800/30" px-3 py-2 text-orange-200>
+      <div i-carbon:machine-learning text-sm mr-2 />
+      <div font-semibold>学习范式</div>
+    </div>
+    <div bg="orange-900/5" px-4 py-3>
+      <div flex flex-col gap-3>
+        <div>
+          <div text-sm font-medium>强化学习（RL）</div>
+          <div text-xs opacity-70>真实机器人成本与限制</div>
+        </div>
+        <div>
+          <div text-sm font-medium>模仿学习（IC）</div>
+          <div text-xs opacity-70>仿真 / 直接摇操 / 观看视频教程</div>
+        </div>
+        <div>
+          <div text-sm font-medium>示例策略</div>
+          <div text-xs opacity-70>ACT / Diffusion Policy / pi0</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div border="2 solid amber-800/50" rounded-lg overflow-hidden bg="amber-900/10" backdrop-blur-sm h-full>
+    <div flex items-center bg="amber-800/30" px-3 py-2 text-amber-200>
+      <div i-carbon:connect text-sm mr-2 />
+      <div font-semibold>通用策略</div>
+    </div>
+    <div bg="amber-900/5" px-4 py-3>
+      <div flex flex-col gap-3>
+        <div>
+          <div text-sm font-medium>VLM / VLA</div>
+          <div text-xs opacity-70>视觉语言到动作的统一建模</div>
+        </div>
+        <div>
+          <div text-sm font-medium>代表模型</div>
+          <div text-xs opacity-70>ACT / DP / pi0 / SmolVLA / GR00T</div>
+        </div>
+        <div>
+          <div text-sm font-medium>大规模数据</div>
+          <div text-xs opacity-70>Open-X / DROID 等数据集</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</v-clicks>
+
+</div>
+
+---
+class: py-10
+---
+
+# 为什么 LeRobot 重要
+
+<span>把研究成果变成可实践的完整栈</span>
 
 <div mt-6 />
 
 <div grid="~ cols-2" gap-4>
-  <div border="2 solid amber-800/50" rounded-lg overflow-hidden>
+
+<v-clicks>
+
+  <div border="2 solid amber-800/50" rounded-lg overflow-hidden bg="amber-900/10" backdrop-blur-sm>
     <div flex items-center bg="amber-800/30" px-3 py-2 text-amber-200>
-      <div i-carbon:cloud-app text-sm mr-1 />
-      <div text-xs><em>项目定位</em></div>
+      <div i-carbon:layers text-sm mr-2 />
+      <div font-semibold>端到端流程</div>
     </div>
-    <div bg="amber-800/10" px-4 py-3>
-      <div text="sm white/80">LeRobot 是 HF 发起的可上手具身智能栈</div>
-    </div>
-  </div>
-  <div border="2 solid yellow-800/50" rounded-lg overflow-hidden>
-    <div flex items-center bg="yellow-800/30" px-3 py-2 text-yellow-200>
-      <div i-carbon:play-filled text-sm mr-1 />
-      <div text-xs><em>能玩到什么</em></div>
-    </div>
-    <div bg="yellow-800/10" px-4 py-3>
-      <div text="sm white/80">数采、训练、仿真、部署的完整闭环</div>
+    <div bg="amber-900/5" px-4 py-3>
+      <div text="sm white/80">采集 → 训练 → 推理 → 部署一站式覆盖</div>
+      <div text="xs white/60" mt-2>降低从论文到实机的距离</div>
     </div>
   </div>
-  <div border="2 solid orange-800/50" rounded-lg overflow-hidden>
+
+  <div border="2 solid orange-800/50" rounded-lg overflow-hidden bg="orange-900/10" backdrop-blur-sm>
     <div flex items-center bg="orange-800/30" px-3 py-2 text-orange-200>
-      <div i-carbon:code text-sm mr-1 />
-      <div text-xs><em>我们的尝试</em></div>
+      <div i-carbon:database text-sm mr-2 />
+      <div font-semibold>数据标准</div>
     </div>
-    <div bg="orange-800/10" px-4 py-3>
-      <div text="sm white/80">lerobot-rs / lerobot-rc 做基础能力补齐</div>
+    <div bg="orange-900/5" px-4 py-3>
+      <div text="sm white/80">LeRobotDataset 统一数据格式</div>
+      <div text="xs white/60" mt-2>可记录、可分享、可复用</div>
     </div>
   </div>
-  <div border="2 solid rose-800/50" rounded-lg overflow-hidden>
+
+  <div border="2 solid yellow-800/50" rounded-lg overflow-hidden bg="yellow-900/10" backdrop-blur-sm>
+    <div flex items-center bg="yellow-800/30" px-3 py-2 text-yellow-200>
+      <div i-carbon:robot text-sm mr-2 />
+      <div font-semibold>硬件友好</div>
+    </div>
+    <div bg="yellow-900/5" px-4 py-3>
+      <div text="sm white/80">支持操控 / 行走 / 全身控制平台</div>
+      <div text="xs white/60" mt-2>适合学生与个人开发者</div>
+    </div>
+  </div>
+
+  <div border="2 solid rose-800/50" rounded-lg overflow-hidden bg="rose-900/10" backdrop-blur-sm>
     <div flex items-center bg="rose-800/30" px-3 py-2 text-rose-200>
-      <div i-carbon:connect text-sm mr-1 />
-      <div text-xs><em>目标方向</em></div>
+      <div i-carbon:play-filled text-sm mr-2 />
+      <div font-semibold>SOTA 示例</div>
     </div>
-    <div bg="rose-800/10" px-4 py-3>
-      <div text="sm white/80">未来把角色引擎接入，连接 AIRI 生态</div>
+    <div bg="rose-900/5" px-4 py-3>
+      <div text="sm white/80">RL / BC / Diffusion 等策略可复现</div>
+      <div text="xs white/60" mt-2>并提供推理与部署优化</div>
     </div>
   </div>
+
+</v-clicks>
+
 </div>
+
+---
+class: flex justify-center items-center gap-20 px-40 text-xl
+---
+
+<div
+  absolute text-5xl
+  :class="$clicks < 1 ? 'text-white' : 'translate-y--18 scale-40 text-white/30'"
+  transition duration-500 ease-in-out
+>
+  <span>那能跑起来看看效果吗？</span>
+</div>
+
+---
+class: px-0! pt-6! text-center
+---
+
+<div px-10 text-4xl mb-4>
+  可以，但是效果并不理想
+</div>
+
+<video autoplay muted loop>
+  <source src="/videos/lerobot-smolvla.mp4" />
+</video>
+
+---
+class: flex justify-center items-center gap-20 px-40 text-xl
+---
+
+<div
+  absolute text-5xl
+  :class="$clicks < 1 ? 'text-white' : 'translate-y--18 scale-40 text-white/30'"
+  transition duration-500 ease-in-out
+>
+  <span>所以还有很多事情可以做！</span>
+</div>
+
+---
+class: px-0! pt-6! text-center
+---
+
+<div px-10 text-4xl mb-4>
+  比如... 数采其实非常复杂
+</div>
+
+<video autoplay muted loop>
+  <source src="/videos/lerobot-pick-and-place-record-failed.mp4" />
+</video>
+
+---
+class: py-10
+---
+
+# 我们缺数据和工具
+
+<span>具身智能离不开数据与闭环仿真</span>
+
+<div mt-6 />
+
+- 现有的工具聚焦在可视化运动学和关节控制
+- 面向硬件且调试困难
+- 缺乏录制和管理工具
+- 缺乏快速可复现的评估系统
+- 仿真与现实差距大
 
 ---
 class: py-10
 clicks: 6
 ---
 
-# 目前的效果
+# 我们贡献出来的部分
 
 <span>围绕数据、仿真与控制先跑通最小闭环</span>
 
@@ -588,22 +920,6 @@ clicks: 6
 <div
   :class="$clicks < 5 ? 'translate-x--20 opacity-0' : 'translate-x-0 opacity-100'"
   rounded-lg
-  border="2 solid amber-700" bg="amber-700/20"
-  backdrop-blur
-  flex-1 h-full
-  transition duration-500 ease-in-out
->
-  <div px-5 py-16 flex items-center justify-center>
-    <div i-solar:face-scan-square-bold-duotone size-20 />
-  </div>
-  <div bg="amber-700/30" w-full px-4 py-2 h="5rem" flex items-center justify-center text-center text-base>
-    <span>策略训练</span>
-  </div>
-</div>
-
-<div
-  :class="$clicks < 6 ? 'translate-x--20 opacity-0' : 'translate-x-0 opacity-100'"
-  rounded-lg
   border="2 solid orange-700" bg="orange-700/20"
   backdrop-blur
   flex-1 h-full
@@ -622,39 +938,40 @@ clicks: 6
 </div>
 
 ---
-class: py-10
+class: flex justify-center items-center gap-20 px-40 text-xl
 ---
 
-# 机械臂开发流程
-
-<span>Liet 昨天写了一部分，我们补齐流程</span>
-
-<div mt-8 />
-
-<div flex items-center justify-center gap-4 text-lg>
-  <div class="px-4 py-2 rounded-lg border-2 border-amber-800/50 bg-amber-900/20">需求定义</div>
-  <div i-carbon:arrow-right text-zinc-500 />
-  <div class="px-4 py-2 rounded-lg border-2 border-yellow-800/50 bg-yellow-900/20">场景设计</div>
-  <div i-carbon:arrow-right text-zinc-500 />
-  <div class="px-4 py-2 rounded-lg border-2 border-orange-800/50 bg-orange-900/20">数采</div>
-  <div i-carbon:arrow-right text-zinc-500 />
-  <div class="px-4 py-2 rounded-lg border-2 border-amber-800/50 bg-amber-900/20">训练 / 策略</div>
-  <div i-carbon:arrow-right text-zinc-500 />
-  <div class="px-4 py-2 rounded-lg border-2 border-orange-800/50 bg-orange-900/20">仿真验证</div>
-  <div i-carbon:arrow-right text-zinc-500 />
-  <div class="px-4 py-2 rounded-lg border-2 border-rose-800/50 bg-rose-900/20">实机测试</div>
+<div
+  absolute text-5xl
+  :class="$clicks < 1 ? 'text-white' : 'translate-y--18 scale-40 text-white/30'"
+  transition duration-500 ease-in-out
+>
+  <span>连太多 USB 和线缆了，顾不过来</span>
 </div>
 
-<div mt-8 />
+---
+class: px-0! pt-6! text-center
+---
 
-<v-clicks>
-  <div flex items-center gap-3 text-xl>
-    <div i-carbon:dot-mark text-emerald-300 /> 不断迭代：失败案例回灌
-  </div>
-  <div flex items-center gap-3 text-xl>
-    <div i-carbon:dot-mark text-sky-300 /> 维护数据与模型版本
-  </div>
-</v-clicks>
+<div px-10 text-4xl mb-4>
+  所以我们还开发了单独的固件在其他协议下运行
+</div>
+
+<video autoplay muted loop>
+  <source src="/videos/lerobot-rc.mp4" />
+</video>
+
+---
+class: px-0! pt-6! text-center
+---
+
+<div px-10 text-4xl mb-4>
+  降低硬件调试门槛
+</div>
+
+<video autoplay muted loop>
+  <source src="/videos/lerobot-visualization.mp4" />
+</video>
 
 ---
 class: py-10
@@ -664,32 +981,32 @@ class: py-10
 
 <span>把真实世界变成可训练的数据</span>
 
-<div mt-6 />
+<div mt-15 />
 
 <div grid="~ cols-2" gap-6>
   <div border="2 solid amber-800/50" rounded-lg overflow-hidden>
     <div flex items-center bg="amber-800/30" px-3 py-2 text-amber-200>
-      <div i-carbon:download text-sm mr-1 />
-      <div text-xs><em>数采</em></div>
+      <div i-carbon:download text-xl mr-1 />
+      <div text-2xl>数采</div>
     </div>
-    <div bg="amber-800/10" px-4 py-3>
+    <div bg="amber-800/10" px-4 py-3 text-xl>
     <v-clicks>
-      <div text="sm white/70">真实任务记录：动作、状态、视觉</div>
-      <div text="sm white/70">需要标注清洗与同步对齐</div>
-      <div text="sm white/70">成本高，但效果稳定</div>
+      <div text="white/70">真实任务记录：动作、状态、视觉</div>
+      <div text="white/70">需要标注清洗与同步对齐</div>
+      <div text="white/70">成本高，但效果稳定</div>
     </v-clicks>
     </div>
   </div>
   <div border="2 solid orange-800/50" rounded-lg overflow-hidden>
     <div flex items-center bg="orange-800/30" px-3 py-2 text-orange-200>
-      <div i-carbon:virtual-private-cloud text-sm mr-1 />
-      <div text-xs><em>VR 数采</em></div>
+      <div i-carbon:virtual-private-cloud text-xl mr-1 />
+      <div text-2xl>VR 数采</div>
     </div>
-    <div bg="orange-800/10" px-4 py-3>
+    <div bg="orange-800/10" px-4 py-3 text-xl>
     <v-clicks>
-      <div text="sm white/70">交互更自然，能快速造数据</div>
-      <div text="sm white/70">需要解决尺度映射与噪声</div>
-      <div text="sm white/70">适合补齐长尾场景</div>
+      <div text="white/70">交互更自然，能快速造数据</div>
+      <div text="white/70">需要解决尺度映射与噪声</div>
+      <div text="white/70">适合补齐长尾场景</div>
     </v-clicks>
     </div>
   </div>
@@ -703,32 +1020,32 @@ class: py-10
 
 <span>低成本试错的“第二实验室”</span>
 
-<div mt-6 />
+<div mt-15 />
 
 <div grid="~ cols-2" gap-6>
   <div border="2 solid amber-800/50" rounded-lg overflow-hidden>
     <div flex items-center bg="amber-800/30" px-3 py-2 text-amber-200>
-      <div i-carbon:cube text-sm mr-1 />
-      <div text-xs><em>仿真目的</em></div>
+      <div i-carbon:cube text-xl mr-1 />
+      <div text-2xl>仿真目的</div>
     </div>
-    <div bg="amber-800/10" px-4 py-3>
+    <div bg="amber-800/10" px-4 py-3 text-xl>
     <v-clicks>
-      <div text="sm white/70">验证模型稳定性与安全边界</div>
-      <div text="sm white/70">加速迭代与调参</div>
-      <div text="sm white/70">复现真实世界的极端场景</div>
+      <div text="white/70">验证模型稳定性与安全边界</div>
+      <div text="white/70">加速迭代与调参</div>
+      <div text="white/70">复现真实世界的极端场景</div>
     </v-clicks>
     </div>
   </div>
   <div border="2 solid yellow-800/50" rounded-lg overflow-hidden>
     <div flex items-center bg="yellow-800/30" px-3 py-2 text-yellow-200>
-      <div i-carbon:layers text-sm mr-1 />
-      <div text-xs><em>仿真组成</em></div>
+      <div i-carbon:layers text-xl mr-1 />
+      <div text-2xl>仿真组成</div>
     </div>
-    <div bg="yellow-800/10" px-4 py-3>
+    <div bg="yellow-800/10" px-4 py-3 text-xl>
     <v-clicks>
-      <div text="sm white/70">环境建模 / 物理引擎</div>
-      <div text="sm white/70">传感器模拟 / 噪声注入</div>
-      <div text="sm white/70">任务脚本 / 评估指标</div>
+      <div text="white/70">环境建模 / 物理引擎</div>
+      <div text="white/70">传感器模拟 / 噪声注入</div>
+      <div text="white/70">任务脚本 / 评估指标</div>
     </v-clicks>
     </div>
   </div>
@@ -771,24 +1088,6 @@ class: py-10
     </div>
   </div>
 </div>
-
----
-class: py-10 text-center
----
-
-<h1 font-rounded>
-现场 demo
-</h1>
-
-<span>设备连接 / 远程控制 / 任务执行</span>
-
-<div mt-10 />
-
-<v-clicks>
-  <div text-2xl>Step 1：连接机械臂与传感器</div>
-  <div text-2xl>Step 2：通过 lerobot-rc 远程控制</div>
-  <div text-2xl>Step 3：执行任务并回放数据</div>
-</v-clicks>
 
 ---
 title: Thank you
