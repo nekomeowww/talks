@@ -8,13 +8,14 @@
 
 |  |  |
 | --- | --- |
-| ![](./packages/2026-01-24-ai-rust-robot/public/cover.gif) | 2026.01 @ Shanghai x Kong |
-| 爱，螃蟹，机器人：具身智能的冒险 (🇨🇳) | [Slides](https://talks.ayaka.io/nekoayaka/2026-01-24-ai-rust-robot) |
 
 ## Presented...
 
 |  |  |
 | --- | --- |
+| ![](./packages/2026-01-24-ai-rust-robot/public/cover.gif) | 2025.01 @ Shanghai x Kong |
+| 爱，螃蟹，机器人：具身智能的冒险 (🇨🇳) | [Slides](https://talks.ayaka.io/nekoayaka/2026-01-24-ai-rust-robot) |
+| Speakers | Neko, Makito, Liet |
 | ![](./packages/2025-10-24-fudan-university-airi-dev-talk/public/cover.png) | 2025.10 @ Shanghai x 复旦大学 |
 | 我也想做 Neuro-sama！从小众 side project 到 GitHub 万星的开发幕后 (🇨🇳) | [Slides](https://talks.ayaka.io/nekoayaka/2025-10-24-fudan-university-airi-dev-talk) |
 | ![](./packages/2025-08-09-rust-with-ai-for-better-portability/public/cover.png) | 2025.08 @ Shanghai x Kong |
