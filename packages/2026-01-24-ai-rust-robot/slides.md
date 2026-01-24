@@ -67,7 +67,8 @@ glowSeed: 205
     <span font-semibold text-3xl>Makito</span>
     <div items-center>
       <div class="opacity-70 flex items-center gap-2">
-        <div i-simple-icons:kong></div><span>Kong Staff</span>
+        <div i-simple-icons:kong></div>
+        <span>Software Engineer at Kong</span>
       </div>
       <div text-sm flex items-center justify-center gap-2 mt-4>
         <div i-ri:github-fill /><span underline decoration-dashed font-mono decoration-zinc-300>sumimakito</span>
@@ -1012,21 +1013,49 @@ class: py-10
   </div>
 </div>
 
+<!-- #region 仿真 -->
+---
+class: flex justify-center items-center gap-20 px-40 text-xl
+---
+
+<div
+  absolute text-4xl
+  :class="$clicks < 1 ? 'text-white' : 'translate-y--18 scale-80 text-white/30'"
+  transition duration-500 ease-in-out text-center
+>
+  <div>如果没有机械臂呢？</div>
+  <div text-xl>It means… no robotic arm, no fun…?</div>
+</div>
+
+<v-clicks>
+  <div text-3xl leading-10 text-center>
+    买一个
+  </div>
+  <div text-3xl leading-10 text-center>
+    <span op-50>
+      or
+    </span>
+    <span font-bold>
+      用仿真替代
+    </span>
+  </div>
+</v-clicks>
+
 ---
 class: py-10
 ---
 
 # 仿真是什么
 
-<span>低成本试错的“第二实验室”</span>
+<span>低成本试错的「第二实验室」</span>
 
 <div mt-15 />
 
 <div grid="~ cols-2" gap-6>
   <div border="2 solid amber-800/50" rounded-lg overflow-hidden>
-    <div flex items-center bg="amber-800/30" px-3 py-2 text-amber-200>
+    <div flex items-center gap-1 bg="amber-800/30" px-3 py-2 text-amber-200>
       <div i-carbon:cube text-xl mr-1 />
-      <div text-2xl>仿真目的</div>
+      <div text-xl>仿真目的</div>
     </div>
     <div bg="amber-800/10" px-4 py-3 text-xl>
     <v-clicks>
@@ -1037,13 +1066,13 @@ class: py-10
     </div>
   </div>
   <div border="2 solid yellow-800/50" rounded-lg overflow-hidden>
-    <div flex items-center bg="yellow-800/30" px-3 py-2 text-yellow-200>
+    <div flex items-center gap-1 bg="yellow-800/30" px-3 py-2 text-yellow-200>
       <div i-carbon:layers text-xl mr-1 />
-      <div text-2xl>仿真组成</div>
+      <div text-xl>仿真组成</div>
     </div>
     <div bg="yellow-800/10" px-4 py-3 text-xl>
     <v-clicks>
-      <div text="white/70">环境建模 / 物理引擎</div>
+      <div text="white/70">环境建模 / <span>物理引擎</span></div>
       <div text="white/70">传感器模拟 / 噪声注入</div>
       <div text="white/70">任务脚本 / 评估指标</div>
     </v-clicks>
@@ -1051,15 +1080,321 @@ class: py-10
   </div>
 </div>
 
-<div mt-8 />
-
-<div flex items-center justify-center gap-4>
-  <div class="px-4 py-2 rounded-lg border-2 border-amber-800/50 bg-amber-900/20">真实数据</div>
-  <div i-carbon:arrow-right text-zinc-500 />
-  <div class="px-4 py-2 rounded-lg border-2 border-orange-800/50 bg-orange-900/20">仿真回放</div>
-  <div i-carbon:arrow-right text-zinc-500 />
-  <div class="px-4 py-2 rounded-lg border-2 border-rose-800/50 bg-rose-900/20">策略迭代</div>
+<div flex items-center justify-center gap-4 mt-18>
+  <v-clicks>
+    <div class="px-4 py-2 rounded-lg border-2 border-amber-800/50 bg-amber-900/20">录制动作/生成动作</div>
+    <div i-carbon:arrow-right text-zinc-500 />
+    <div flex items-center justify-center gap-4>
+      <div class="px-4 py-2 rounded-lg border-2 border-amber-800/50 bg-amber-900/20">仿真回放</div>
+      <div i-carbon:arrow-right text-zinc-500 />
+    </div>
+    <div flex items-center justify-center gap-4>
+      <div class="px-4 py-2 rounded-lg border-2 border-orange-800/50 bg-orange-900/20">HIL</div>
+      <div i-carbon:arrow-right text-zinc-500 />
+    </div>
+    <div class="px-4 py-2 rounded-lg border-2 border-rose-800/50 bg-rose-900/20">策略迭代</div>
+  </v-clicks>
 </div>
+
+---
+class: py-10
+---
+
+# 介绍 gym-hil
+<span>由 Hugging Face 开发的仿真环境集合</span>
+
+<v-clicks>
+  <div flex="~ row items-start gap-6 justify-between">
+    <div flex="~ col items-start gap-6">
+      <div flex="~ items-center gap-1">
+        <div i-ri:github-fill flex-inline/> <a href="https://github.com/huggingface/gym-hil" _target="blank">huggingface/gym-hil</a>
+      </div>
+      <ul>
+        <li>为增强学习（RL）打造的仿真环境</li>
+        <li>基于 Human-in-the-Loop 数采与评估</li>
+        <li>无缝兼容 LeRobot 生态</li>
+        <li>内建 Franka Panda Robot 的仿真环境</li>
+      </ul>
+      <div flex="~ col items-start gap-1">
+        <div text-2xl font-bold>了解更多</div>
+        <div flex="~ row items-center gap-1">
+          <div flex="~ row items-center gap-1"><div i-simple-icons:huggingface />LeRobot docs:</div>
+          <a href="https://huggingface.co/docs/lerobot/en/hilserl_sim" _target="blank">
+            Train RL in Simulation
+          </a>
+        </div>
+      </div>
+    </div>
+    <div flex="~ col items-center gap-2">
+      <img src="/sim_gym-hil_screenshot.png" width="450" flex-shrink-1 />
+      <div text-sm>Source: gym-hil's readme documentation</div>
+    </div>
+  </div>
+</v-clicks>
+
+---
+class: py-10
+---
+
+# MoJoCo: Multi-Joint dynamics with Contact
+<span>gym-hil 背后的物理引擎</span>
+
+<div flex="~ col items-center gap-4" mt-16>
+  <v-clicks>
+    <div
+      rounded-lg
+      border="2 solid yellow-800" bg="yellow-800/20"
+      backdrop-blur
+      flex-1 w-full
+      transition duration-500 ease-in-out
+    >
+      <div bg="yellow-800/30" w-full px-4 py-2 h="5rem" flex items-center justify-center text-center text-lgs>
+        <span>稳定、确定、可靠的数据驱动</span>
+      </div>
+    </div>
+    <div
+      rounded-lg
+      border="2 solid amber-800" bg="amber-800/20"
+      backdrop-blur
+      flex-1 w-full
+      transition duration-500 ease-in-out
+    >
+      <div bg="amber-800/30" w-full px-4 py-2 h="5rem" flex items-center justify-center text-center text-lgs>
+        <span>面向控制精度、对接触与摩擦建模成熟</span>
+      </div>
+    </div>
+    <div
+      rounded-lg
+      border="2 solid yellow-800" bg="yellow-800/20"
+      backdrop-blur
+      flex-1 w-full
+      transition duration-500 ease-in-out
+    >
+      <div bg="amber-800/30" w-full px-4 py-2 h="5rem" flex items-center justify-center text-center text-lgs>
+        <span>OpenAI Gym / Gymnasium 的事实标准</span>
+      </div>
+    </div>
+  </v-clicks>
+</div>
+
+---
+class: py-10
+---
+
+# BYOA: Bring Your Own Arm (the robotic one)
+<span>以 SO-101 ARM 为例</span>
+
+<div flex="~ col items-start gap-2">
+  <div flex="~ items-center gap-1">
+    <div i-ri:github-fill flex-inline/> <a href="https://github.com/TheRobotStudio/SO-ARM100" _target="blank">TheRobotStudio/SO-ARM100</a>
+  </div>
+  <div text-2xl flex="~ items-center gap-1" mt-6>
+    <div i-ri:file-transfer-line flex-inline/>
+    <span><span op-50>Simulation/</span>SO101/</span>
+  </div>
+  <div grid="~ cols-3" gap-6 mt-2>
+    <v-clicks>
+      <div border="2 solid orange-800/50" rounded-lg overflow-hidden bg="orange-800/10">
+        <div flex items-center bg="orange-800/30" px-3 py-2 text-orange-200 text-sm>
+          <div i-ri:file-3-line mr-1 />
+          <div font-mono>so101_new_calib.urdf</div>
+        </div>
+        <div px-4 py-3 text-lg>
+          <div text="white/70">机器人的「拼装说明书」</div>
+          <div text="white/70">部件如何连接</div>
+          <div text="white/70">关节的自由度、限位</div>
+        </div>
+      </div>
+      <div border="2 solid orange-800/50" rounded-lg overflow-hidden bg="orange-800/10">
+        <div flex items-center bg="orange-800/30" px-3 py-2 text-amber-200 text-sm>
+          <div i-ri:file-3-line mr-1 />
+          <div font-mono>so101_new_calib.xml</div>
+        </div>
+        <div px-4 py-3 text-lg>
+          <div text="white/70">MoJoCo 物理仿真描述</div>
+          <div text="white/70">对 URDF 的补充</div>
+          <div text="white/70">质量、摩擦、受力</div>
+        </div>
+      </div>
+      <div border="2 solid amber-800/50" rounded-lg overflow-hidden bg="amber-800/10">
+        <div flex items-center bg="amber-800/30" px-3 py-2 text-orange-200 text-sm>
+          <div i-ri:file-3-line mr-1 />
+          <div font-mono>scene.xml</div>
+        </div>
+        <div px-4 py-3 text-lg>
+          <div text="white/70">构造仿真场景</div>
+          <div text="white/70">定义场景物理仿真描述</div>
+        </div>
+      </div>
+    </v-clicks>
+  </div>
+</div>
+
+---
+class: py-10
+---
+
+# 体验分享
+<span>gym-hil 是开箱即用的吗？</span>
+
+<div mt-6 flex="~ col items-start gap-6">
+  <div>
+    <div text-2xl op-50>Python 环境</div>
+    <div text-3xl>
+      依赖与版本问题（macOS 上还需使用 <code>mjpython</code>）
+    </div>
+  </div>
+  <div>
+    <div text-2xl op-50>Teleop（远控）</div>
+    <div text-3xl>
+      基于键盘的 Teleop 在 macOS 上不工作
+    </div>
+  </div>
+  <div>
+    <div text-2xl op-50>把自己的机器人放进屏幕，实现「数字孪生」</div>
+    <div text-3xl>
+      需要为 gym-hil 准备描述文件
+    </div>
+  </div>
+</div>
+
+---
+class: py-10
+---
+
+# 从零 DIY 一个仿真环境
+<span>还没有现实中的原型？没关系！</span>
+
+<div flex="~ row items-center gap-4" h="[250px]" mt-20>
+  <v-clicks>
+    <div
+      rounded-lg
+      border="2 solid yellow-800" bg="yellow-800/20"
+      backdrop-blur
+      flex-1 h-full
+      transition duration-500 ease-in-out
+    >
+      <div bg="yellow-800/30" w-full px-4 py-2 h-full flex items-center justify-center text-center text-3xl>
+        <span>URDF</span>
+      </div>
+    </div>
+    <div
+      rounded-lg
+      border="2 solid amber-800" bg="amber-800/20"
+      backdrop-blur
+      flex-1 h-full
+      transition duration-500 ease-in-out
+    >
+      <div bg="amber-800/30" w-full px-4 py-2 h-full flex items-center justify-center text-center text-3xl>
+        <span>Physics</span>
+      </div>
+    </div>
+    <div
+      rounded-lg
+      border="2 solid yellow-800" bg="yellow-800/20"
+      backdrop-blur
+      flex-1 h-full
+      transition duration-500 ease-in-out
+    >
+      <div bg="amber-800/30" w-full px-4 py-2 h-full flex items-center justify-center text-center text-3xl>
+        <span>Scene</span>
+      </div>
+    </div>
+  </v-clicks>
+</div>
+
+---
+class: py-10
+---
+
+# 做好的仿真环境
+
+<v-clicks>
+  <div flex="~ col items-center" mt-14>
+    <video autoplay muted loop controls width="620">
+      <source src="/videos/claw-machine.mp4" />
+    </video>
+  </div>
+</v-clicks>
+
+---
+class: py-10
+---
+
+# 通过键盘的 Teleop 不好用？
+
+<div mt-6 flex="~ col items-start gap-6">
+  <v-clicks>
+    <div>
+      <div text-2xl op-50>使用游戏手柄</div>
+      <div text-3xl>
+        gym-hil 文档中推荐的方式
+      </div>
+    </div>
+    <div>
+      <div text-2xl op-50>使用 Web UI 或 Remote controller</div>
+      <div text-3xl>
+        可视化界面友好、参数展示清晰
+      </div>
+    </div>
+    <div>
+      <div text-2xl op-50>有更有「参与感」的方式吗</div>
+      <div text-3xl>
+        用手边的 Apple 设备创造一个体感控制器
+      </div>
+    </div>
+  </v-clicks>
+</div>
+
+---
+class: py-10
+---
+
+# 用 Apple 设备创造一个更有「参与感」的控制器
+
+<div flex items-center justify-center gap-4 mt-18>
+  <v-clicks>
+    <div
+      class="px-4 py-2 rounded-lg border-2 border-amber-800/50 bg-amber-900/20"
+      flex="~ col items-center gap-1"
+    >
+      <div text-2xl>Swift</div>
+      <div>
+        在 iOS 上使用 ARKit 捕捉环境、追踪位置<br>
+        通过 Apple Watch 获取手腕姿态与动作
+      </div>
+    </div>
+    <div i-carbon:arrow-right text-zinc-500 />
+    <div flex items-center justify-center gap-4>
+      <div
+        class="px-4 py-2 rounded-lg border-2 border-amber-800/50 bg-amber-900/20"
+        flex="~ col items-center gap-1"
+      >
+        <div text-2xl>Rust</div>
+        <div>
+          接收传感器数据<br>
+          转换为机器人动作指令/Joint 控制信号
+        </div>
+      </div>
+      <div i-carbon:arrow-right text-zinc-500 />
+    </div>
+    <div
+      class="px-4 py-2 rounded-lg border-2 border-amber-800/50 bg-amber-900/20"
+      flex="~ col items-center gap-1"
+    >
+      <div text-2xl>Python</div>
+      <div>
+        在 gym-hil 仿真环境中模拟
+      </div>
+    </div>
+  </v-clicks>
+</div>
+
+<div mt-12 text-center text-3xl>
+  Live demo time
+</div>
+
+<!-- #endregion 仿真 -->
 
 ---
 class: py-10
