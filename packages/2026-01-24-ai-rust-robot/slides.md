@@ -1405,7 +1405,7 @@ clicks: 5
 class: py-10
 ---
 
-# Rust + LeRobot
+# Rust + LeRobot + Python + Swift
 
 <span>我们写了什么，改进了什么</span>
 
@@ -1425,6 +1425,11 @@ class: py-10
       <img src="/github_repo_airi_qr.png" w-50 />
       <div translate-y--4>lerobot-tui</div>
       <div text-xs opacity-70>机械臂配置</div>
+    </div>
+    <div flex items-center flex-col font-bold text-xl>
+      <img src="/github_repo_gym-hil_qr.png" w-50 />
+      <div translate-y--4>gym-hil</div>
+      <div text-xs opacity-70>DIY 后的仿真环境</div>
     </div>
   </div>
 </div>
