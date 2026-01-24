@@ -1323,7 +1323,7 @@ class: py-10
 
 # 通过键盘的 Teleop 不好用？
 
-<div mt-6 flex="~ col items-start gap-6">
+<div mt-20 flex="~ col items-start gap-6">
   <v-clicks>
     <div>
       <div text-2xl op-50>使用游戏手柄</div>
@@ -1348,6 +1348,7 @@ class: py-10
 
 ---
 class: py-10
+clicks: 5
 ---
 
 # 用 Apple 设备创造一个更有「参与感」的控制器
@@ -1390,7 +1391,11 @@ class: py-10
   </v-clicks>
 </div>
 
-<div mt-12 text-center text-3xl>
+<div
+  :class="$clicks > 4 ? 'scale-100 op-100' : 'scale-40 op-0'"
+  mt-20 text-center text-3xl
+  transition duration-500 ease-in-out
+>
   Live demo time
 </div>
 
