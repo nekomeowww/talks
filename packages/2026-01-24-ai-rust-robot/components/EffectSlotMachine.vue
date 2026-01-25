@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import { animate } from 'animejs'
 import { nextTick, onBeforeUnmount, onMounted, ref } from 'vue'
+import IconDeath from '../assets/icon-death.svg?url'
+import IconFerris from '../assets/icon-ferris.svg?url'
 import IconMask from './IconMask.vue'
 
 type SlotItem
@@ -8,8 +10,8 @@ type SlotItem
     | { kind: 'mask', src: string, class?: string }
 
 const row2Base: SlotItem[] = [
-  { kind: 'mask', src: '/icon-ferris.svg', class: 'text-white !size-[8rem]' },
-  { kind: 'mask', src: '/icon-death.svg', class: 'text-white' },
+  { kind: 'mask', src: IconFerris, class: 'text-white !size-[8rem]' },
+  { kind: 'mask', src: IconDeath, class: 'text-white' },
   { kind: 'icon', class: 'i-ri:bug-fill' },
   { kind: 'icon', class: 'i-ri:code-box-fill' },
   { kind: 'icon', class: 'i-ri:javascript-fill' },
