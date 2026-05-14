@@ -23,6 +23,7 @@
     "@fontsource-variable/nunito": "^5.2.7",
     "@fontsource/kiwi-maru": "^5.2.8",
     "@proj-airi/font-chillroundm": "^0.10.2",
-    "@proj-airi/server-sdk": "^0.10.2"
+    "@proj-airi/server-sdk": "^0.10.2",
+    "animejs": "^4.2.2"
   }
 }

@@ -249,6 +249,12 @@ iframe {
 .arch-center,
 .arch-node,
 .flow-step,
+.event-cloud,
+.funnel-lens,
+.funnel-node,
+.fabric-center,
+.fabric-tool,
+.ksp-node,
 .learning-card,
 .loop-node,
 .tech-node,
@@ -278,6 +284,12 @@ iframe {
 .arch-center::before,
 .arch-node::before,
 .flow-step::before,
+.event-cloud::before,
+.funnel-lens::before,
+.funnel-node::before,
+.fabric-center::before,
+.fabric-tool::before,
+.ksp-node::before,
 .learning-card::before,
 .loop-node::before,
 .tech-node::before,
@@ -305,6 +317,12 @@ iframe {
 .arch-center::after,
 .arch-node::after,
 .flow-step::after,
+.event-cloud::after,
+.funnel-lens::after,
+.funnel-node::after,
+.fabric-center::after,
+.fabric-tool::after,
+.ksp-node::after,
 .learning-card::after,
 .loop-node::after,
 .tech-node::after,
@@ -335,6 +353,12 @@ iframe {
 .arch-center > *,
 .arch-node > *,
 .flow-step > *,
+.event-cloud > *,
+.funnel-lens > *,
+.funnel-node > *,
+.fabric-center > *,
+.fabric-tool > *,
+.ksp-node > *,
 .learning-card > *,
 .loop-node > *,
 .tech-node > *,
@@ -397,7 +421,7 @@ iframe {
 .airi-core {
   position: absolute;
   left: 50%;
-  bottom: 52px;
+  bottom: 72px;
   transform: translateX(-50%);
   display: flex;
   align-items: center;
@@ -414,8 +438,8 @@ iframe {
 
 .game-card {
   position: absolute;
-  width: 154px;
-  height: 86px;
+  width: 174px;
+  height: 98px;
   overflow: hidden;
   border-radius: 12px;
   opacity: 0;
@@ -459,38 +483,28 @@ iframe {
 }
 
 .game-card.minecraft {
-  left: 88px;
-  top: 168px;
-  rotate: -5deg;
+  rotate: 0deg;
 }
 
 .game-card.factorio {
-  left: 286px;
-  top: 108px;
-  rotate: 3deg;
+  rotate: 0deg;
 }
 
 .game-card.balatro {
-  right: 286px;
-  top: 108px;
-  rotate: -3deg;
+  rotate: 0deg;
 }
 
 .game-card.dome {
-  right: 88px;
-  top: 168px;
-  rotate: 5deg;
+  rotate: 0deg;
 }
 
 .game-card.ksp {
-  left: 50%;
-  top: 292px;
-  transform: translateX(-50%) translateY(28px) scale(0.92);
-  rotate: -2deg;
+  transform: translateY(28px) scale(0.92);
+  rotate: 0deg;
 }
 
 .game-card.ksp.is-visible {
-  transform: translateX(-50%) translateY(0) scale(1);
+  transform: translateY(0) scale(1);
 }
 
 .route-lane {
@@ -498,17 +512,44 @@ iframe {
   grid-template-columns: 1fr 38px 1fr 38px 1fr 38px 1fr 38px 1fr;
   align-items: center;
   gap: 8px;
+  min-height: 320px;
 }
 
 .route-card {
-  min-height: 178px;
-  padding: 18px 16px;
+  --route-rgb: 125 211 252;
+  height: 260px;
+  padding: 0;
   border-radius: 16px;
+  display: flex;
+  flex-direction: column;
   opacity: 0;
   transform: translateY(20px);
+  background:
+    linear-gradient(135deg, rgb(var(--route-rgb) / 18%), rgb(255 255 255 / 5%)),
+    rgb(var(--route-rgb) / 8%) !important;
   transition:
     opacity 450ms ease,
     transform 450ms ease;
+}
+
+.route-teal {
+  --route-rgb: 45 212 191;
+}
+
+.route-sky {
+  --route-rgb: 56 189 248;
+}
+
+.route-violet {
+  --route-rgb: 167 139 250;
+}
+
+.route-cyan {
+  --route-rgb: 34 211 238;
+}
+
+.route-orange {
+  --route-rgb: 251 146 60;
 }
 
 .route-card.is-visible {
@@ -516,33 +557,51 @@ iframe {
   transform: translateY(0);
 }
 
-.route-card > div {
-  width: 34px;
-  height: 34px;
+.route-icon {
+  width: 68px !important;
+  height: 68px !important;
+  font-size: 68px;
+  margin: auto;
 }
 
-.route-card strong,
-.route-card span {
-  display: block;
+.route-label {
+  width: 100%;
+  min-height: 78px;
+  padding: 12px 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  border-top: 1px solid rgb(var(--route-rgb) / 24%);
+  background: rgb(var(--route-rgb) / 18%);
+  text-align: center;
 }
 
 .route-card strong {
-  margin-top: 16px;
-  font-size: 18px;
+  font-size: 20px;
   line-height: 1.15;
 }
 
 .route-card span {
-  margin-top: 10px;
   color: rgb(255 255 255 / 55%);
-  font-size: 13px;
+  font-size: 14px;
   line-height: 1.35;
 }
 
 .route-card.hard {
   background:
-    linear-gradient(135deg, rgb(251 146 60 / 16%), rgb(255 255 255 / 5%)),
-    rgb(124 45 18 / 10%) !important;
+    linear-gradient(135deg, rgb(var(--route-rgb) / 20%), rgb(255 255 255 / 5%)),
+    rgb(var(--route-rgb) / 9%) !important;
+}
+
+.route-notes > div {
+  min-height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  line-height: 1.35;
 }
 
 .route-connector {
@@ -596,30 +655,37 @@ iframe {
 .fade-video-slide::before {
   content: '';
   position: absolute;
-  inset: 0;
+  top: 0;
+  left: 0;
   pointer-events: none;
-  background: rgb(0 0 0 / 38%);
+  width: 700px;
+  height: 300px;
+  background:
+    radial-gradient(105% 92% at 0% 0%, rgb(255 255 255 / 14%), rgb(255 255 255 / 6%) 42%, transparent 76%),
+    linear-gradient(135deg, rgb(255 255 255 / 8%), transparent 62%);
 }
 
 .fade-video-slide::after {
   content: '';
   position: absolute;
-  inset: 0;
+  top: 0;
+  left: 0;
+  width: 720px;
+  height: 320px;
   pointer-events: none;
-  backdrop-filter: blur(14px);
-  mask-image: radial-gradient(200% 150% at top left, black 20%, transparent 32%);
-  -webkit-mask-image: radial-gradient(200% 150% at top left, black 20%, transparent 32%);
+  backdrop-filter: blur(10px);
+  mask-image: radial-gradient(112% 94% at top left, black 0%, black 38%, transparent 82%);
+  -webkit-mask-image: radial-gradient(112% 94% at top left, black 0%, black 38%, transparent 82%);
 }
 
 .fade-heading {
   position: absolute;
-  top: 38px;
-  left: 42px;
+  top: 18px;
+  left: 0;
   z-index: 1;
-  max-width: 760px;
-  padding: 26px 30px 28px;
-  border-radius: 0 22px 22px 0;
-  background: linear-gradient(90deg, rgb(0 0 0 / 75%), rgb(0 0 0 / 38%), transparent);
+  max-width: 520px;
+  padding: 14px 24px 16px 34px;
+  text-shadow: 0 2px 18px rgb(0 0 0 / 70%), 0 1px 4px rgb(0 0 0 / 80%);
 }
 
 .architecture-stage {
@@ -750,15 +816,41 @@ iframe {
   border-radius: 16px;
 }
 
+.learning-card.compact:not(.is-visible) {
+  opacity: 0;
+  transform: translateY(14px);
+}
+
+.learning-card.compact.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 .learning-card.compact {
   gap: 12px;
   padding: 13px 16px;
   border-radius: 14px;
+  transition:
+    opacity 350ms ease,
+    transform 420ms ease;
+}
+
+.learning-card.note-card {
+  display: block;
+  padding: 16px 18px;
+  background:
+    linear-gradient(135deg, rgb(255 255 255 / 10%), rgb(255 255 255 / 4%)),
+    rgb(255 255 255 / 5%) !important;
 }
 
 .learning-card.compact > div:first-child {
   width: 30px;
   height: 30px;
+}
+
+.learning-card.note-card > div:first-child {
+  width: auto;
+  height: auto;
 }
 
 .learning-card > div:first-child {
@@ -768,6 +860,7 @@ iframe {
 }
 
 .factorio-loop {
+  position: relative;
   display: grid;
   grid-template-columns: 1fr 42px 1fr 42px 1fr;
   grid-template-rows: 124px 28px 124px;
@@ -776,19 +869,56 @@ iframe {
 }
 
 .factorio-loop svg {
-  display: none;
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
 }
 
 .factorio-edge {
-  stroke: rgb(251 191 36 / 78%);
-  marker-end: url(#arrowHead);
+  fill: none;
+  stroke: rgb(253 224 71 / 96%);
+  stroke-width: 5;
+  stroke-linecap: round;
+  stroke-dasharray: 720;
+  stroke-dashoffset: 720;
+  marker-end: url(#factorioArrow);
+  opacity: 0;
+  paint-order: stroke;
+  filter: drop-shadow(0 0 8px rgb(251 191 36 / 60%)) drop-shadow(0 2px 3px rgb(0 0 0 / 85%));
+  transition:
+    stroke-dashoffset 650ms ease,
+    opacity 250ms ease;
+}
+
+.factorio-tip {
+  fill: rgb(253 224 71 / 98%);
+  opacity: 0;
+  filter: drop-shadow(0 0 8px rgb(251 191 36 / 65%)) drop-shadow(0 2px 3px rgb(0 0 0 / 85%));
+  transition: opacity 250ms ease 420ms;
 }
 
 .factorio-edge.return {
-  stroke: rgb(45 212 191 / 78%);
+  stroke: rgb(94 234 212 / 96%);
+  marker-end: url(#factorioReturnArrow);
+  filter: drop-shadow(0 0 8px rgb(45 212 191 / 60%)) drop-shadow(0 2px 3px rgb(0 0 0 / 85%));
+}
+
+.factorio-edge.is-visible {
+  stroke-dashoffset: 0;
+  opacity: 1;
+}
+
+.factorio-tip.is-visible {
+  opacity: 1;
 }
 
 .loop-node {
+  position: relative;
+  z-index: 1;
   min-width: 0;
   min-height: 0;
   padding: 13px 15px;
@@ -801,8 +931,16 @@ iframe {
 }
 
 .loop-node.is-visible {
+  opacity: 0.44;
+  transform: scale(0.98);
+}
+
+.loop-node.is-visible.is-active {
   opacity: 1;
   transform: scale(1);
+  box-shadow:
+    inset 0 1px 0 rgb(255 255 255 / 14%),
+    0 0 28px rgb(45 212 191 / 18%);
 }
 
 .loop-node > div {
@@ -855,11 +993,12 @@ iframe {
 }
 
 .loop-arrow {
+  position: relative;
+  z-index: 1;
   align-self: center;
   grid-row: 1;
   height: 3px;
-  position: relative;
-  background: linear-gradient(90deg, rgb(251 191 36 / 0%), rgb(251 191 36 / 86%));
+  background: transparent;
   opacity: 0;
   transform: scaleX(0);
   transform-origin: left;
@@ -878,6 +1017,7 @@ iframe {
 
 .loop-arrow::after {
   content: '';
+  display: none;
   position: absolute;
   right: -1px;
   top: -6px;
@@ -905,7 +1045,14 @@ iframe {
   transform: scaleX(1);
 }
 
+.loop-arrow.bottom {
+  grid-column: 4;
+  grid-row: 3;
+}
+
 .loop-return {
+  position: relative;
+  z-index: 1;
   grid-column: 1 / span 5;
   grid-row: 2;
   align-self: center;

@@ -13,14 +13,14 @@ drawings:
 mdc: true
 clicks: 0
 preload: false
-glowSeed: 233
+glowSeed: 45499218
 routerMode: hash
 ---
 
-<div class="font-cover" translate-x--14 translate-y-8>
+<div class="font-cover" translate-x--30 translate-y-20>
 
 <h1>
-Attempts of Gaming Agent,<br />What We Learned 2026
+Attempts of Gaming Agent,<br />What We Learned
 </h1>
 
 <p text="white/70" text-xl>
@@ -56,9 +56,9 @@ glowSeed: 128
     <div text="white/50" mt-2>把 AIRI 的角色容器和游戏 Agent 的具体尝试放在同一条线上讲。</div>
   </div>
 
-<div grid="~ cols-2" gap-12 items-center>
+<div grid="~ cols-2" gap-12 items-stretch>
   <div
-    border="2 solid pink-500/25" rounded-xl bg="pink-500/8" backdrop-blur px-8 py-7
+    h-full flex flex-col border="2 solid pink-500/25" rounded-xl bg="pink-500/8" backdrop-blur px-8 py-7
   >
     <div flex items-center gap-6>
       <img src="/person/neko.jpeg" w-34 h-34 rounded-full object-cover>
@@ -79,7 +79,7 @@ glowSeed: 128
   </div>
 
   <div
-    border="2 solid cyan-500/25" rounded-xl bg="cyan-500/8" backdrop-blur px-8 py-7
+    h-full flex flex-col border="2 solid cyan-500/25" rounded-xl bg="cyan-500/8" backdrop-blur px-8 py-7
   >
     <div flex items-center gap-6>
       <img src="/person/neko.jpeg" w-34 h-34 rounded-full object-cover grayscale>
@@ -203,49 +203,7 @@ glowSeed: 312
 clicks: 5
 ---
 
-<div class="slide-canvas airi-integrations">
-  <svg class="integration-lines" viewBox="0 0 1000 560" aria-hidden="true">
-    <path :class="$clicks >= 1 ? 'is-visible' : ''" d="M500 430 C330 360 230 270 170 140" />
-    <path :class="$clicks >= 2 ? 'is-visible' : ''" d="M500 430 C430 310 395 220 370 95" />
-    <path :class="$clicks >= 3 ? 'is-visible' : ''" d="M500 430 C560 300 615 215 650 100" />
-    <path :class="$clicks >= 4 ? 'is-visible' : ''" d="M500 430 C710 365 795 275 830 155" />
-    <path :class="$clicks >= 5 ? 'is-visible' : ''" d="M500 430 C580 395 680 380 790 350" />
-  </svg>
-
-  <div class="integration-heading">
-    <div text-3xl font-bold>AIRI as the container</div>
-    <div mt-2 text-sm text="white/55">不同游戏不是孤立 demo，而是在测试 AIRI 要怎么接入世界。</div>
-  </div>
-
-  <div class="game-card minecraft" :class="$clicks >= 1 ? 'is-visible' : ''">
-    <img src="/game-banners/minecraft-banner.png" />
-    <div><div i-carbon:cube /> Minecraft</div>
-  </div>
-  <div class="game-card factorio" :class="$clicks >= 2 ? 'is-visible' : ''">
-    <img src="/game-banners/factorio-banner.png">
-    <div><div i-carbon:industry /> Factorio</div>
-  </div>
-  <div class="game-card balatro" :class="$clicks >= 3 ? 'is-visible' : ''">
-    <img src="/game-banners/balatro-cover.png">
-    <div><div i-carbon:game-console /> Balatro</div>
-  </div>
-  <div class="game-card dome" :class="$clicks >= 4 ? 'is-visible' : ''">
-    <img src="/game-banners/dome-keeper-cover.png">
-    <div><div i-carbon:search-locate /> Dome Keeper</div>
-  </div>
-  <div class="game-card ksp" :class="$clicks >= 5 ? 'is-visible' : ''">
-    <img src="/game-banners/ksp-banner.png">
-    <div><div i-carbon:rocket /> KSP</div>
-  </div>
-
-  <div class="airi-core">
-    <img src="/proj-airi-logo.svg">
-    <div>
-      <div text-2xl font-semibold>Project AIRI</div>
-      <div text="white/50" text-sm>memory / character / senses / tools</div>
-    </div>
-  </div>
-</div>
+<AiriIntegrationMap :clicks="$clicks" />
 
 ---
 layout: default
@@ -258,41 +216,51 @@ clicks: 5
 <div mt-2 text="white/50">每往右一步，游戏专用接口更少，感知和控制的不确定性更多。</div>
 
 <div class="route-lane" mt-9>
-  <div class="route-card" :class="$clicks >= 1 ? 'is-visible' : ''">
-    <div i-carbon:api text-teal-300 />
-    <strong>Mod API</strong>
-    <span>Minecraft / Factorio</span>
+  <div class="route-card route-teal" :class="$clicks >= 1 ? 'is-visible' : ''">
+    <div class="route-icon" i-carbon:api text-teal-300 />
+    <div class="route-label">
+      <strong>Mod API</strong>
+      <span>readable state</span>
+    </div>
   </div>
   <div class="route-connector" :class="$clicks >= 2 ? 'is-visible' : ''" />
-  <div class="route-card" :class="$clicks >= 2 ? 'is-visible' : ''">
-    <div i-carbon:tools text-sky-300 />
-    <strong>Tools</strong>
-    <span>typed actions</span>
+  <div class="route-card route-sky" :class="$clicks >= 2 ? 'is-visible' : ''">
+    <div class="route-icon" i-carbon:tools text-sky-300 />
+    <div class="route-label">
+      <strong>Tools</strong>
+      <span>typed actions</span>
+    </div>
   </div>
   <div class="route-connector" :class="$clicks >= 3 ? 'is-visible' : ''" />
-  <div class="route-card" :class="$clicks >= 3 ? 'is-visible' : ''">
-    <div i-carbon:code text-violet-300 />
-    <strong>Code Policy</strong>
-    <span>plan as executable script</span>
+  <div class="route-card route-violet" :class="$clicks >= 3 ? 'is-visible' : ''">
+    <div class="route-icon" i-carbon:code text-violet-300 />
+    <div class="route-label">
+      <strong>Code Policy</strong>
+      <span>executable plan</span>
+    </div>
   </div>
   <div class="route-connector" :class="$clicks >= 4 ? 'is-visible' : ''" />
-  <div class="route-card" :class="$clicks >= 4 ? 'is-visible' : ''">
-    <div i-carbon:view text-cyan-300 />
-    <strong>Vision</strong>
-    <span>YOLO / OCR / screenshot</span>
+  <div class="route-card route-cyan" :class="$clicks >= 4 ? 'is-visible' : ''">
+    <div class="route-icon" i-carbon:view text-cyan-300 />
+    <div class="route-label">
+      <strong>Vision</strong>
+      <span>screen states</span>
+    </div>
   </div>
   <div class="route-connector hard" :class="$clicks >= 5 ? 'is-visible' : ''" />
-  <div class="route-card hard" :class="$clicks >= 5 ? 'is-visible' : ''">
-    <div i-carbon:keyboard text-orange-300 />
-    <strong>Input</strong>
-    <span>mouse / keyboard / timing</span>
+  <div class="route-card route-orange hard" :class="$clicks >= 5 ? 'is-visible' : ''">
+    <div class="route-icon" i-carbon:keyboard text-orange-300 />
+    <div class="route-label">
+      <strong>Input</strong>
+      <span>key & mouse</span>
+    </div>
   </div>
 </div>
 
-<div mt-8 grid="~ cols-3" gap-4 text-sm>
-  <div v-click text="teal-200">左侧适合验证策略，因为世界状态直接可读。</div>
-  <div v-click text="sky-200">中段开始测试 Agent 能否把目标变成可执行计划。</div>
-  <div v-click text="orange-200">右侧接近通用游戏 AI，但错误来源也最多。</div>
+<div mt-4 grid="~ cols-3" gap-4 text-sm class="route-notes">
+  <div v-click text="teal-200">左侧：状态可读，先验证策略。</div>
+  <div v-click text="sky-200">中段：目标变成可执行计划。</div>
+  <div v-click text="orange-200">右侧：更通用，也更不确定。</div>
 </div>
 
 ---
@@ -309,7 +277,7 @@ glowSeed: 512
     <div flex items-center gap-3 text-2xl font-semibold>
       <div i-carbon:cube /> Minecraft
     </div>
-    <div mt-3 text="white/60">第一个选择：一个足够开放，也足够难直播的世界。</div>
+    <div mt-3 text="white/82">第一个选择：一个足够开放，也足够难直播的世界。</div>
   </div>
 </div>
 
@@ -323,7 +291,7 @@ Sources:
 layout: default
 class: px-12 py-8
 glowSeed: 513
-clicks: 4
+clicks: 5
 ---
 
 <div text-3xl font-bold>Minecraft service: 大脑、通信和计划器</div>
@@ -367,11 +335,14 @@ clicks: 4
   </div>
 </div>
 
-<div v-click mt-4 class="learning-card compact">
-  <div i-carbon:warning-alt text-orange-300 />
-  <div>
-    <div text-lg>这条路后来一度弃坑。</div>
-    <div mt-1 text="white/55">事件复杂、视觉难做，bot 视角也不适合直播展示；后面才转向 Fabric 客户端和更视觉化的游戏。</div>
+<div mt-4 class="learning-card compact note-card" :class="$clicks >= 5 ? 'is-visible' : ''">
+  <div text-xs uppercase tracking-wider text="orange-300/80">The Silent Killer</div>
+  <div mt-1 text-lg font-semibold>这条路工作过，但不适合一直往前硬推。</div>
+  <div mt-2 text-sm leading-6 text="white/58">
+    事件太多、视觉不是第一人称、直播展示很别扭；后来才转向
+    <span font-bold text-orange-300>Fabric 客户端</span>
+    和
+    <span font-bold text-red-300>更视觉化的游戏</span>。
   </div>
 </div>
 
@@ -385,37 +356,16 @@ clicks: 5
 <div text-4xl font-bold>Minecraft Agent flow</div>
 <div mt-2 text="white/50">先靠 Mineflayer 把世界变成事件，再让 Agent 计划和执行。</div>
 
-<div class="flow-strip" mt-12>
-  <div class="flow-step" :class="$clicks >= 1 ? 'is-visible' : ''">
-    <div i-carbon:events text-green-300 />
-    <strong>Events</strong>
-    <span>chat, block, entity, inventory</span>
-  </div>
-  <div class="flow-arrow" :class="$clicks >= 2 ? 'is-visible' : ''" />
-  <div class="flow-step" :class="$clicks >= 2 ? 'is-visible' : ''">
-    <div i-carbon:filter text-sky-300 />
-    <strong>Rules</strong>
-    <span>filter noise into signals</span>
-  </div>
-  <div class="flow-arrow" :class="$clicks >= 3 ? 'is-visible' : ''" />
-  <div class="flow-step" :class="$clicks >= 3 ? 'is-visible' : ''">
-    <div i-carbon:idea text-violet-300 />
-    <strong>Plan</strong>
-    <span>LLM decides next action</span>
-  </div>
-  <div class="flow-arrow" :class="$clicks >= 4 ? 'is-visible' : ''" />
-  <div class="flow-step" :class="$clicks >= 4 ? 'is-visible' : ''">
-    <div i-carbon:tools text-teal-300 />
-    <strong>Execute</strong>
-    <span>TaskExecutor + action registry</span>
-  </div>
-</div>
+<EventFunnel :clicks="$clicks" />
 
-<div v-click mt-12 class="learning-card">
-  <div i-carbon:warning-alt text-orange-300 />
-  <div>
-    <div text-xl>这条路工作过，但不适合一直往前硬推。</div>
-    <div mt-2 text="white/55">事件太多、视觉不是第一人称、直播展示很别扭；后来才转向 Fabric 客户端和更视觉化的游戏。</div>
+<div mt-4 class="learning-card compact note-card" :class="$clicks >= 5 ? 'is-visible' : ''">
+  <div text-xs uppercase tracking-wider text="orange-300/80">The Silent Killer</div>
+  <div mt-1 text-lg font-semibold>这条路工作过，但不适合一直往前硬推。</div>
+  <div mt-2 text-sm leading-6 text="white/58">
+    事件太多、视觉不是第一人称、直播展示很别扭；后来才转向
+    <span font-bold text-orange-300>Fabric 客户端</span>
+    和
+    <span font-bold text-red-300>更视觉化的游戏</span>。
   </div>
 </div>
 
@@ -433,56 +383,18 @@ glowSeed: 611
     <div flex items-center gap-3 text-2xl font-semibold>
       <div i-carbon:industry /> Factorio
     </div>
-    <div mt-3 text="white/60">纯 mod 与 code as policy：人类在聊天栏说话，Agent 调工具，mod 执行。</div>
+    <div mt-3 text="white/82">纯 mod 与 code as policy：人类在聊天栏说话，Agent 调工具，mod 执行。</div>
   </div>
 </div>
 
 ---
 layout: default
-class: px-12 py-8
+class: p-0!
 glowSeed: 612
-clicks: 5
+clicks: 6
 ---
 
-<div text-2xl font-bold>Factorio: structured game API loop</div>
-<div mt-2 text-sm text="white/50">这里不是“看图玩游戏”，而是先用 mod 暴露一个稳定执行环境。</div>
-
-<div class="factorio-loop" mt-5>
-  <div class="loop-node human" :class="$clicks >= 1 ? 'is-visible' : ''">
-    <div i-carbon:chat />
-    <strong>Human chat</strong>
-    <span>玩家直接在聊天栏说目标</span>
-  </div>
-  <div class="loop-arrow" :class="$clicks >= 1 ? 'is-visible' : ''" />
-  <div class="loop-node agent" :class="$clicks >= 1 ? 'is-visible' : ''">
-    <div i-carbon:ibm-watson-machine-learning />
-    <strong>Agent</strong>
-    <span>读取 stdout + tools，拼上下文</span>
-  </div>
-  <div class="loop-arrow" :class="$clicks >= 2 ? 'is-visible' : ''" />
-  <div class="loop-node llm" :class="$clicks >= 2 ? 'is-visible' : ''">
-    <div i-carbon:json />
-    <strong>LLM JSON plan</strong>
-    <span>返回动作和工具调用</span>
-  </div>
-
-  <div class="loop-return" :class="$clicks >= 5 ? 'is-visible' : ''">
-    <div i-carbon:restart />
-    <span>next round</span>
-  </div>
-
-  <div class="loop-node mod" :class="$clicks >= 3 ? 'is-visible' : ''">
-    <div i-carbon:api />
-    <strong>RCON / mod</strong>
-    <span>执行移动、挖矿、放置建筑</span>
-  </div>
-  <div class="loop-arrow reverse" :class="$clicks >= 4 ? 'is-visible' : ''" />
-  <div class="loop-node done" :class="$clicks >= 4 ? 'is-visible' : ''">
-    <div i-carbon:checkmark-outline />
-    <strong>completed signal</strong>
-    <span>控制台输出完成消息，触发下一轮</span>
-  </div>
-</div>
+<FactorioStructuredLoop :clicks="$clicks" />
 
 <!--
 Source: /Users/neko/Git/github.com/moeru-ai/airi-factorio
@@ -552,7 +464,7 @@ glowSeed: 711
     <div flex items-center gap-3 text-2xl font-semibold>
       <div i-carbon:game-console /> Balatro
     </div>
-    <div mt-3 text="white/60">从复杂工厂退一步：规则还复杂，但屏幕和动作空间更窄。</div>
+    <div mt-3 text="white/82">从复杂工厂退一步：规则还复杂，但屏幕和动作空间更窄。</div>
   </div>
 </div>
 
@@ -681,31 +593,7 @@ clicks: 4
 <div text-4xl font-bold>airicraft: Fabric embodied client</div>
 <div mt-2 text="white/50">等视觉数据路线讲完，再回到 Minecraft：这次不是 Mineflayer bot，而是客户端里的具身运行时。</div>
 
-<div class="flow-strip" mt-12>
-  <div class="flow-step" :class="$clicks >= 1 ? 'is-visible' : ''">
-    <div i-carbon:screen />
-    <strong>Fabric Client</strong>
-    <span>first-person runtime + mixins</span>
-  </div>
-  <div class="flow-arrow" :class="$clicks >= 2 ? 'is-visible' : ''" />
-  <div class="flow-step" :class="$clicks >= 2 ? 'is-visible' : ''">
-    <div i-carbon:view />
-    <strong>take_a_look</strong>
-    <span>visual tool via screenshot</span>
-  </div>
-  <div class="flow-arrow" :class="$clicks >= 3 ? 'is-visible' : ''" />
-  <div class="flow-step" :class="$clicks >= 3 ? 'is-visible' : ''">
-    <div i-carbon:tree-view-alt />
-    <strong>Goal Director</strong>
-    <span>intent to behavior tree</span>
-  </div>
-  <div class="flow-arrow" :class="$clicks >= 4 ? 'is-visible' : ''" />
-  <div class="flow-step" :class="$clicks >= 4 ? 'is-visible' : ''">
-    <div i-carbon:movement />
-    <strong>Look / Move / Chat</strong>
-    <span>client-side embodied controls</span>
-  </div>
-</div>
+<FabricOrbit :clicks="$clicks" />
 
 <div mt-8 text-xs text="white/38">
   TODO: no evidence of general mining/crafting/combat actions in inspected airicraft files.
@@ -725,7 +613,7 @@ glowSeed: 715
     <div flex items-center gap-3 text-2xl font-semibold>
       <div i-carbon:rocket /> Kerbal Space Program
     </div>
-    <div mt-3 text="white/60">另一条极端路线：状态和执行几乎都通过 API 暴露。</div>
+    <div mt-3 text="white/82">另一条极端路线：状态和执行几乎都通过 API 暴露。</div>
   </div>
 </div>
 
@@ -739,31 +627,7 @@ clicks: 4
 <div text-4xl font-bold>KSP: API-native tool loop</div>
 <div mt-2 text="white/50">它更像“游戏里的 MCP”：难点从视觉转移到工具编排、任务策略和长期控制。</div>
 
-<div class="flow-strip" mt-12>
-  <div class="flow-step" :class="$clicks >= 1 ? 'is-visible' : ''">
-    <div i-carbon:terminal />
-    <strong>User Goal</strong>
-    <span>TUI AgentLoop receives the task</span>
-  </div>
-  <div class="flow-arrow" :class="$clicks >= 2 ? 'is-visible' : ''" />
-  <div class="flow-step" :class="$clicks >= 2 ? 'is-visible' : ''">
-    <div i-carbon:api-1 />
-    <strong>Tool Call</strong>
-    <span>Pydantic schema + OpenAI-compatible chat</span>
-  </div>
-  <div class="flow-arrow" :class="$clicks >= 3 ? 'is-visible' : ''" />
-  <div class="flow-step" :class="$clicks >= 3 ? 'is-visible' : ''">
-    <div i-carbon:rocket />
-    <strong>kRPC / MechJeb</strong>
-    <span>vessel, flight, staging, transfer tools</span>
-  </div>
-  <div class="flow-arrow" :class="$clicks >= 4 ? 'is-visible' : ''" />
-  <div class="flow-step" :class="$clicks >= 4 ? 'is-visible' : ''">
-    <div i-carbon:reply />
-    <strong>JSON Result</strong>
-    <span>next tool or final reply</span>
-  </div>
-</div>
+<KspToolLoop :clicks="$clicks" />
 
 ---
 layout: default
