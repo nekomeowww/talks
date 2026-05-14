@@ -18,6 +18,11 @@
     "@proj-airi/lobe-icons": "^1.0.13"
   },
   "dependencies": {
+    "@fontsource-variable/comfortaa": "^5.2.8",
+    "@fontsource-variable/dm-sans": "^5.2.8",
+    "@fontsource-variable/nunito": "^5.2.7",
+    "@fontsource/kiwi-maru": "^5.2.8",
+    "@proj-airi/font-chillroundm": "^0.10.2",
     "@proj-airi/server-sdk": "^0.10.2"
   }
 }

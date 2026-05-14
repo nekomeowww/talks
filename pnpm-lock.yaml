@@ -360,6 +360,21 @@ importers:
 
   packages/2026-05-15-attempts-of-gaming-agent:
     dependencies:
+      '@fontsource-variable/comfortaa':
+        specifier: ^5.2.8
+        version: 5.2.8
+      '@fontsource-variable/dm-sans':
+        specifier: ^5.2.8
+        version: 5.2.8
+      '@fontsource-variable/nunito':
+        specifier: ^5.2.7
+        version: 5.2.7
+      '@fontsource/kiwi-maru':
+        specifier: ^5.2.8
+        version: 5.2.8
+      '@proj-airi/font-chillroundm':
+        specifier: ^0.10.2
+        version: 0.10.2
       '@proj-airi/server-sdk':
         specifier: ^0.10.2
         version: 0.10.2
@@ -1219,6 +1234,18 @@ packages:
   '@floating-ui/utils@0.2.7':
     resolution: {integrity: sha512-X8R8Oj771YRl/w+c1HqAC1szL8zWQRwFvgDwT129k9ACdBoud/+/rX9V0qiMl6LWUdP9voC2nDVZYPMQQsb6eA==}
 
+  '@fontsource-variable/comfortaa@5.2.8':
+    resolution: {integrity: sha512-8YqOYbeHxywYtMD/AtNc7SHTIk3UufmYdgwVHBwFUe5wxjT7QM1NJ64M5M+qtNTenPEkQl8JU5Be3+EZl8dhMA==}
+
+  '@fontsource-variable/dm-sans@5.2.8':
+    resolution: {integrity: sha512-AxkvMTvNWgfrmlyjiV05vlHYJa+nRQCf1EfvIrQAPBpFJW0O9VTz7oAFr9S3lvbWdmnFoBk7yFqQL86u64nl2g==}
+
+  '@fontsource-variable/nunito@5.2.7':
+    resolution: {integrity: sha512-2N8QhatkyKgSUbAGZO2FYLioxA32+RyI1EplVLawbpkGjUeui9Qg9VMrpkCaik1ydjFjfLV+kzQ0cGEsMrMenQ==}
+
+  '@fontsource/kiwi-maru@5.2.8':
+    resolution: {integrity: sha512-2ENkh90aXGQDmhClqkrIjDpFJ1BQIuVeVKcYQC7ZYKbUcybBdth8mTAIkEPJsfMKc1RX7S63QMr9B+Bk/FtXjA==}
+
   '@humanfs/core@0.19.1':
     resolution: {integrity: sha512-5DyQ4+1JEUzejeK1JGICcideyfUbGixgS9jNgex5nqkW+cY7WZhxBigmieN5Qnw9ZosSNVC9KQKyb+GUaGyKUA==}
     engines: {node: '>=18.18.0'}
@@ -1395,6 +1422,9 @@ packages:
 
   '@polka/url@1.0.0-next.24':
     resolution: {integrity: sha512-2LuNTFBIO0m7kKIQvvPHN6UE63VjpmL9rnEEaOOaiSPbZK+zUOYIzBAWcED+3XYzhYsd/0mD57VdxAEqqV52CQ==}
+
+  '@proj-airi/font-chillroundm@0.10.2':
+    resolution: {integrity: sha512-HPSDq2/sZi6pWtWHTbwc35MJXUerGDYyZYLrgzC2dDJrkgsXNyZPs7kOX8w5uecrepebaHHaGZoBMU5h96iQmg==}
 
   '@proj-airi/lobe-icons@1.0.13':
     resolution: {integrity: sha512-cDTTUCUioUiLjhOfZ9Y4b0uRmNhlPRj40qfv6oDXfQml+tiQSk3VQmgSKB71CYm0a/tUM+soeJ6v0oYPwT+kxA==}
@@ -5727,6 +5757,14 @@ snapshots:
 
   '@floating-ui/utils@0.2.7': {}
 
+  '@fontsource-variable/comfortaa@5.2.8': {}
+
+  '@fontsource-variable/dm-sans@5.2.8': {}
+
+  '@fontsource-variable/nunito@5.2.7': {}
+
+  '@fontsource/kiwi-maru@5.2.8': {}
+
   '@humanfs/core@0.19.1': {}
 
   '@humanfs/node@0.16.6':
@@ -5949,6 +5987,8 @@ snapshots:
   '@pkgr/core@0.2.9': {}
 
   '@polka/url@1.0.0-next.24': {}
+
+  '@proj-airi/font-chillroundm@0.10.2': {}
 
   '@proj-airi/lobe-icons@1.0.13': {}
 

@@ -1,5 +1,6 @@
 ---
 layout: center
+class: font-cover
 highlighter: shiki
 css: unocss
 colorSchema: dark
@@ -16,7 +17,7 @@ glowSeed: 233
 routerMode: hash
 ---
 
-<div translate-x--14 translate-y-8>
+<div class="font-cover" translate-x--14 translate-y-8>
 
 <h1>
 Attempts of Gaming Agent,<br />What We Learned 2026

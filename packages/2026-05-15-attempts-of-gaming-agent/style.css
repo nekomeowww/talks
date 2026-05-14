@@ -5,6 +5,23 @@
 :root {
   --slidev-code-padding: 8px 10px;
   --slidev-code-background: #16161690 !important;
+  --font-cover: "Comfortaa Variable", "Comfortaa", "DM Sans Variant", "DM Sans", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-cute: "Nunito Variable", "Nunito", "ChillRoundM", "Kiwi Maru", "Comfortaa Variable", "Comfortaa", "DM Sans Variant", "DM Sans", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+
+.font-cute,
+.font-cute * {
+  font-family: var(--font-cute) !important;
+}
+
+.slidev-layout:not(.font-cover),
+.slidev-layout:not(.font-cover) :where(*):not(pre):not(pre *):not(code):not(code *):not(kbd):not(samp):not(.slidev-code):not(.slidev-code *):not(.ap-player):not(.ap-player *) {
+  font-family: var(--font-cute) !important;
+}
+
+.font-cover,
+.font-cover * {
+  font-family: var(--font-cover) !important;
 }
 
 h6 {
