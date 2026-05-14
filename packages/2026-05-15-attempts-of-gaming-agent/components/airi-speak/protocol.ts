@@ -104,7 +104,7 @@ export function createSparkNotifyEvent(options: CreateSparkNotifyEventOptions): 
     payload: options.payload,
     ttlMs: options.ttlMs,
     requiresAck: options.requiresAck,
-    destinations: options.destinations ?? ['*'],
+    destinations: options.destinations ?? ['proj-airi:stage-*'],
     metadata: options.metadata,
   }, source)
 }

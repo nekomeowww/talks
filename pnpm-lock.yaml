@@ -358,6 +358,31 @@ importers:
         specifier: ^4.2.2
         version: 4.2.2
 
+  packages/2026-05-15-attempts-of-gaming-agent:
+    dependencies:
+      '@proj-airi/server-sdk':
+        specifier: ^0.10.2
+        version: 0.10.2
+    devDependencies:
+      '@iconify-json/devicon':
+        specifier: ^1.2.45
+        version: 1.2.45
+      '@iconify-json/logos':
+        specifier: ^1.2.9
+        version: 1.2.9
+      '@iconify-json/simple-icons':
+        specifier: ^1.2.55
+        version: 1.2.55
+      '@iconify-json/solar':
+        specifier: ^1.2.4
+        version: 1.2.4
+      '@iconify/utils':
+        specifier: ^3.0.2
+        version: 3.0.2
+      '@proj-airi/lobe-icons':
+        specifier: ^1.0.13
+        version: 1.0.13
+
   packages/talks: {}
 
 packages:
@@ -1318,6 +1343,23 @@ packages:
   '@mermaid-js/parser@0.6.2':
     resolution: {integrity: sha512-+PO02uGF6L6Cs0Bw8RpGhikVvMWEysfAyl27qTlroUB8jSWr1lL0Sf6zi78ZxlSnmgSY2AMMKVgghnN9jTtwkQ==}
 
+  '@moeru/eventa@1.0.0-beta.4':
+    resolution: {integrity: sha512-Pnpufz3Pbqrx7Ea+UgoF2C7U8y2vq3larEcsUhHtO91GZHSKptdSSHiqlIkq1pZBDxbsJO4LUU1Kplvx32mj/Q==}
+    peerDependencies:
+      electron: '>=39'
+      h3: '>=2.0.1-rc.17'
+      web-worker: ^1.5.0
+    peerDependenciesMeta:
+      electron:
+        optional: true
+      h3:
+        optional: true
+      web-worker:
+        optional: true
+
+  '@moeru/std@0.1.0-beta.17':
+    resolution: {integrity: sha512-GyLDCKHiqXyO60Wn0+Hc7Tfo/GJQA3pV5FZGkzGhvJM7LQPZDB0tksuJV92LuRF1lG8x78B+8UfVFhVf8xXVfg==}
+
   '@nodelib/fs.scandir@2.1.5':
     resolution: {integrity: sha512-vq24Bq3ym5HEQm2NKCr3yXDwjc7vTsEThRDnkp2DK9p1uqLR+DHurm/NOTo0KG7HYHU7eppKZj3MyqYuMBf62g==}
     engines: {node: '>= 8'}
@@ -1356,6 +1398,15 @@ packages:
 
   '@proj-airi/lobe-icons@1.0.13':
     resolution: {integrity: sha512-cDTTUCUioUiLjhOfZ9Y4b0uRmNhlPRj40qfv6oDXfQml+tiQSk3VQmgSKB71CYm0a/tUM+soeJ6v0oYPwT+kxA==}
+
+  '@proj-airi/plugin-protocol@0.10.2':
+    resolution: {integrity: sha512-nm3RZhBbGLvFTXwL19QlL7uVbF28xSByywNdg5LmubgTlvx9icAnIWhrkJsV21mbxc8SmzT+d+RbY23vN5G5Cg==}
+
+  '@proj-airi/server-sdk@0.10.2':
+    resolution: {integrity: sha512-ABFcc5V0W5WTAs+QL3XtxnxzkBJNGL6VR2WJ5wUZWM3olTj5KPILH9pBlyBphGbraae1oFwNfAgMDC0TbLLLxQ==}
+
+  '@proj-airi/server-shared@0.10.2':
+    resolution: {integrity: sha512-wllZcaTi5SRBaiElPf4bU/ee51OsDttPXqQGEVLAYR81E5PKfKGgaRPHcDplr1pMKRku5v2eOFMrPBqR+Raiiw==}
 
   '@quansync/fs@0.1.5':
     resolution: {integrity: sha512-lNS9hL2aS2NZgNW7BBj+6EBl4rOf8l+tQ0eRY6JWCI8jI2kc53gSoqbjojU0OnAWhzoXiOjFyGsHcDGePB3lhA==}
@@ -1849,6 +1900,7 @@ packages:
 
   '@ungap/structured-clone@1.2.0':
     resolution: {integrity: sha512-zuVdFrMJiuCDQUMCzQaD6KL28MjnqqN8XnAqiEq9PNm/hCPTSGfrXCOfwj1ow4LFb/tNymJPwsNbVePc1xFqrQ==}
+    deprecated: Potential CWE-502 - Update to 1.3.1 or higher
 
   '@unhead/vue@2.0.19':
     resolution: {integrity: sha512-7BYjHfOaoZ9+ARJkT10Q2TjnTUqDXmMpfakIAsD/hXiuff1oqWg1xeXT5+MomhNcC15HbiABpbbBmITLSHxdKg==}
@@ -2161,6 +2213,12 @@ packages:
   '@webgpu/types@0.1.55':
     resolution: {integrity: sha512-p97I8XEC1h04esklFqyIH+UhFrUcj8/1/vBWgc6lAK4jMJc+KbhUy8D4dquHYztFj6pHLqGcp/P1xvBBF4r3DA==}
 
+  '@xsai/shared-chat@0.5.0-beta.2':
+    resolution: {integrity: sha512-PyJh49To2+GuY2sVeiVZEs7UF648RYOFZo4jD+qvxX6y/iafLsMtbXnQr3LFt9qcMqqPaQ1Yu2ABsNR+Cr3mAQ==}
+
+  '@xsai/shared@0.5.0-beta.4':
+    resolution: {integrity: sha512-RzmJe7d8PAQGcVlrX8igKkdHR0z9mkUX1rC71JvBCoanmBQ7s/z7x9gAmmvmFSlvH5q6N2XQ+oExRK3I9lfM2A==}
+
   acorn-jsx@5.3.2:
     resolution: {integrity: sha512-rq9s+JNhf0IChjtDXxllJ7g41oZk5SlXtp0LHwyA5cejwn7vKmKp4pPri6YEePv2PU65sAsegbXtIinmDFDXgQ==}
     peerDependencies:
@@ -2414,6 +2472,10 @@ packages:
     resolution: {integrity: sha512-yCEafptTtb4bk7GLEQoM8KVJpxAfdBJYaXyzQEgQQQgYrZiDp8SJmGKlYza6CYjEDNstAdNdKA3UuoULlEbS6w==}
     engines: {node: '>=12.13'}
 
+  copy-anything@4.0.5:
+    resolution: {integrity: sha512-7Vv6asjS4gMOuILabD3l739tsaxFQmC+a7pLZm02zyvs8p977bL3zEgq3yDk5rn9B0PbYgIv++jmHcuUab4RhA==}
+    engines: {node: '>=18'}
+
   core-js-compat@3.46.0:
     resolution: {integrity: sha512-p9hObIIEENxSV8xIu+V68JjSeARg6UVMG5mR+JEUguG3sI6MsiS1njz2jHmyJDvA+8jX/sytkBHup6kxhM9law==}
 
@@ -2429,6 +2491,14 @@ packages:
   cross-spawn@7.0.6:
     resolution: {integrity: sha512-uV2QOWP2nWzsy2aMp8aRibhi9dlzF5Hgh5SHaB9OiTGEyDTiJJyx0uy51QXdyWbtAHNua4XJzUKca3OzKUd3vA==}
     engines: {node: '>= 8'}
+
+  crossws@0.4.5:
+    resolution: {integrity: sha512-wUR89x/Rw7/8t+vn0CmGDYM9TD6VtARGb0LD5jq2wjtMy1vCP4M+sm6N6TigWeTYvnA8MoW29NqqXD0ep0rfBA==}
+    peerDependencies:
+      srvx: '>=0.11.5'
+    peerDependenciesMeta:
+      srvx:
+        optional: true
 
   css-tree@3.1.0:
     resolution: {integrity: sha512-0eW44TGN5SQXU1mWSkKwFstI/22X2bG1nYzZTYMAWjylYURhse752YgbE4Cx46AC+bAvI+/dYTPRk1LqSUnu6w==}
@@ -3152,6 +3222,7 @@ packages:
   glob@11.0.1:
     resolution: {integrity: sha512-zrQDm8XPnYEKawJScsnM0QzobJxlT/kHOOlRTio8IH/GrmxRE5fjllkzdaHclIuNjUQTJYH2xHNIGfdpJkDJUw==}
     engines: {node: 20 || >=22}
+    deprecated: Old versions of glob are not supported, and contain widely publicized security vulnerabilities, which have been fixed in the current version. Please update. Support for old versions may be purchased (at exorbitant rates) by contacting i@izs.me
     hasBin: true
 
   global-directory@4.0.1:
@@ -3351,6 +3422,10 @@ packages:
   is-what@4.1.16:
     resolution: {integrity: sha512-ZhMwEosbFJkA0YhFnNDgTM4ZxDRsS6HqTo7qsZM08fehyRYIYa0yHu5R6mgo1n/8MgaPBXiPimPD77baVFYg+A==}
     engines: {node: '>=12.13'}
+
+  is-what@5.5.0:
+    resolution: {integrity: sha512-oG7cgbmg5kLYae2N5IVd3jm2s+vldjxJzK1pcu9LfpGuQ93MQSzo0okvRna+7y5ifrD+20FE8FvjusyGaz14fw==}
+    engines: {node: '>=18'}
 
   is-wsl@3.1.0:
     resolution: {integrity: sha512-UcVfVfaK4Sc4m7X3dUSoHoozQGBEFeDC+zVo06t98xe8CzHSZZBekNXH+tu0NalHolcJ/QAGqS46Hef7QXBIMw==}
@@ -3755,6 +3830,11 @@ packages:
   nanoid@3.3.11:
     resolution: {integrity: sha512-N8SpfPUnUp1bK+PMYW8qSWdl9U+wwNWI4QKxOYDy9JAro3WMX7p2OeVRF9v+347pnakNevPmiHhNmZ2HbFA76w==}
     engines: {node: ^10 || ^12 || ^13.7 || ^14 || >=15.0.1}
+    hasBin: true
+
+  nanoid@5.1.11:
+    resolution: {integrity: sha512-v+KEsUv2ps74PaSKv0gHTxTCgMXOIfBEbaqa6w6ISIGC7ZsvHN4N9oJ8d4cmf0n5oTzQz2SLmThbQWhjd/8eKg==}
+    engines: {node: ^18 || >=20}
     hasBin: true
 
   nanotar@0.2.0:
@@ -4338,6 +4418,10 @@ packages:
 
   superjson@2.2.1:
     resolution: {integrity: sha512-8iGv75BYOa0xRJHK5vRLEjE2H/i4lulTjzpUXic3Eg8akftYjkmQDa8JARQ42rlczXyFR3IeRoeFCc7RxHsYZA==}
+    engines: {node: '>=16'}
+
+  superjson@2.2.6:
+    resolution: {integrity: sha512-H+ue8Zo4vJmV2nRjpx86P35lzwDT3nItnIsocgumgr0hHMQ+ZGq5vrERg9kJBo5AWGmxZDhzDo+WVIJqkB0cGA==}
     engines: {node: '>=16'}
 
   supports-color@7.2.0:
@@ -5800,6 +5884,13 @@ snapshots:
     dependencies:
       langium: 3.3.1
 
+  '@moeru/eventa@1.0.0-beta.4':
+    dependencies:
+      nanoid: 5.1.11
+      picomatch: 4.0.3
+
+  '@moeru/std@0.1.0-beta.17': {}
+
   '@nodelib/fs.scandir@2.1.5':
     dependencies:
       '@nodelib/fs.stat': 2.0.5
@@ -5860,6 +5951,35 @@ snapshots:
   '@polka/url@1.0.0-next.24': {}
 
   '@proj-airi/lobe-icons@1.0.13': {}
+
+  '@proj-airi/plugin-protocol@0.10.2':
+    dependencies:
+      '@moeru/eventa': 1.0.0-beta.4
+      '@xsai/shared-chat': 0.5.0-beta.2
+    transitivePeerDependencies:
+      - electron
+      - h3
+      - web-worker
+
+  '@proj-airi/server-sdk@0.10.2':
+    dependencies:
+      '@moeru/std': 0.1.0-beta.17
+      '@proj-airi/server-shared': 0.10.2
+      crossws: 0.4.5
+      superjson: 2.2.6
+    transitivePeerDependencies:
+      - electron
+      - h3
+      - srvx
+      - web-worker
+
+  '@proj-airi/server-shared@0.10.2':
+    dependencies:
+      '@proj-airi/plugin-protocol': 0.10.2
+    transitivePeerDependencies:
+      - electron
+      - h3
+      - web-worker
 
   '@quansync/fs@0.1.5':
     dependencies:
@@ -7262,6 +7382,12 @@ snapshots:
 
   '@webgpu/types@0.1.55': {}
 
+  '@xsai/shared-chat@0.5.0-beta.2':
+    dependencies:
+      '@xsai/shared': 0.5.0-beta.4
+
+  '@xsai/shared@0.5.0-beta.4': {}
+
   acorn-jsx@5.3.2(acorn@8.15.0):
     dependencies:
       acorn: 8.15.0
@@ -7526,6 +7652,10 @@ snapshots:
     dependencies:
       is-what: 4.1.16
 
+  copy-anything@4.0.5:
+    dependencies:
+      is-what: 5.5.0
+
   core-js-compat@3.46.0:
     dependencies:
       browserslist: 4.27.0
@@ -7545,6 +7675,8 @@ snapshots:
       path-key: 3.1.1
       shebang-command: 2.0.0
       which: 2.0.2
+
+  crossws@0.4.5: {}
 
   css-tree@3.1.0:
     dependencies:
@@ -8562,6 +8694,8 @@ snapshots:
 
   is-what@4.1.16: {}
 
+  is-what@5.5.0: {}
+
   is-wsl@3.1.0:
     dependencies:
       is-inside-container: 1.0.0
@@ -9165,6 +9299,8 @@ snapshots:
 
   nanoid@3.3.11: {}
 
+  nanoid@5.1.11: {}
+
   nanotar@0.2.0: {}
 
   natural-compare@1.4.0: {}
@@ -9755,6 +9891,10 @@ snapshots:
   superjson@2.2.1:
     dependencies:
       copy-anything: 3.0.5
+
+  superjson@2.2.6:
+    dependencies:
+      copy-anything: 4.0.5
 
   supports-color@7.2.0:
     dependencies:

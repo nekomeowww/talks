@@ -21,6 +21,8 @@ const props = withDefaults(defineProps<{
   replayOnReenter?: boolean
   sourceId?: string
   sourceInstanceId?: string
+  cueId?: string
+  context?: 'slide' | 'presenter' | 'both'
   debug?: boolean
 }>(), {
   at: 0,
@@ -29,12 +31,13 @@ const props = withDefaults(defineProps<{
   once: true,
   replayOnReenter: false,
   sourceId: 'slidev-airi-speaker',
+  context: 'slide',
 })
 
 const slots = useSlots()
 const isActive = useIsSlideActive()
 const nav = useNav()
-const { $clicks, $renderContext } = useSlideContext()
+const { $clicks, $page, $renderContext } = useSlideContext()
 const hasTriggered = shallowRef(false)
 const errorMessage = shallowRef('')
 
@@ -70,11 +73,74 @@ function textFromVNode(node: VNode): string {
 
 const speakText = computed(() => normalizeSpeakText(textFromChildren(slots.default?.())))
 
+function hashCueKey(value: string) {
+  let hash = 5381
+  for (let i = 0; i < value.length; i += 1)
+    hash = ((hash << 5) + hash) ^ value.charCodeAt(i)
+
+  return (hash >>> 0).toString(36)
+}
+
+function cueStorageKey() {
+  const rawKey = props.cueId ?? [
+    props.sourceId,
+    props.sourceInstanceId,
+    $page.value,
+    props.at,
+    props.headline,
+    speakText.value,
+  ].join('|')
+
+  return `slidev-airi-speak:${hashCueKey(rawKey)}`
+}
+
+function claimCue() {
+  if (!props.once || typeof window === 'undefined')
+    return true
+
+  const key = cueStorageKey()
+  const now = Date.now()
+
+  try {
+    const claimedAt = Number(window.localStorage.getItem(key) ?? 0)
+
+    if (Number.isFinite(claimedAt) && now - claimedAt < 60_000)
+      return false
+
+    window.localStorage.setItem(key, String(now))
+  }
+  catch {
+    return true
+  }
+
+  return true
+}
+
+function releaseCue() {
+  if (!props.once || typeof window === 'undefined')
+    return
+
+  try {
+    window.localStorage.removeItem(cueStorageKey())
+  }
+  catch {}
+}
+
+function canRunInRenderContext() {
+  if (props.context === 'both')
+    return $renderContext.value === 'slide' || $renderContext.value === 'presenter'
+
+  return $renderContext.value === props.context
+}
+
 async function triggerSpeak() {
   if (!speakText.value)
     return
 
   if (props.once && hasTriggered.value)
+    return
+
+  if (!claimCue())
     return
 
   hasTriggered.value = true
@@ -97,6 +163,7 @@ async function triggerSpeak() {
   catch (error) {
     errorMessage.value = error instanceof Error ? error.message : String(error)
     hasTriggered.value = false
+    releaseCue()
     console.warn('[AiriSpeak] failed to send spark:notify', error)
   }
 }
@@ -107,7 +174,7 @@ watch(
     if (!active || nav.isPrintMode.value)
       return
 
-    if ($renderContext.value !== 'slide' && $renderContext.value !== 'presenter')
+    if (!canRunInRenderContext())
       return
 
     if (clicks >= props.at)

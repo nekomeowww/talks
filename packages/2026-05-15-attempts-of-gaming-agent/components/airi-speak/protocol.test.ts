@@ -18,7 +18,7 @@ test('uses component text as the spark notify note payload', () => {
   assert.equal(event.type, 'spark:notify')
   assert.equal(event.data.headline, 'Slide cue')
   assert.equal(event.data.note, 'AIRI, introduce this section.')
-  assert.deepEqual(event.data.destinations, ['*'])
+  assert.deepEqual(event.data.destinations, ['proj-airi:stage-*'])
   assert.equal(event.metadata.source.plugin.id, 'slidev-airi-speaker')
 })
 

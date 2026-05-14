@@ -1,15 +1,9 @@
-import type {
-  AiriWebSocketEvent,
-  CreateSparkNotifyEventOptions,
-  ModuleIdentity,
-} from './protocol'
+import type { Client as AiriClient, WebSocketEventOf, WebSocketLikeConstructor } from '@proj-airi/server-sdk'
+import type { CreateSparkNotifyEventOptions } from './protocol'
 
-import {
-  createModuleIdentity,
-  createProtocolEvent,
-  createSparkNotifyEvent,
-  parseAiriEventMessage,
-} from './protocol'
+import { Client } from '@proj-airi/server-sdk'
+
+import { createModuleIdentity, createSparkNotifyEvent } from './protocol'
 
 interface AiriSpeakClientOptions {
   url?: string
@@ -18,37 +12,22 @@ interface AiriSpeakClientOptions {
   sourceInstanceId?: string
 }
 
-type ClientState = 'idle' | 'connecting' | 'ready'
-
-let socket: WebSocket | undefined
-let state: ClientState = 'idle'
+let client: AiriClient | undefined
 let readyPromise: Promise<void> | undefined
 let currentKey = ''
 
-function sendRaw(event: AiriWebSocketEvent) {
-  socket?.send(JSON.stringify(event))
-}
-
-function createAnnounceEvent(source: ModuleIdentity) {
-  return createProtocolEvent('module:announce', {
-    name: source.plugin.id,
-    identity: source,
-    possibleEvents: ['spark:notify'],
-  }, source)
-}
-
-function createAuthenticateEvent(token: string, source: ModuleIdentity) {
-  return createProtocolEvent('module:authenticate', { token }, source)
-}
-
-function resetConnection() {
-  state = 'idle'
-  readyPromise = undefined
-  socket = undefined
-}
-
 function resolveUrl(url?: string) {
   return url || import.meta.env.VITE_AIRI_WS_URL || 'ws://localhost:6121/ws'
+}
+
+function resolveToken(token?: string) {
+  return token || import.meta.env.VITE_AIRI_WS_TOKEN || undefined
+}
+
+function closeCurrentClient() {
+  client?.close()
+  client = undefined
+  readyPromise = undefined
 }
 
 export async function ensureAiriConnection(options: AiriSpeakClientOptions = {}) {
@@ -56,65 +35,37 @@ export async function ensureAiriConnection(options: AiriSpeakClientOptions = {})
     return
 
   const url = resolveUrl(options.url)
+  const token = resolveToken(options.token)
   const source = createModuleIdentity(options.sourceId, options.sourceInstanceId)
-  const key = `${url}|${options.token ?? ''}|${source.id}`
+  const key = `${url}|${token ?? ''}|${source.id}`
 
-  if (state === 'ready' && socket?.readyState === WebSocket.OPEN && currentKey === key)
+  if (client?.isReady && currentKey === key)
     return
 
-  if (state === 'connecting' && readyPromise && currentKey === key)
+  if (readyPromise && currentKey === key)
     return readyPromise
 
-  socket?.close()
-  state = 'connecting'
+  closeCurrentClient()
   currentKey = key
 
-  readyPromise = new Promise<void>((resolve, reject) => {
-    const ws = new WebSocket(url)
-    socket = ws
+  client = new Client({
+    name: source.plugin.id,
+    url,
+    token,
+    identity: source,
+    possibleEvents: ['spark:notify'],
+    websocketConstructor: WebSocket as unknown as WebSocketLikeConstructor,
+    heartbeat: {
+      readTimeout: 60_000,
+      pingInterval: 20_000,
+    },
+    onError: (error) => {
+      console.warn('[AiriSpeak] AIRI websocket client error', error)
+    },
+  })
 
-    const failTimer = window.setTimeout(() => {
-      resetConnection()
-      reject(new Error(`Timed out connecting to AIRI websocket at ${url}`))
-    }, 5000)
-
-    function markReady() {
-      window.clearTimeout(failTimer)
-      sendRaw(createAnnounceEvent(source))
-      state = 'ready'
-      resolve()
-    }
-
-    ws.addEventListener('open', () => {
-      if (options.token)
-        sendRaw(createAuthenticateEvent(options.token, source))
-    })
-
-    ws.addEventListener('message', (message) => {
-      if (typeof message.data !== 'string')
-        return
-
-      try {
-        const event = parseAiriEventMessage(message.data)
-        const data = event?.data as { authenticated?: boolean } | undefined
-        if (event?.type === 'module:authenticated' && data?.authenticated)
-          markReady()
-      }
-      catch {
-        // Ignore non-JSON transport messages.
-      }
-    })
-
-    ws.addEventListener('error', () => {
-      window.clearTimeout(failTimer)
-      resetConnection()
-      reject(new Error(`Failed to connect to AIRI websocket at ${url}`))
-    })
-
-    ws.addEventListener('close', () => {
-      if (socket === ws)
-        resetConnection()
-    })
+  readyPromise = client.ready({ timeout: 10_000 }).finally(() => {
+    readyPromise = undefined
   })
 
   return readyPromise
@@ -123,8 +74,8 @@ export async function ensureAiriConnection(options: AiriSpeakClientOptions = {})
 export async function sendAiriSparkNotify(options: CreateSparkNotifyEventOptions & AiriSpeakClientOptions) {
   await ensureAiriConnection(options)
 
-  if (socket?.readyState !== WebSocket.OPEN)
-    throw new Error('AIRI websocket is not open')
+  if (!client?.isReady)
+    throw new Error('AIRI websocket client is not ready')
 
-  sendRaw(createSparkNotifyEvent(options))
+  client.send(createSparkNotifyEvent(options) as WebSocketEventOf<'spark:notify'>)
 }
