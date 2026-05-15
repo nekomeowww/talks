@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { animate, stagger, svg } from 'animejs'
+import { animate, stagger } from 'animejs'
 import { computed, nextTick, onBeforeUnmount, onMounted, ref, watch } from 'vue'
 
 import LiquidGlass from './LiquidGlass.vue'
@@ -22,120 +22,112 @@ interface LoopNode {
   step: number
 }
 
-const stage = {
-  width: 920,
-  height: 354,
-  cardWidth: 176,
-  cardHeight: 98,
+interface Point {
+  x: number
+  y: number
+}
+
+interface Box {
+  left: number
+  top: number
+  width: number
+  height: number
+}
+
+interface LoopEdge {
+  from: string
+  to: string
+  step: number
 }
 
 const nodes: LoopNode[] = [
   {
     id: 'chat',
     title: 'Human chat',
-    kicker: 'intent',
-    detail: '玩家直接在聊天栏说目标',
+    kicker: 'Intent',
+    detail: 'Goal enters through the chat command',
     icon: 'i-carbon:chat',
     color: 'amber',
-    x: 42,
-    y: 56,
+    x: 24,
+    y: 58,
     step: 0,
   },
   {
     id: 'agent',
     title: 'Agent parser',
-    kicker: 'stdout',
-    detail: '解析 chat / command / mod error',
+    kicker: 'Observe',
+    detail: 'Reads chat, stdout, and mod errors',
     icon: 'i-carbon:flow-logs-vpc',
     color: 'cyan',
-    x: 270,
-    y: 42,
+    x: 248,
+    y: 34,
     step: 1,
   },
   {
     id: 'tools',
     title: 'Tool calls',
-    kicker: 'state',
-    detail: 'inventory 与 recipe 先结构化',
+    kicker: 'State',
+    detail: 'Inventory and recipes become typed data',
     icon: 'i-carbon:tools',
     color: 'lime',
-    x: 500,
+    x: 472,
     y: 58,
     step: 2,
   },
   {
     id: 'policy',
     title: 'JSON policy',
-    kicker: 'plan',
-    detail: 'LLM 产出计划、步骤与命令',
+    kicker: 'Plan',
+    detail: 'LLM returns steps and executable commands',
     icon: 'i-carbon:json',
     color: 'violet',
-    x: 698,
-    y: 160,
+    x: 690,
+    y: 150,
     step: 3,
   },
   {
     id: 'mod',
     title: 'RCON / autorio',
-    kicker: 'act',
-    detail: 'mod 执行移动、挖矿、建造',
+    kicker: 'Act',
+    detail: 'The mod moves, mines, and builds',
     icon: 'i-carbon:industry',
     color: 'rose',
-    x: 470,
-    y: 236,
+    x: 466,
+    y: 204,
     step: 4,
   },
   {
     id: 'done',
-    title: 'Completed signal',
-    kicker: 'feedback',
-    detail: 'All operations completed 触发下一轮',
+    title: 'Lua loop',
+    kicker: 'Wait',
+    detail: 'All operations complete, then continue',
     icon: 'i-carbon:checkmark-outline',
     color: 'cyan',
     x: 142,
-    y: 232,
+    y: 204,
     step: 4,
   },
 ]
 
-const edges = [
-  ['chat', 'agent'],
-  ['agent', 'tools'],
-  ['tools', 'policy'],
-  ['policy', 'mod'],
-  ['mod', 'done'],
-  ['done', 'agent'],
-] as const
+const edges: LoopEdge[] = [
+  { from: 'chat', to: 'agent', step: 1 },
+  { from: 'agent', to: 'tools', step: 2 },
+  { from: 'tools', to: 'policy', step: 3 },
+  { from: 'policy', to: 'mod', step: 4 },
+  { from: 'mod', to: 'done', step: 4 },
+  { from: 'done', to: 'agent', step: 5 },
+]
 
 const visibleStep = computed(() => props.clicks)
 const activeNodeId = computed(() => nodes[Math.min(props.clicks, nodes.length - 1)]?.id ?? 'chat')
 const animatedScope = ref<HTMLElement | null>(null)
+const stageElement = ref<HTMLElement | null>(null)
+const nodeElements = new Map<string, HTMLElement>()
+const svgBox = ref({ width: 920, height: 318 })
+const measuredPaths = ref<string[]>([])
 const pathAnimation = ref<ReturnType<typeof animate> | null>(null)
-
-function centerOf(id: string) {
-  const node = nodes.find(item => item.id === id)
-  if (!node)
-    throw new Error(`Unknown Factorio loop node: ${id}`)
-
-  return {
-    x: node.x + stage.cardWidth / 2,
-    y: node.y + stage.cardHeight / 2,
-  }
-}
-
-function edgePath(fromId: string, toId: string) {
-  const from = centerOf(fromId)
-  const to = centerOf(toId)
-  const dx = to.x - from.x
-  const bend = Math.max(34, Math.min(92, Math.abs(dx) * 0.34))
-  const verticalBias = to.y > from.y ? 34 : -34
-
-  if (fromId === 'done' && toId === 'agent') {
-    return `M ${from.x} ${from.y - 18} C ${from.x + 18} ${from.y - 118}, ${to.x - 78} ${to.y + 106}, ${to.x - 10} ${to.y + 42}`
-  }
-
-  return `M ${from.x + Math.sign(dx || 1) * 62} ${from.y} C ${from.x + bend} ${from.y + verticalBias}, ${to.x - bend} ${to.y - verticalBias}, ${to.x - Math.sign(dx || 1) * 62} ${to.y}`
-}
+let resizeObserver: ResizeObserver | undefined
+let measureFrame = 0
 
 function nodeStyle(node: LoopNode) {
   return {
@@ -148,8 +140,101 @@ function nodeVisible(node: LoopNode) {
   return node.step <= visibleStep.value
 }
 
-function edgeVisible(index: number) {
-  return index + 1 <= visibleStep.value
+function edgeVisible(edge: LoopEdge) {
+  return edge.step <= visibleStep.value
+}
+
+function setNodeElement(id: string, element: Element | null) {
+  if (element instanceof HTMLElement) {
+    nodeElements.set(id, element)
+    return
+  }
+
+  nodeElements.delete(id)
+}
+
+function elementBox(element: HTMLElement): Box {
+  return {
+    left: element.offsetLeft,
+    top: element.offsetTop,
+    width: element.offsetWidth,
+    height: element.offsetHeight,
+  }
+}
+
+function boxCenter(box: Box): Point {
+  return {
+    x: box.left + box.width / 2,
+    y: box.top + box.height / 2,
+  }
+}
+
+function edgePoint(box: Box, toward: Point): Point {
+  const center = boxCenter(box)
+  const dx = toward.x - center.x
+  const dy = toward.y - center.y
+  const halfWidth = box.width / 2
+  const halfHeight = box.height / 2
+  const scale = 1 / Math.max(Math.abs(dx) / halfWidth, Math.abs(dy) / halfHeight, 1)
+
+  return {
+    x: center.x + dx * scale,
+    y: center.y + dy * scale,
+  }
+}
+
+function pathBetween(fromElement: HTMLElement, toElement: HTMLElement) {
+  const fromBox = elementBox(fromElement)
+  const toBox = elementBox(toElement)
+  const fromCenter = boxCenter(fromBox)
+  const toCenter = boxCenter(toBox)
+  const start = edgePoint(fromBox, toCenter)
+  const end = edgePoint(toBox, fromCenter)
+  const midX = (start.x + end.x) / 2
+
+  return `M ${start.x.toFixed(1)} ${start.y.toFixed(1)} C ${midX.toFixed(1)} ${start.y.toFixed(1)}, ${midX.toFixed(1)} ${end.y.toFixed(1)}, ${end.x.toFixed(1)} ${end.y.toFixed(1)}`
+}
+
+function samePaths(left: string[], right: string[]) {
+  return left.length === right.length && left.every((item, index) => item === right[index])
+}
+
+function measurePaths() {
+  const stage = stageElement.value
+  if (!stage)
+    return false
+
+  const nextSvgBox = {
+    width: stage.offsetWidth,
+    height: stage.offsetHeight,
+  }
+  if (svgBox.value.width !== nextSvgBox.width || svgBox.value.height !== nextSvgBox.height)
+    svgBox.value = nextSvgBox
+
+  const nextPaths = edges.map(({ from, to }) => {
+    const fromElement = nodeElements.get(from)
+    const toElement = nodeElements.get(to)
+
+    if (!fromElement || !toElement)
+      return ''
+
+    return pathBetween(fromElement, toElement)
+  })
+  if (samePaths(measuredPaths.value, nextPaths))
+    return false
+
+  measuredPaths.value = nextPaths
+  return true
+}
+
+function scheduleMeasure() {
+  if (measureFrame)
+    return
+
+  measureFrame = requestAnimationFrame(() => {
+    measureFrame = 0
+    measurePaths()
+  })
 }
 
 function restartPathAnimation() {
@@ -158,49 +243,56 @@ function restartPathAnimation() {
   if (!scope)
     return
 
-  const drawables = svg.createDrawable(scope.querySelectorAll<SVGPathElement>('.factorio-animated-edge.is-visible'))
-  pathAnimation.value = animate(drawables, {
-    draw: ['0 0', '0 1', '1 1'],
-    duration: 2200,
+  const visibleEdges = scope.querySelectorAll<SVGPathElement>('.factorio-animated-edge.is-visible')
+  if (!visibleEdges.length)
+    return
+
+  pathAnimation.value = animate(visibleEdges, {
+    strokeDashoffset: [0, -48],
+    duration: 620,
     delay: stagger(130),
-    ease: 'inOutQuad',
+    ease: 'linear',
     loop: true,
   })
 }
 
 watch(visibleStep, async () => {
   await nextTick()
+  measurePaths()
   restartPathAnimation()
 })
 
 onMounted(async () => {
   await nextTick()
+  measurePaths()
+  if (stageElement.value) {
+    resizeObserver = new ResizeObserver(scheduleMeasure)
+    resizeObserver.observe(stageElement.value)
+    for (const element of nodeElements.values())
+      resizeObserver.observe(element)
+  }
   restartPathAnimation()
 })
 
 onBeforeUnmount(() => {
   pathAnimation.value?.revert()
+  resizeObserver?.disconnect()
+  if (measureFrame)
+    cancelAnimationFrame(measureFrame)
 })
 </script>
 
 <template>
   <section ref="animatedScope" class="factorio-structured-slide">
-    <img class="factorio-backdrop" src="/game-banners/factorio-banner.png" alt="">
-    <div class="factorio-shade" />
-
     <div class="factorio-copy">
-      <div class="factorio-eyebrow">
-        <span class="factorio-dot" />
-        LemonNeko / Factorio
-      </div>
-      <h1>Structured API loop</h1>
+      <h1>CodeAct</h1>
       <p>
         先不追求“像人一样看屏幕”，而是把 Factorio 变成一个可读、可执行、可等待的实验场。
       </p>
     </div>
 
-    <div class="factorio-stage-shell">
-      <svg class="factorio-connections" :viewBox="`0 0 ${stage.width} ${stage.height}`" aria-hidden="true">
+    <div ref="stageElement" class="factorio-stage-shell">
+      <svg class="factorio-connections" :viewBox="`0 0 ${svgBox.width} ${svgBox.height}`" aria-hidden="true">
         <defs>
           <filter id="factorioLineGlow" x="-30%" y="-30%" width="160%" height="160%">
             <feGaussianBlur stdDeviation="3.5" result="blur" />
@@ -211,11 +303,18 @@ onBeforeUnmount(() => {
           </filter>
         </defs>
         <path
-          v-for="([from, to], index) in edges"
-          :key="`${from}-${to}`"
+          v-for="(edge, index) in edges"
+          :key="`base-${edge.from}-${edge.to}`"
+          class="factorio-base-edge"
+          :class="{ 'is-visible': edgeVisible(edge), 'is-return': edge.from === 'done' || edge.to === 'done' }"
+          :d="measuredPaths[index]"
+        />
+        <path
+          v-for="(edge, index) in edges"
+          :key="`pulse-${edge.from}-${edge.to}`"
           class="factorio-animated-edge"
-          :class="{ 'is-visible': edgeVisible(index), 'is-return': from === 'done' }"
-          :d="edgePath(from, to)"
+          :class="{ 'is-visible': edgeVisible(edge), 'is-return': edge.from === 'done' || edge.to === 'done' }"
+          :d="measuredPaths[index]"
         />
       </svg>
 
@@ -225,6 +324,7 @@ onBeforeUnmount(() => {
       <div
         v-for="node in nodes"
         :key="node.id"
+        :ref="element => setNodeElement(node.id, element)"
         class="factorio-node-shell"
         :class="[`tone-${node.color}`, { 'is-visible': nodeVisible(node), 'is-active': activeNodeId === node.id }]"
         :style="nodeStyle(node)"
@@ -278,109 +378,91 @@ onBeforeUnmount(() => {
   position: absolute;
   inset: 0;
   overflow: hidden;
-  background: #060707;
   color: white;
-}
-
-.factorio-backdrop {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  filter: saturate(0.9) brightness(0.58) contrast(1.08);
-  opacity: 0.72;
-}
-
-.factorio-shade {
-  position: absolute;
-  inset: 0;
-  background:
-    linear-gradient(90deg, rgb(0 0 0 / 86%) 0%, rgb(0 0 0 / 54%) 38%, rgb(0 0 0 / 30%) 100%),
-    linear-gradient(180deg, rgb(0 0 0 / 54%) 0%, transparent 44%, rgb(0 0 0 / 70%) 100%);
 }
 
 .factorio-copy {
   position: absolute;
-  top: 38px;
+  top: 42px;
   left: 50px;
   z-index: 2;
-  width: 390px;
-}
-
-.factorio-eyebrow {
-  display: flex;
-  align-items: center;
-  gap: 9px;
-  color: rgb(253 186 116 / 88%);
-  font-size: 13px;
-  font-weight: 800;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-}
-
-.factorio-dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 999px;
-  background: rgb(251 146 60);
-  box-shadow: 0 0 22px rgb(251 146 60 / 90%);
+  width: 760px;
 }
 
 .factorio-copy h1 {
-  margin: 12px 0 0;
+  margin: 0;
   font-size: 42px;
   line-height: 1.02;
   letter-spacing: 0;
 }
 
 .factorio-copy p {
-  margin: 14px 0 0;
+  margin: 12px 0 0;
   color: rgb(255 255 255 / 70%);
-  font-size: 17px;
-  line-height: 1.65;
+  font-size: 16px;
+  line-height: 1.45;
 }
 
 .factorio-stage-shell {
   position: absolute;
   left: 40px;
   right: 38px;
-  top: 132px;
-  height: 354px;
+  top: 122px;
+  height: 318px;
   z-index: 2;
 }
 
 .factorio-connections {
   position: absolute;
   inset: 0;
+  z-index: 2;
   width: 100%;
   height: 100%;
   overflow: visible;
   pointer-events: none;
 }
 
+.factorio-base-edge,
 .factorio-animated-edge {
   fill: none;
   stroke: rgb(251 191 36 / 92%);
-  stroke-width: 4;
   stroke-linecap: round;
   stroke-linejoin: round;
   opacity: 0;
-  filter: url('#factorioLineGlow');
   transition: opacity 260ms ease;
+}
+
+.factorio-base-edge {
+  stroke-width: 3.5;
+  opacity: 0;
+}
+
+.factorio-base-edge.is-visible {
+  opacity: 0.42;
+}
+
+.factorio-animated-edge {
+  stroke-width: 4.5;
+  stroke-dasharray: 30 18;
+  filter: url('#factorioLineGlow');
 }
 
 .factorio-animated-edge.is-visible {
   opacity: 1;
 }
 
+.factorio-base-edge.is-return,
 .factorio-animated-edge.is-return {
   stroke: rgb(45 212 191 / 92%);
+}
+
+.factorio-animated-edge.is-return {
   stroke-width: 3.4;
 }
 
 .factorio-conveyor {
   position: absolute;
+  z-index: 1;
   left: 34px;
   right: 56px;
   height: 34px;
@@ -395,11 +477,11 @@ onBeforeUnmount(() => {
 }
 
 .factorio-conveyor.top {
-  top: 84px;
+  top: 86px;
 }
 
 .factorio-conveyor.bottom {
-  bottom: 52px;
+  bottom: 42px;
   left: 116px;
   right: 162px;
   opacity: 0.28;
@@ -411,8 +493,8 @@ onBeforeUnmount(() => {
   left: var(--node-x);
   top: var(--node-y);
   z-index: 3;
-  width: 176px;
-  height: 98px;
+  width: 200px;
+  height: 106px;
   opacity: 0;
   transform: translateY(18px) scale(0.94);
   transition:
@@ -426,8 +508,8 @@ onBeforeUnmount(() => {
   height: 100%;
   display: flex;
   align-items: center;
-  gap: 12px;
-  padding: 14px;
+  gap: 14px;
+  padding: 15px;
 }
 
 .factorio-node-shell.is-visible {
@@ -468,8 +550,8 @@ onBeforeUnmount(() => {
 }
 
 .factorio-node-icon {
-  width: 42px;
-  height: 42px;
+  width: 48px;
+  height: 48px;
   flex: 0 0 auto;
   color: rgb(var(--tone-rgb));
   filter: drop-shadow(0 0 14px rgb(var(--tone-rgb) / 42%));
@@ -494,15 +576,15 @@ onBeforeUnmount(() => {
   display: block;
   margin-top: 6px;
   color: rgb(255 255 255 / 94%);
-  font-size: 16px;
+  font-size: 17px;
   line-height: 1.1;
 }
 
 .factorio-node-body p {
   margin: 6px 0 0;
   color: rgb(255 255 255 / 58%);
-  font-size: 11px;
-  line-height: 1.35;
+  font-size: 12px;
+  line-height: 1.32;
 }
 
 .factorio-bottom-row {

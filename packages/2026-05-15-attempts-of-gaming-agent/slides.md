@@ -294,7 +294,7 @@ glowSeed: 513
 clicks: 5
 ---
 
-<div text-3xl font-bold>Minecraft service: 大脑、通信和计划器</div>
+<div text-3xl font-bold>应该怎么能玩 Minecraft 呢？</div>
 <div mt-2 text-sm text="white/50">核心不是“能不能走路”，而是把复杂事件整理成 Agent 可以规划的状态。</div>
 
 <div class="architecture-stage">
@@ -353,7 +353,7 @@ glowSeed: 515
 clicks: 5
 ---
 
-<div text-4xl font-bold>Minecraft Agent flow</div>
+<div text-4xl font-bold>那就... 拼成一个工作流？</div>
 <div mt-2 text="white/50">先靠 Mineflayer 把世界变成事件，再让 Agent 计划和执行。</div>
 
 <EventFunnel :clicks="$clicks" />
@@ -408,40 +408,66 @@ glowSeed: 613
 clicks: 3
 ---
 
-<div text-4xl font-bold>Factorio: 点了视觉科技树</div>
-<div mt-2 text="white/50">想要通用游戏 AI，就不能永远依赖每个游戏的 mod API。</div>
+<div text-4xl font-bold>第一次的自动 YOLO 识图打标！</div>
+<div mt-2 text="white/50">可是... 这么多的游戏内物品怎么都搞完呢？Mod 也太累了吧？</div>
 
-<div class="tech-tree" mt-10>
-  <div class="tech-node active">
-    <div i-carbon:api />
-    <strong>mod API</strong>
-    <span>先拿到物品和碰撞箱</span>
+<div class="factorio-vision-panel" mt-8>
+  <div class="tech-tree">
+    <div class="tech-node active">
+      <div i-carbon:api />
+      <strong>mod API</strong>
+      <span>先拿到物品和碰撞箱</span>
+    </div>
+    <div class="tech-branch" :class="$clicks >= 1 ? 'is-visible' : ''" />
+    <div class="tech-node" :class="$clicks >= 1 ? 'is-visible' : ''">
+      <div i-carbon:screenshot />
+      <strong>screenshot</strong>
+      <span>游戏内 API 直接输出图片</span>
+    </div>
+    <div class="tech-branch" :class="$clicks >= 2 ? 'is-visible' : ''" />
+    <div class="tech-node" :class="$clicks >= 2 ? 'is-visible' : ''">
+      <div i-carbon:bounding-box />
+      <strong>YOLO dataset</strong>
+      <span>边界框 + 图片 + data.yaml</span>
+    </div>
+    <div class="tech-branch danger" :class="$clicks >= 3 ? 'is-visible' : ''" />
+    <div class="tech-node danger" :class="$clicks >= 3 ? 'is-visible' : ''">
+      <div i-carbon:warning-alt />
+      <strong>state explosion</strong>
+      <span>配方、方向、连接规则全部压过来</span>
+    </div>
   </div>
-  <div class="tech-branch" :class="$clicks >= 1 ? 'is-visible' : ''" />
-  <div class="tech-node" :class="$clicks >= 1 ? 'is-visible' : ''">
-    <div i-carbon:screenshot />
-    <strong>screenshot</strong>
-    <span>游戏内 API 直接输出图片</span>
-  </div>
-  <div class="tech-branch" :class="$clicks >= 2 ? 'is-visible' : ''" />
-  <div class="tech-node" :class="$clicks >= 2 ? 'is-visible' : ''">
-    <div i-carbon:bounding-box />
-    <strong>YOLO dataset</strong>
-    <span>边界框 + 图片 + data.yaml</span>
-  </div>
-  <div class="tech-branch danger" :class="$clicks >= 3 ? 'is-visible' : ''" />
-  <div class="tech-node danger" :class="$clicks >= 3 ? 'is-visible' : ''">
-    <div i-carbon:warning-alt />
-    <strong>state explosion</strong>
-    <span>配方、方向、连接规则全部压过来</span>
+
+  <div class="vision-state-chart" :class="$clicks >= 3 ? 'is-visible' : ''">
+    <div class="vision-chart-title">
+      <span>From detection to executable state</span>
+      <strong>难点在 planning 和 code generation</strong>
+    </div>
+    <div class="vision-bars">
+      <div style="--bar: 10px">
+        <span>objects</span>
+      </div>
+      <div style="--bar: 16px">
+        <span>recipes</span>
+      </div>
+      <div style="--bar: 24px">
+        <span>topology</span>
+      </div>
+      <div style="--bar: 34px">
+        <span>actions</span>
+      </div>
+      <div class="danger" style="--bar: 44px">
+        <span>Lua code</span>
+      </div>
+    </div>
   </div>
 </div>
 
-<div v-click mt-10 class="learning-card">
+<div v-click mt-4 class="learning-card factorio-vision-learning">
   <div i-carbon:idea text-orange-300 />
   <div>
-    <div text-xl>训练模型本身不是最难的。</div>
-    <div mt-2 text="white/55">难点在把视觉检测变成可规划状态：建筑配方、传送带方向、管道连接、机械臂输入输出都要同时正确。</div>
+    <div text-xl>视觉只是入口，真正卡住的是计划和代码生成。</div>
+    <div mt-2 text="white/55">Factorio 要把配方、朝向、物流连接和执行顺序写成可运行的 Lua / RCON 动作；模型一旦少想一步，就不是“看错”，而是整段 plan 不能执行。</div>
   </div>
 </div>
 
@@ -480,10 +506,18 @@ glowSeed: 712
 clicks: 4
 ---
 
-<div text-4xl font-bold>Balatro: 新点的科技树</div>
-<div mt-2 text="white/50">把“看屏幕”拆成可训练、可验证、可点击的几层。</div>
+<div text-4xl font-bold>肉鸽游戏和强化学习很像吧... 那小丑牌！</div>
+<div mt-2 text="white/50">它不是纯游戏 API，而是半个 computer use：看屏幕、读 UI、再把动作落到鼠标点击。</div>
 
-<div class="stacked-flow" mt-10>
+<div class="balatro-note" mt-5>
+  <div i-carbon:idea />
+  <div>
+    <strong>最难的仍然是 Planning。</strong>
+    <span>Balatro 每一步都要在手牌、Joker、倍率、商店和未来回合之间取舍；视觉/OCR 能把状态读出来，但很难保证 LLM 能长期稳定地选出好策略。</span>
+  </div>
+</div>
+
+<div class="stacked-flow balatro-flow" mt-6>
   <div class="stack-row" :class="$clicks >= 1 ? 'is-visible' : ''">
     <div i-carbon:screen />
     <strong>Screen capture</strong>
@@ -506,6 +540,10 @@ clicks: 4
   </div>
 </div>
 
+<div class="slide-footnote">
+  Related context: UNO Arena uses UNO to evaluate LLM sequential decision-making; recent UNO-agent work also frames card games as planning under hidden information and cooperation.
+</div>
+
 ---
 layout: default
 class: px-12 py-8
@@ -516,25 +554,21 @@ clicks: 4
 <div text-4xl font-bold>为什么是这些游戏？</div>
 <div mt-2 text="white/50">它们分别卡住 Agent 的不同能力，不是随便挑的 demo。</div>
 
-<div class="game-difficulty-grid" mt-8>
+<div class="game-difficulty-grid title-icon-cards" mt-8>
   <div v-click class="difficulty-card">
-    <div i-carbon:cube text-green-300 />
-    <strong>Minecraft</strong>
+    <div class="difficulty-title"><strong>Minecraft</strong><div i-carbon:cube text-green-300 /></div>
     <span>开放世界、事件复杂、目标不明确；适合测试长期任务和具身交互。</span>
   </div>
   <div v-click class="difficulty-card">
-    <div i-carbon:industry text-amber-300 />
-    <strong>Factorio</strong>
+    <div class="difficulty-title"><strong>Factorio</strong><div i-carbon:industry text-amber-300 /></div>
     <span>配方、方向、物流网络；适合测试结构化 API 与空间规划。</span>
   </div>
   <div v-click class="difficulty-card">
-    <div i-carbon:game-console text-rose-300 />
-    <strong>Balatro</strong>
+    <div class="difficulty-title"><strong>Balatro</strong><div i-carbon:game-console text-rose-300 /></div>
     <span>屏幕可控、规则严密；适合测试视觉状态、OCR 和点击执行。</span>
   </div>
   <div v-click class="difficulty-card">
-    <div i-carbon:rocket text-zinc-200 />
-    <strong>Dome Keeper / KSP</strong>
+    <div class="difficulty-title"><strong>Dome Keeper / KSP</strong><div i-carbon:rocket text-zinc-200 /></div>
     <span>一个适合数据采集，一个适合 API-native tool loop；分别测试感知和工具编排。</span>
   </div>
 </div>
@@ -551,9 +585,9 @@ clicks: 4
     <div text-4xl font-bold>Dome Keeper</div>
     <div mt-3 text="white/55" text-lg>Factorio 太复杂，于是换一个更适合做视觉数据闭环的游戏。</div>
     <div mt-8 class="small-facts">
-      <div v-click><div i-carbon:screenshot /> Godot viewport screenshot every 0.5s</div>
-      <div v-click><div i-carbon:bounding-box /> labels from game object tree</div>
-      <div v-click><div i-carbon:data-set /> YOLO dataset + train/val/test split</div>
+      <div v-click><div i-carbon:screen /> Godot viewport screenshot every 0.5s</div>
+      <div v-click><div i-carbon:search-locate /> labels from game object tree</div>
+      <div v-click><div i-carbon:list-boxes /> YOLO dataset + train/val/test split</div>
       <div v-click><div i-carbon:warning-alt /> current repo is data-first, not live planner</div>
     </div>
   </div>
@@ -567,16 +601,17 @@ glowSeed: 714
 clicks: 4
 ---
 
-<div text-4xl font-bold>Dome Keeper: data-first vision pipeline</div>
+<div text-4xl font-bold>一边玩一边就可以打标哦～</div>
+<div mt-2 text="white/50">面向 YOLO 视觉通过 Mod API 自动标注 ground 的方案</div>
 
 <div class="pipeline-svg" mt-10>
   <div class="pipe-node" :class="$clicks >= 1 ? 'is-visible' : ''"><div i-carbon:game-console /> Game View</div>
   <div class="pipe-arrow" :class="$clicks >= 1 ? 'is-visible' : ''" />
   <div class="pipe-node" :class="$clicks >= 2 ? 'is-visible' : ''"><div i-carbon:code /> Godot Mod</div>
   <div class="pipe-arrow" :class="$clicks >= 2 ? 'is-visible' : ''" />
-  <div class="pipe-node" :class="$clicks >= 3 ? 'is-visible' : ''"><div i-carbon:screenshot /> Viewport + Labels</div>
+  <div class="pipe-node pipe-node-tall" :class="$clicks >= 3 ? 'is-visible' : ''"><div i-carbon:drop-photo /> Viewport + Labels</div>
   <div class="pipe-arrow" :class="$clicks >= 3 ? 'is-visible' : ''" />
-  <div class="pipe-node" :class="$clicks >= 4 ? 'is-visible' : ''"><div i-carbon:ibm-watson-machine-learning /> YOLO Train</div>
+  <div class="pipe-node" :class="$clicks >= 4 ? 'is-visible' : ''"><div i-carbon:tree-view-alt /> YOLO Train</div>
 </div>
 
 <div mt-8 text="white/60" text-lg leading-7 w-230>
@@ -590,8 +625,8 @@ glowSeed: 514
 clicks: 4
 ---
 
-<div text-4xl font-bold>airicraft: Fabric embodied client</div>
-<div mt-2 text="white/50">等视觉数据路线讲完，再回到 Minecraft：这次不是 Mineflayer bot，而是客户端里的具身运行时。</div>
+<div text-4xl font-bold>Minecraft 第二次尝试：原生客户端</div>
+<div mt-2 text="white/50">原本的问题我们都想解决，直接让 AI 角色能看到和持有一个游戏客户端如何？</div>
 
 <FabricOrbit :clicks="$clicks" />
 
@@ -621,11 +656,11 @@ glowSeed: 715
 layout: default
 class: px-12 py-8
 glowSeed: 716
-clicks: 4
+clicks: 3
 ---
 
-<div text-4xl font-bold>KSP: API-native tool loop</div>
-<div mt-2 text="white/50">它更像“游戏里的 MCP”：难点从视觉转移到工具编排、任务策略和长期控制。</div>
+<div text-4xl font-bold>都复杂规划了，那你可以规划「旅行者一号」吗？</div>
+<div mt-2 text="white/50">诶，事实上发射成功率不足 1%</div>
 
 <KspToolLoop :clicks="$clicks" />
 
