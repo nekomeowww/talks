@@ -46,59 +46,42 @@ Activity: https://luma.com/71bdapoj
 
 ---
 layout: intro
-class: px-20
-glowSeed: 128
+class: px-35
+glowSeed: 205
 ---
 
-<div flex flex-col h-full justify-center gap-8>
-  <div>
-    <div text-2xl font-semibold>Speakers</div>
-    <div text="white/50" mt-2>把 AIRI 的角色容器和游戏 Agent 的具体尝试放在同一条线上讲。</div>
-  </div>
-
-<div grid="~ cols-2" gap-12 items-stretch>
+<div flex>
   <div
-    h-full flex flex-col border="2 solid pink-500/25" rounded-xl bg="pink-500/8" backdrop-blur px-8 py-7
+    v-click="1" flex flex-col items-start transition duration-500 ease-in-out
+    :class="$clicks < 1 ? 'translate-x--20' : 'translate-x-0'"
   >
-    <div flex items-center gap-6>
-      <img src="/person/neko.jpeg" w-34 h-34 rounded-full object-cover>
+    <img src="/person/neko.jpeg" w-50 h-50 rounded-full object-cover mb-5>
+    <span font-semibold text-3xl>奶扣</span>
+    <div>
       <div>
-        <div text-2xl font-semibold>Neko</div>
-        <div text="pink-200/80" mt-2>Project AIRI / Moeru AI</div>
+        <span class="opacity-70">产品研发</span>
+      </div>
+      <div text-sm flex items-center gap-2 mt-4>
+        <div i-ri:github-fill /><span underline decoration-dashed font-mono decoration-zinc-300>nekomeowww</span>
       </div>
     </div>
-    <div mt-7 grid="~ cols-2" gap-3 text-sm>
-      <div flex items-center gap-2><div i-ri:github-fill /> nekomeowww</div>
-      <div flex items-center gap-2><img src="/proj-airi-logo.svg" size="5"> Project AIRI</div>
-      <div flex items-center gap-2><div i-logos:vue /> Vue / Frontend</div>
-      <div flex items-center gap-2><div i-devicon:kubernetes /> Infra / Kubernetes</div>
-    </div>
-    <div mt-6 text="white/60" text-sm leading-6>
-      负责 AIRI 的整体产品、工程架构和多模态体验探索；这次主要补充 AIRI 背景、Minecraft 方向和整体分层设想。
-    </div>
   </div>
-
+  <div flex-1 />
   <div
-    h-full flex flex-col border="2 solid cyan-500/25" rounded-xl bg="cyan-500/8" backdrop-blur px-8 py-7
+    v-click="2" flex flex-col items-end transition duration-500 ease-in-out
+    :class="$clicks < 2 ? 'translate-x-20' : 'translate-x-0'"
   >
-    <div flex items-center gap-6>
-      <img src="/person/neko.jpeg" w-34 h-34 rounded-full object-cover grayscale>
+    <img src="/person/lemon-neko.png" w-50 h-50 rounded-full object-cover mb-5>
+    <span font-semibold text-3xl>Lemon Neko</span>
+    <div flex-col items-end>
       <div>
-        <div text-2xl font-semibold>LemonNeko</div>
-        <div text="cyan-200/80" mt-2>Game Agent Experiments</div>
+        <span class="opacity-70">核心游戏引擎、游戏链路研发</span>
+      </div>
+      <div text-sm flex items-center justify-end gap-2 mt-4>
+        <div i-ri:github-fill /><span underline decoration-dashed font-mono decoration-zinc-300>LemonNekoGH</span>
       </div>
     </div>
-    <div mt-7 grid="~ cols-2" gap-3 text-sm>
-      <div flex items-center gap-2><div i-carbon:game-console /> Games</div>
-      <div flex items-center gap-2><div i-carbon:tools /> Tools / Mods</div>
-      <div flex items-center gap-2><div i-carbon:view /> Vision</div>
-      <div flex items-center gap-2><div i-carbon:flow /> Agent loops</div>
-    </div>
-    <div mt-6 text="white/60" text-sm leading-6>
-      负责多款游戏 Agent 的具体尝试；这页头像暂用 Neko 的占位图，后续替换 LemonNeko 的照片。
-    </div>
   </div>
-</div>
 </div>
 
 <!--
@@ -142,10 +125,11 @@ glowSeed: 203
     <div
       relative
       class="[&_.qr]:hover:opacity-100 [&_.img]:hover:opacity-50 hover:cursor-pointer hover:grayscale-100"
-      rounded-lg overflow-hidden h-fit
+      rounded-lg overflow-hidden bg="black" h-fit
       transition="all duration-250 ease-in-out"
     >
-      <div w-120 h-60 bg-neutral-500 opacity-30 backdrop-blur border="neutral-100 2 solid" rounded-lg />
+      <img src="/session-4.gif" class="img" opacity-100 transition="all duration-250 ease-in-out">
+      <img src="/session-4-qr.png" class="qr" w-60 absolute top-0 left="0" translate-x="[40%]" opacity-0 transition="all duration-250 ease-in-out">
     </div>
   </div>
 </div>
