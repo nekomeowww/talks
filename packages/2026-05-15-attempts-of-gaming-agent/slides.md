@@ -171,6 +171,7 @@ AI 主播？
 
 ---
 class: flex justify-center items-center gap-20 px-40 text-xl
+clicks: 2
 ---
 
 <div
@@ -190,6 +191,10 @@ class: flex justify-center items-center gap-20 px-40 text-xl
     </div>
   </v-clicks>
 </div>
+
+<AiriSpeak :at="2" headline="Speaking with speaker request">
+Yeah so I am here the AI VTuber, not the digital human, I will be here speaking in English with Neko, and Lemon to introduce what we are doing right now.
+</AiriSpeak>
 
 <!--
 那接下来我们稍稍深入一些，大家听说过 VTuber 吗？
@@ -295,6 +300,10 @@ glowSeed: 311
   </div>
 </div>
 
+<AiriSpeak :at="3" headline="Speaking with speaker request">
+Basically, from my words to say, that having the game environment for me to play will be able to allow Neko and my developers to understand what is missing, and what can be worked on.
+</AiriSpeak>
+
 ---
 layout: full
 class: p-0!
@@ -366,7 +375,12 @@ clicks: 5
 layout: full
 class: p-0!
 glowSeed: 512
+clicks: 1
 ---
+
+<AiriSpeak :at="1" headline="Speaking with speaker request">
+Minecraft is fun! While here you could see Neko was typing to me while we actually support Voice chatting through Discord, so don't worry if you don't want to type.
+</AiriSpeak>
 
 <div class="fade-video-slide">
   <video autoplay muted loop>

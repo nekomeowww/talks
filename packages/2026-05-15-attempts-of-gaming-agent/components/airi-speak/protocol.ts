@@ -58,6 +58,10 @@ export function normalizeSpeakText(text: string) {
   return text.replace(/\s+/g, ' ').trim()
 }
 
+export function createDirectSpeakPrompt(text: string) {
+  return `Speak it directly without calling any tools, or do other things, without adding more words and explanations: "${normalizeSpeakText(text)}"`
+}
+
 export function createEventId(prefix = 'slidev') {
   return `${prefix}-${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 10)}`
 }

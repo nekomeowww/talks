@@ -3,10 +3,10 @@ import type { VNode, VNodeArrayChildren } from 'vue'
 import type { SparkNotifyEventData } from './airi-speak/protocol'
 
 import { onSlideLeave, useIsSlideActive, useNav, useSlideContext } from '@slidev/client'
-import { computed, shallowRef, useSlots, watch } from 'vue'
+import { computed, inject, shallowRef, useSlots, watch } from 'vue'
 
-import { sendAiriSparkNotify } from './airi-speak/client'
-import { normalizeSpeakText } from './airi-speak/protocol'
+import { airiSpeakClientKey, defaultAiriSpeakClient } from './airi-speak/client'
+import { createDirectSpeakPrompt, normalizeSpeakText } from './airi-speak/protocol'
 
 const props = withDefaults(defineProps<{
   at?: number
@@ -23,6 +23,7 @@ const props = withDefaults(defineProps<{
   sourceInstanceId?: string
   cueId?: string
   context?: 'slide' | 'presenter' | 'both'
+  directSpeak?: boolean
   debug?: boolean
 }>(), {
   at: 0,
@@ -32,12 +33,14 @@ const props = withDefaults(defineProps<{
   replayOnReenter: false,
   sourceId: 'slidev-airi-speaker',
   context: 'slide',
+  directSpeak: true,
 })
 
 const slots = useSlots()
 const isActive = useIsSlideActive()
 const nav = useNav()
 const { $clicks, $page, $renderContext } = useSlideContext()
+const airiClient = inject(airiSpeakClientKey, defaultAiriSpeakClient)
 const hasTriggered = shallowRef(false)
 const errorMessage = shallowRef('')
 
@@ -71,7 +74,13 @@ function textFromVNode(node: VNode): string {
   return ''
 }
 
-const speakText = computed(() => normalizeSpeakText(textFromChildren(slots.default?.())))
+const rawSpeakText = computed(() => normalizeSpeakText(textFromChildren(slots.default?.())))
+const speakText = computed(() => {
+  if (!rawSpeakText.value)
+    return ''
+
+  return props.directSpeak ? createDirectSpeakPrompt(rawSpeakText.value) : rawSpeakText.value
+})
 
 function hashCueKey(value: string) {
   let hash = 5381
@@ -147,7 +156,7 @@ async function triggerSpeak() {
   errorMessage.value = ''
 
   try {
-    await sendAiriSparkNotify({
+    await airiClient.sendSparkNotify({
       text: speakText.value,
       url: props.url,
       token: props.token,

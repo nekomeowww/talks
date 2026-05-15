@@ -2,10 +2,17 @@
 import assert from 'node:assert/strict'
 import test from 'node:test'
 
-import { createSparkNotifyEvent, normalizeSpeakText, parseAiriEventMessage } from './protocol'
+import { createDirectSpeakPrompt, createSparkNotifyEvent, normalizeSpeakText, parseAiriEventMessage } from './protocol'
 
 test('normalizes component text content before sending it to AIRI', () => {
   assert.equal(normalizeSpeakText('\n  AIRI, say this line.\n\n'), 'AIRI, say this line.')
+})
+
+test('wraps cue text with a direct speaking instruction', () => {
+  assert.equal(
+    createDirectSpeakPrompt('Yeah, so I am here.'),
+    'You can follow my words, and speak it directly without calling any tools, or do other things: "Yeah, so I am here."',
+  )
 })
 
 test('uses component text as the spark notify note payload', () => {

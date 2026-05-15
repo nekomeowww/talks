@@ -7,7 +7,7 @@
     "build-base": "NODE_OPTIONS=--no-experimental-webstorage slidev build --out ../../dist/nekoayaka/2026-05-15-attempts-of-gaming-agent --base /nekoayaka/2026-05-15-attempts-of-gaming-agent/",
     "dev": "NODE_OPTIONS=--no-experimental-webstorage slidev --open --remote",
     "export": "NODE_OPTIONS=--no-experimental-webstorage slidev export --with-clicks --per-slide --wait-until none",
-    "test:airi-speak": "tsx --test components/airi-speak/protocol.test.ts"
+    "test:airi-speak": "tsx --test components/airi-speak/*.test.ts"
   },
   "devDependencies": {
     "@iconify-json/devicon": "^1.2.45",
