@@ -599,7 +599,13 @@ glowSeed: 711
 layout: full
 class: p-0!
 glowSeed: 711
+clicks: 1
 ---
+
+<AiriSpeak :at="1" headline="Speaking with speaker request">
+Thanks Lemon for sharing Factorio, for my perspective, I feel that Factorio might be next famous game that academics and papers will research on as Factorio clearly implies
+both the complexity of the real-time strategy, planning and designing, and trace down complex GUI elements through vision.
+</AiriSpeak>
 
 <div class="fade-video-slide">
   <video autoplay muted loop>
@@ -624,6 +630,10 @@ class: px-12 py-8
 glowSeed: 712
 clicks: 4
 ---
+
+<AiriSpeak :at="0" headline="Speaking with speaker request">
+The most interesting part of rogue-like games, is that they are purely random while strategic! Anyway, back to Neko.
+</AiriSpeak>
 
 <div text-4xl font-bold>肉鸽游戏和强化学习很像吧... 那小丑牌！</div>
 <div mt-2 text="white/50">它不是纯游戏 API，而是半个 computer use：看屏幕、读 UI、再把动作落到鼠标点击。</div>
@@ -733,10 +743,6 @@ clicks: 4
   <div class="pipe-node" :class="$clicks >= 4 ? 'is-visible' : ''"><div i-carbon:tree-view-alt /> YOLO Train</div>
 </div>
 
-<div mt-8 text="white/60" text-lg leading-7 w-230>
-  这条线先把“看见游戏”做成可训练的数据集。Live 推理、LLM planner、键鼠输入执行在当前代码里还没有实装证据。
-</div>
-
 ---
 layout: full
 class: p-0!
@@ -767,9 +773,9 @@ clicks: 4
 
 <FabricOrbit :clicks="$clicks" />
 
-<div mt-8 text-xs text="white/38">
-  TODO: no evidence of general mining/crafting/combat actions in inspected airicraft files.
-</div>
+<AiriSpeak :at="1" headline="Speaking with speaker request">
+Comparing to the previous implementation where I must read and filter events intelligently, with native Minecraft client, I can now discover many things in block and voxel level. **whisper** Neko struggled in writing Java code for the mod, we might wish to have better approach for this in the future.
+</AiriSpeak>
 
 ---
 layout: full
@@ -795,6 +801,10 @@ class: px-12 py-8
 glowSeed: 716
 clicks: 3
 ---
+
+<AiriSpeak :at="1" headline="Speaking with speaker request">
+Kerbal Space Program, or KSP, also jammed me quite a while, where it's hard to calculate orbits, and understand properties of planets.
+</AiriSpeak>
 
 <div text-4xl font-bold>都复杂规划了，那你可以规划「旅行者一号」吗？</div>
 <div mt-2 text="white/50">诶，事实上发射成功率不足 1%</div>
@@ -855,14 +865,14 @@ clicks: 3
   <div v-click class="reason-block blue">
     <div class="reason-head"><div i-carbon:sysplex-distributor /> <em>Unreachable state</em></div>
     <div>
-      很多关键状态没有直接 API：手牌效果、空间关系、路线阻塞、下一步会触发什么，只能靠观察和推断。
+      很显然我们永远无法枚举所有的游戏状态，也许基于 Latent Space 的模型会很 promising
       <div class="reason-tags"><span>Hidden state</span><span>Partial observation</span><span>Temporal context</span></div>
     </div>
   </div>
   <div v-click class="reason-block cyan">
     <div class="reason-head"><div i-carbon:name-space /> <em>Missing control layer</em></div>
     <div>
-      LLM 决策很慢，游戏执行很快；需要一个介于“会想”和“会按键”之间的控制层。
+      LLM 决策很慢，游戏执行很快；我们能不能有一个介于「会想」和「会按键」之间的原生模型呢？
       <div class="reason-tags"><span>Timing</span><span>Action model</span><span>Recovery loop</span></div>
     </div>
   </div>
