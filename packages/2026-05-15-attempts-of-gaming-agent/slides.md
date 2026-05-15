@@ -597,6 +597,42 @@ glowSeed: 711
 
 <div class="fade-video-slide">
   <video autoplay muted loop>
+    <source src="/airi-factorio-auto-labeling.mp4" />
+  </video>
+  <div class="fade-heading">
+    <div flex items-center gap-3 text-2xl font-semibold>
+      <div i-carbon:game-console /> Factorio YOLO
+    </div>
+    <div mt-3>在 VSCode 里写脚本来自动标注游戏内物品</div>
+  </div>
+</div>
+
+---
+layout: full
+class: p-0!
+glowSeed: 711
+---
+
+<div class="fade-video-slide">
+  <video autoplay muted loop>
+    <source src="/airi-factorio-yolo-v0-playground-vnc.mp4" />
+  </video>
+  <div class="fade-heading text-shadow-none!">
+    <div class="text-neutral-900" flex items-center gap-3 text-2xl font-semibold>
+      <div i-carbon:game-console /> Factorio YOLO Playground
+    </div>
+    <div mt-3 text="neutral-800 text-shadow-none!">在网页中实时推理得到边界框</div>
+  </div>
+</div>
+
+---
+layout: full
+class: p-0!
+glowSeed: 711
+---
+
+<div class="fade-video-slide">
+  <video autoplay muted loop>
     <source src="/airi-plays-balatro.mp4" />
   </video>
   <div class="fade-heading">
