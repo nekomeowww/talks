@@ -529,49 +529,19 @@ clicks: 3
     <div class="tech-node active">
       <div i-carbon:api />
       <strong>mod API</strong>
-      <span>先拿到物品和碰撞箱</span>
+      <span>先拿到游戏内的物品和碰撞箱</span>
     </div>
     <div class="tech-branch" :class="$clicks >= 1 ? 'is-visible' : ''" />
     <div class="tech-node" :class="$clicks >= 1 ? 'is-visible' : ''">
-      <div i-carbon:screenshot />
+      <div i-carbon:screen />
       <strong>screenshot</strong>
       <span>游戏内 API 直接输出图片</span>
     </div>
     <div class="tech-branch" :class="$clicks >= 2 ? 'is-visible' : ''" />
     <div class="tech-node" :class="$clicks >= 2 ? 'is-visible' : ''">
-      <div i-carbon:bounding-box />
+      <div i-carbon:image />
       <strong>YOLO dataset</strong>
       <span>边界框 + 图片 + data.yaml</span>
-    </div>
-    <div class="tech-branch danger" :class="$clicks >= 3 ? 'is-visible' : ''" />
-    <div class="tech-node danger" :class="$clicks >= 3 ? 'is-visible' : ''">
-      <div i-carbon:warning-alt />
-      <strong>state explosion</strong>
-      <span>配方、方向、连接规则全部压过来</span>
-    </div>
-  </div>
-
-  <div class="vision-state-chart" :class="$clicks >= 3 ? 'is-visible' : ''">
-    <div class="vision-chart-title">
-      <span>From detection to executable state</span>
-      <strong>难点在 planning 和 code generation</strong>
-    </div>
-    <div class="vision-bars">
-      <div style="--bar: 10px">
-        <span>objects</span>
-      </div>
-      <div style="--bar: 16px">
-        <span>recipes</span>
-      </div>
-      <div style="--bar: 24px">
-        <span>topology</span>
-      </div>
-      <div style="--bar: 34px">
-        <span>actions</span>
-      </div>
-      <div class="danger" style="--bar: 44px">
-        <span>Lua code</span>
-      </div>
     </div>
   </div>
 </div>
