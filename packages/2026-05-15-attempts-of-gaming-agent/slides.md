@@ -32,10 +32,6 @@ Minecraft, Factorio, Balatro, Dome Keeper, KSP, and AIRI
   <span>Neko / LemonNeko</span>
 </div>
 
-<AiriSpeak :at="0" headline="Opening cue">
-欢迎来到 Attempts of Gaming Agent。今天我们会从 AIRI 的角色容器出发，聊聊这些游戏 Agent 尝试到底教会了我们什么。
-</AiriSpeak>
-
 </div>
 
 <img src="/airi-logo-grayscaled-light-2.svg" class="w-170 opacity-25" absolute right="[-30%]" bottom="[-210%]">
@@ -447,6 +443,10 @@ clicks: 5
     </div>
   </div>
 </div>
+
+<AiriSpeak :at="5" headline="Speaking with speaker request">
+While this did work, but I worried that Neko and Rin, the developer who developed the Minecraft integration, will spend too much time debugging it, so we eventually removed it.
+</AiriSpeak>
 
 <div mt-4 class="learning-card compact note-card" :class="$clicks >= 5 ? 'is-visible' : ''">
   <div text-xs uppercase tracking-wider text="orange-300/80">The Silent Killer</div>
