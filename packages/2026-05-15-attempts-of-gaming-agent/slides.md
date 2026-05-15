@@ -619,6 +619,24 @@ clicks: 4
 </div>
 
 ---
+layout: full
+class: p-0!
+glowSeed: 612
+---
+
+<div class="fade-video-slide">
+  <video autoplay muted loop>
+    <source src="/airi-demo-airicraft.mp4" />
+  </video>
+  <div class="fade-heading">
+    <div flex items-center gap-3 text-2xl font-semibold>
+      <div i-carbon:cube /> Minecraft
+    </div>
+    <div mt-3 text="white/82">原生客户端：让 AI 角色直接看见并持有一个 Minecraft 游戏客户端。</div>
+  </div>
+</div>
+
+---
 layout: default
 class: px-12 py-8
 glowSeed: 514
@@ -772,20 +790,61 @@ clicks: 4
 </div>
 
 ---
-layout: center
-class: text-center
-glowSeed: 999
+class: py-10
+glowSeed: 1298
 ---
 
-# TODO before final version
+# 感兴趣吗？
 
-<div mt-8 text-left mx-auto w-180 text="white/65" leading-8>
+虽然是开源项目，但是也欢迎感兴趣的设计师，产品经理，工程师们一起去实现这可能的生命形态
 
-- Replace LemonNeko avatar and tighten speaker bio.
-- Fill each repo page with code-derived architecture details and speaker notes.
-- Add the third Minecraft iteration / visual Minecraft page once the `airi-minecraft` source path is confirmed.
-- Expand Factorio prompt / code-as-policy explanation from the Lark planning doc.
-- Add final QR / links after public URLs are known.
-- Replace placeholder slides with screenshots or diagrams where useful.
+<div flex>
+  <div text-sm text="zinc-300" text-right flex flex-row gap-2 mt-6 translate-x-2>
+    <div flex items-center flex-col font-bold text-xl>
+      <img src="/github_qr.png" w-70 />
+      <div translate-y--4>GitHub</div>
+    </div>
+    <div flex items-center flex-col font-bold text-xl>
+      <img src="/discord_qr.png" w-70 style="filter: brightness(1.5);" />
+      <div translate-y--4>Discord</div>
+    </div>
+    <div flex items-center flex-col font-bold text-xl>
+      <img src="/telegram_qr.png" w-70 style="filter: brightness(1.5);" />
+      <div translate-y--4>Telegram</div>
+    </div>
+  </div>
+</div>
 
+---
+title: Thank you
+class: py-10
+glowSeed: 230
+---
+
+<div flex>
+  <div flex-1>
+    <div mt-50 />
+    <div flex flex-col gap-4 translate="y--52" h-full>
+      <div flex flex-col translate="y-4" flex-1>
+        <div text="[48px]">
+          谢谢
+        </div>
+        <div text="white/50">
+          Thank you
+        </div>
+      </div>
+      <img src="/relu-art-6.gif" size-50 rounded-2xl overflow-hidden translate-y--20>
+    </div>
+  </div>
+  <div text-lg text="zinc-300" text-right flex flex-col gap-3 mt-3>
+    <div>
+      演示文稿开源在 <a href="https://github.com/nekomeowww/talks"><div inline-block mr-1 translate-y-0.8 i-ri:github-fill />github.com/nekomeowww/talks</a>
+    </div>
+    <div>
+      演示文稿使用 <a href="https://sli.dev"><div inline-block mr-1 translate-y-0.8 i-logos:slidev />sli.dev</a> 构建
+    </div>
+    <div self-end mt-16 translate-x-14 translate-y--9>
+      <img src="/slide_qr.png" w-100 />
+    </div>
+  </div>
 </div>
