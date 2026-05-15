@@ -59,7 +59,7 @@ glowSeed: 205
     <span font-semibold text-3xl>奶扣</span>
     <div>
       <div>
-        <span class="opacity-70">产品研发</span>
+        <span class="opacity-70">记忆、Agent 和产品研发</span>
       </div>
       <div text-sm flex items-center gap-2 mt-4>
         <div i-ri:github-fill /><span underline decoration-dashed font-mono decoration-zinc-300>nekomeowww</span>
@@ -135,6 +135,121 @@ glowSeed: 203
 </div>
 
 ---
+class: flex justify-center items-center gap-20 px-40 text-xl
+---
+
+<div
+  absolute text-6xl
+  :class="$clicks < 1 ? 'text-white' : 'translate-y--18 scale-40 text-white/30'"
+  transition duration-500 ease-in-out
+>
+  <span>AI 主播？</span>
+</div>
+
+<div flex flex-col items-center>
+  <v-clicks>
+    <div mt-4>
+      <h1 flex items-center text="5xl!">
+        <span>就是带货的那种数字人对吗？</span>
+      </h1>
+    </div>
+  </v-clicks>
+</div>
+
+<!--
+好，回到正题哈。
+
+AI 主播？
+啥叫 AI 主播？
+
+[click]
+
+可能很多人想的就是数字人，24 小时直播带货的那种数字人。那我这次要介绍的是那种数字人吗？
+
+实际上不是。
+-->
+
+---
+class: flex justify-center items-center gap-20 px-40 text-xl
+---
+
+<div
+  absolute text-6xl
+  :class="$clicks < 1 ? 'text-white' : 'translate-y--18 scale-40 text-white/30'"
+  transition duration-500 ease-in-out
+>
+  <span>听说过 VTuber 吗？</span>
+</div>
+
+<div flex flex-col items-center>
+  <v-clicks>
+    <div mt-4>
+      <h1 flex items-center text="5xl!">
+        <span>那听说过 AI VTuber 吗？</span>
+      </h1>
+    </div>
+  </v-clicks>
+</div>
+
+<!--
+那接下来我们稍稍深入一些，大家听说过 VTuber 吗？
+
+[click]
+
+如果听过还看过的话，有听说过 AI VTuber 吗？
+
+我猜很多人应该都是没有听过或者看到过的，这个受众群体应该说是既小众也不小众，它稍微有点吃粉丝经济，但是又和普通的偶像或者明星有很大差距。
+
+感兴趣的话可以细聊！这里时间不多我就不太深入！
+-->
+
+---
+class: py-0! px-0!
+clicks: 1
+---
+
+<div>
+  <div
+    w-full h-full bg="black/15" absolute backdrop-blur-sm z-100
+    :class="[$clicks < 1 ? 'opacity-0' : 'opacity-100']"
+    transition duration-1200 ease-in-out
+  >
+  </div>
+  <img
+    :class="[$clicks < 1 ? '' : 'blur-lg scale-120']"
+    src="/Neuro-sama_v2_character_sheet.webp"
+    transition duration-1200 ease-in-out
+  >
+  <div
+    :class="$clicks < 1 ? 'opacity-0' : 'opacity-100'"
+    absolute inset-0 translate="x-68 y-50" w-fit h-fit
+    transition duration-500 ease-in-out z-101
+  >
+    <div
+      text="20" font-cuteen text-rose-400
+      style="-webkit-text-stroke: 6px #ffeef7; paint-order: stroke;"
+      flex flex-col items-center
+    >
+      Neurosama
+    </div>
+    <div flex gap-4 rounded-lg bg="white/50" text="black/70" backdrop-blur-sm px-2 py-1>
+      <div flex items-center gap-2>
+        <div i-logos:youtube-icon text-2xl />
+        <div>90.2 万订阅</div>
+      </div>
+      <div flex items-center gap-2>
+        <div i-logos:twitch text-2xl />
+        <div>超过 100 万订阅</div>
+      </div>
+      <div flex items-center gap-2>
+        <div i-simple-icons:bilibili text-cyan text-2xl />
+        <div>109.1万粉丝</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+---
 class: py-10 text-center
 glowSeed: 91
 ---
@@ -144,7 +259,7 @@ Project AIRI
 </h1>
 
 <div text-xl text="white/70">
-从“想要一个能一起玩的 AI 伙伴”开始，到尝试给角色接入真实的游戏世界。
+从「想要一个能一起玩的 AI 伙伴」开始，到尝试给角色接入真实的游戏世界。
 </div>
 
 <img src="/airi-screenshot-2.png" w-full rounded-xl mt-8 />
