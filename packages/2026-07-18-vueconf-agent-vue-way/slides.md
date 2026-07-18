@@ -53,7 +53,7 @@ clicks: 2
 
 <div :class="['grid grid-cols-2 gap-28 items-start']">
   <article v-click :class="['flex flex-col items-center text-center']">
-    <img :src="'/avatar-nekomeowww.png'" alt="Neko" :class="['w-50 h-50 mb-4 object-cover rounded-full']" />
+    <img src="/avatar-nekomeowww.png" alt="Neko" :class="['w-50 h-50 mb-4 object-cover rounded-full']" />
     <h2 :class="['m-0 text-white text-3xl leading-tight tracking-0']">Neko</h2>
     <div :class="['mt-2 text-white/68 text-sm']">LobeHub 开源工程师</div>
     <div
@@ -67,7 +67,7 @@ clicks: 2
   </article>
 
   <article v-click :class="['flex flex-col items-center text-center']">
-    <img :src="'/avatar-luoling8192.png'" alt="RainbowBird 洛灵" :class="['w-50 h-50 mb-4 object-cover rounded-full']" />
+    <img src="/avatar-luoling8192.png" alt="RainbowBird 洛灵" :class="['w-50 h-50 mb-4 object-cover rounded-full']" />
     <h2 :class="['m-0 text-white text-3xl leading-tight tracking-0']">RainbowBird 洛灵</h2>
     <div :class="['mt-2 text-white/68 text-sm']">AIRI 核心成员</div>
     <div
@@ -95,19 +95,51 @@ glowSeed: 203
 <!-- slide:A3 -->
 
 <div class="grid grid-cols-2 gap-4">
-  <div
-    v-for="index in 4"
-    :key="index"
-    class="group relative h-51 overflow-hidden rounded-xl bg-black"
-  >
+  <div class="group relative h-51 overflow-hidden rounded-xl bg-black">
     <img
-      :src="`/previous-talks/session-${index}.png`"
-      :alt="`Neko 的过往演讲 ${index}`"
+      src="/previous-talks/session-1.png"
+      alt="Neko 的过往演讲 1"
       class="h-full w-full object-cover transition duration-250 group-hover:opacity-45 group-hover:grayscale"
     />
     <img
-      :src="`/previous-talks/session-${index}-qr.png`"
-      :alt="`过往演讲 ${index} 的二维码`"
+      src="/previous-talks/session-1-qr.png"
+      alt="过往演讲 1 的二维码"
+      class="absolute left-1/2 top-1/2 h-36 w-36 -translate-x-1/2 -translate-y-1/2 opacity-0 transition duration-250 group-hover:opacity-100"
+    />
+  </div>
+  <div class="group relative h-51 overflow-hidden rounded-xl bg-black">
+    <img
+      src="/previous-talks/session-2.png"
+      alt="Neko 的过往演讲 2"
+      class="h-full w-full object-cover transition duration-250 group-hover:opacity-45 group-hover:grayscale"
+    />
+    <img
+      src="/previous-talks/session-2-qr.png"
+      alt="过往演讲 2 的二维码"
+      class="absolute left-1/2 top-1/2 h-36 w-36 -translate-x-1/2 -translate-y-1/2 opacity-0 transition duration-250 group-hover:opacity-100"
+    />
+  </div>
+  <div class="group relative h-51 overflow-hidden rounded-xl bg-black">
+    <img
+      src="/previous-talks/session-3.png"
+      alt="Neko 的过往演讲 3"
+      class="h-full w-full object-cover transition duration-250 group-hover:opacity-45 group-hover:grayscale"
+    />
+    <img
+      src="/previous-talks/session-3-qr.png"
+      alt="过往演讲 3 的二维码"
+      class="absolute left-1/2 top-1/2 h-36 w-36 -translate-x-1/2 -translate-y-1/2 opacity-0 transition duration-250 group-hover:opacity-100"
+    />
+  </div>
+  <div class="group relative h-51 overflow-hidden rounded-xl bg-black">
+    <img
+      src="/previous-talks/session-4.png"
+      alt="Neko 的过往演讲 4"
+      class="h-full w-full object-cover transition duration-250 group-hover:opacity-45 group-hover:grayscale"
+    />
+    <img
+      src="/previous-talks/session-4-qr.png"
+      alt="过往演讲 4 的二维码"
       class="absolute left-1/2 top-1/2 h-36 w-36 -translate-x-1/2 -translate-y-1/2 opacity-0 transition duration-250 group-hover:opacity-100"
     />
   </div>
@@ -128,7 +160,7 @@ glowSeed: 318
 
 <div class="mb-5 text-white/62">尝试重现 Neuro-sama：装载 AI 角色灵魂的开源容器</div>
 
-<img :src="'/airi/airi-screenshot-2.png'" alt="Project AIRI 项目主页" class="mx-auto w-[48rem] rounded-xl" />
+<img src="/airi/airi-screenshot-2.png" alt="Project AIRI 项目主页" class="mx-auto w-[48rem] rounded-xl" />
 
 <!--
 [Neko] Project AIRI 是一个开源的 AI 虚拟伙伴项目。它不只是回答问题，而是有角色、有实时语音、能调用工具，还能进到游戏和虚拟世界里。
@@ -142,8 +174,8 @@ glow: center
 
 <h1 class="font-rounded">Project AIRI</h1>
 
-<img :src="'/airi/airi-github-qr.png'" alt="Project AIRI GitHub 二维码" class="absolute bottom-7 left-9 z-1 w-38 rounded-lg" />
-<img :src="'/airi/airi-screenshot-1.png'" alt="Project AIRI 开发界面" class="mx-auto mt-5 w-[48rem] rounded-xl" />
+<img src="/airi/airi-github-qr.png" alt="Project AIRI GitHub 二维码" class="absolute bottom-7 left-9 z-1 w-38 rounded-lg" />
+<img src="/airi/airi-screenshot-1.png" alt="Project AIRI 开发界面" class="mx-auto mt-5 w-[48rem] rounded-xl" />
 
 <!--
 [Neko] AIRI 的代码、桌面端和角色运行环境都在 GitHub 上开源了。现在它已经可以实时对话，也能进入 Minecraft、Factorio 这类游戏里。今天我们要聊的 Context 怎么组织、Benchmark 怎么做，其实都是从这种真实项目里遇到的问题。
@@ -225,7 +257,7 @@ glow: bottom
 
 <div class="grid grid-cols-2 gap-4 h-[calc(100%-5.25rem)]">
   <div ma flex="~ col gap-2 items-center">
-    <img :src="'/ce-anthropic-2.png'" alt="Anthropic 的 Agent Context 构成示意图" w-80 rounded-xl />
+    <img src="/ce-anthropic-2.png" alt="Anthropic 的 Agent Context 构成示意图" w-80 rounded-xl />
   </div>
   <div border="l main" h-full py5 flex="~ col gap-6 justify-center">
     <div flex="~ gap-2" relative v-click>
@@ -365,7 +397,7 @@ transition duration-500 ease-in-out>
 <div mt-20>
 
 <h1 flex items-center text="6xl!">
-  <img :src="'/ecosystem/velin-logo.svg'" alt="Velin logo" class="mr-4 h-18 w-18" />
+  <img src="/ecosystem/velin-logo.svg" alt="Velin logo" class="mr-4 h-18 w-18" />
   <span>Velin</span>
 </h1>
 
@@ -568,7 +600,7 @@ clicks: 3
 <div class="text-sm opacity-50 pb-3">左侧编写组件，中间预览结果，右侧调整 Props。</div>
 
 <div class="relative">
-  <img :src="'/velin-playground-crop.png'" alt="Velin Playground 的源码、Prompt 与 Props 三栏界面" class="rounded-lg" />
+  <img src="/velin-playground-crop.png" alt="Velin Playground 的源码、Prompt 与 Props 三栏界面" class="rounded-lg" />
   <div v-mark="{ at: 1, type: 'box', color: '#60a5fa' }" class="absolute left-[4.8%] top-[2.5%] h-[96%] w-[36.5%]">
     <span v-click="1" class="absolute left-2 top-2 rounded-xl bg-blue-500/50 px-3 py-1 text-xs">source</span>
   </div>
@@ -902,21 +934,21 @@ clicks: 7
   <div class="relative min-h-0">
     <img
       v-click="1"
-      :src="'/benchmarks/qwen3.5-397b-a17b-benchmarks.png'"
+      src="/benchmarks/qwen3.5-397b-a17b-benchmarks.png"
       alt="Qwen3.5 模型卡中的 Benchmark 表格"
       class="absolute inset-0 m-auto max-h-82 max-w-full shadow-xl transition-all duration-400 rounded-xl"
       :class="$clicks > 1 ? 'scale-95 -translate-x-4 opacity-25' : 'opacity-100'"
     >
     <img
       v-click="2"
-      :src="'/benchmarks/seed2.0-model-card-benchmarks.png'"
+      src="/benchmarks/seed2.0-model-card-benchmarks.png"
       alt="Seed2.0 模型卡中的 Benchmark 表格"
       class="absolute inset-0 m-auto max-h-82 max-w-full shadow-xl transition-all duration-400 rounded-xl"
       :class="$clicks > 2 ? 'scale-97 translate-x-3 opacity-30' : 'opacity-100'"
     >
     <img
       v-click="3"
-      :src="'/benchmarks/deepseek-v3.2-report-benchmarks.png'"
+      src="/benchmarks/deepseek-v3.2-report-benchmarks.png"
       alt="DeepSeek-V3.2 技术报告中的 Benchmark 表格"
       class="absolute inset-0 m-auto max-h-82 max-w-full shadow-xl rounded-xl"
     >
@@ -999,7 +1031,7 @@ clicks: 6
 <div class="mt-10 grid grid-cols-[24rem_1fr] gap-12">
   <div v-click="1">
     <img
-      :src="'/mcpmark/mcpmark-overview.png'"
+      src="/mcpmark/mcpmark-overview.png"
       alt="MCPMark 项目概览"
       class="w-full rounded-xl"
     >
@@ -1132,7 +1164,7 @@ transition duration-500 ease-in-out>
 <div mt-20>
 
 <h1 flex items-center text="6xl!">
-  <img :src="'/ecosystem/vieval-logo.svg'" alt="Vieval logo" class="mr-4 h-18 w-18" />
+  <img src="/ecosystem/vieval-logo.svg" alt="Vieval logo" class="mr-4 h-18 w-18" />
   <span font-vieval>Vieval</span>
 </h1>
 
@@ -1933,7 +1965,7 @@ clicks: 1
 <div class="mt-22 w-full flex items-center gap-4">
   <div class="flex flex-col items-center justify-center gap-3 flex-1">
     <h1 flex items-center gap-3>
-      <img :src="'/ecosystem/velin-logo.svg'" alt="Velin logo" class="size-20" />
+      <img src="/ecosystem/velin-logo.svg" alt="Velin logo" class="size-20" />
       <span class="text-4xl font-bold">Velin</span>
     </h1>
     <div class="text-lg text-white/65 w-60 text-center">像 Vue 组件一样编写、组合和复用 Context</div>
@@ -1943,7 +1975,7 @@ clicks: 1
 
   <div class="flex flex-col items-center justify-center gap-3 flex-1">
     <h1 flex items-center gap-3>
-      <img :src="'/ecosystem/vieval-logo.svg'" alt="Vieval logo" class="size-20" />
+      <img src="/ecosystem/vieval-logo.svg" alt="Vieval logo" class="size-20" />
       <span class="text-4xl font-vieval font-light">Vieval</span>
     </h1>
     <div class="text-lg text-white/65 w-60 text-center">像 Vitest 测试一样编写、组合和复用 Benchmark</div>
@@ -1988,15 +2020,15 @@ glowSeed: 1298
 <div flex>
   <div text-sm text="zinc-300" text-right flex flex-row gap-2 mt-6 translate-x-2>
     <div flex items-center flex-col font-bold text-xl>
-      <img :src="'/qr-moeru-ai-velin.svg'" w-70 />
+      <img src="/qr-moeru-ai-velin.svg" w-70 />
       <div translate-y--4>Velin</div>
     </div>
     <div flex items-center flex-col font-bold text-xl>
-      <img :src="'/qr-vieval-dev-vieval.svg'" w-70 />
+      <img src="/qr-vieval-dev-vieval.svg" w-70 />
       <div translate-y--4>Vieval</div>
     </div>
     <div flex items-center flex-col font-bold text-xl>
-      <img :src="'/qr-moeru-ai.svg'" w-70 />
+      <img src="/qr-moeru-ai.svg" w-70 />
       <div translate-y--4>AIRI</div>
     </div>
   </div>
@@ -2025,7 +2057,7 @@ glowSeed: 230
           Thank you
         </div>
       </div>
-      <img :src="'/relu-art-6.gif'" size-50 rounded-2xl overflow-hidden translate-y--20>
+      <img src="/relu-art-6.gif" size-50 rounded-2xl overflow-hidden translate-y--20>
     </div>
   </div>
   <div text-lg text="zinc-300" text-right flex flex-col gap-3 mt-3>
@@ -2036,7 +2068,7 @@ glowSeed: 230
       演示文稿使用 <a href="https://sli.dev"><div inline-block mr-1 translate-y-0.8 i-logos:slidev />sli.dev</a> 构建
     </div>
     <div self-end mt-16 translate-x-14 translate-y--9>
-      <img :src="'/slide_qr.png'" w-100 />
+      <img src="/slide_qr.png" w-100 />
     </div>
   </div>
 </div>
