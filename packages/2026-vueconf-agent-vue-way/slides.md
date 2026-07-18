@@ -219,13 +219,13 @@ glow: bottom
 
 <div>
 
-# 过往一段时间里有什么比较火呢？
+# 过往一段时间里有什么火呢？
 
 </div>
 
 <div class="grid grid-cols-2 gap-4 h-[calc(100%-5.25rem)]">
   <div ma flex="~ col gap-2 items-center">
-    <img :src="'/ce-anthropic-2.png'" alt="Anthropic 的 Agent Context 构成示意图" w-80 />
+    <img :src="'/ce-anthropic-2.png'" alt="Anthropic 的 Agent Context 构成示意图" w-80 rounded-xl />
   </div>
   <div border="l main" h-full py5 flex="~ col gap-6 justify-center">
     <div flex="~ gap-2" relative v-click>
@@ -444,7 +444,6 @@ Velin 没有让我们去学一套全新的组织方式，而是直接用 Vue 已
 layout: default
 class: flex flex-col
 ---
-
 <!-- slide:B5 -->
 # 把 Context 写成 Vue 组件
 
@@ -506,7 +505,7 @@ result: await actionReadMessages({
 [洛灵]
 回到刚才那个 Telegram 机器人，我们把这段拼字符串的代码改造成 Vue 组件。
 
-[click] 先把业务代码里的长字符串挪到后缀名为 `velin.md` 的文件，动态内容用 Props 声明。
+[click] 先把业务代码里的长字符串挪到 `.velin.md` 文件，动态内容用 Props 声明。
 
 [click] 调用侧就只剩一个有类型的函数调用。代码表达的意思没变，但文本结构和输入边界都清楚多了。
 -->
@@ -904,21 +903,21 @@ clicks: 7
       v-click="1"
       :src="'/benchmarks/qwen3.5-397b-a17b-benchmarks.png'"
       alt="Qwen3.5 模型卡中的 Benchmark 表格"
-      class="absolute inset-0 m-auto max-h-82 max-w-full shadow-xl transition-all duration-400"
+      class="absolute inset-0 m-auto max-h-82 max-w-full shadow-xl transition-all duration-400 rounded-xl"
       :class="$clicks > 1 ? 'scale-95 -translate-x-4 opacity-25' : 'opacity-100'"
     >
     <img
       v-click="2"
       :src="'/benchmarks/seed2.0-model-card-benchmarks.png'"
       alt="Seed2.0 模型卡中的 Benchmark 表格"
-      class="absolute inset-0 m-auto max-h-82 max-w-full shadow-xl transition-all duration-400"
+      class="absolute inset-0 m-auto max-h-82 max-w-full shadow-xl transition-all duration-400 rounded-xl"
       :class="$clicks > 2 ? 'scale-97 translate-x-3 opacity-30' : 'opacity-100'"
     >
     <img
       v-click="3"
       :src="'/benchmarks/deepseek-v3.2-report-benchmarks.png'"
       alt="DeepSeek-V3.2 技术报告中的 Benchmark 表格"
-      class="absolute inset-0 m-auto max-h-82 max-w-full shadow-xl"
+      class="absolute inset-0 m-auto max-h-82 max-w-full shadow-xl rounded-xl"
     >
   </div>
 
@@ -1001,7 +1000,7 @@ clicks: 6
     <img
       :src="'/mcpmark/mcpmark-overview.png'"
       alt="MCPMark 项目概览"
-      class="w-full shadow-xl"
+      class="w-full rounded-xl"
     >
     <a href="https://github.com/eval-sys/mcpmark" class="mt-3 flex items-center justify-center gap-2 text-sm text-white/60 no-underline">
       <span class="i-ri:github-fill" />
