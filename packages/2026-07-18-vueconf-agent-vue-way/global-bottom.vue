@@ -141,7 +141,7 @@ function usePloy(number = 16) {
       ])
   }
 
-  const points = ref(getPoints())
+  const points = ref<Range[]>(getPoints())
   const poly = computed(() => points.value.map(([x, y]) => `${x * 100}% ${y * 100}%`).join(', '))
 
   function jumpPoints() {
@@ -156,9 +156,11 @@ function usePloy(number = 16) {
           closest = n
         }
       }
-      newPoints.delete(closest)
+      if (closest)
+        newPoints.delete(closest)
+
       return closest
-    })
+    }).filter(Boolean) as Range[]
   }
 
   watch(currentSlideRoute, () => {

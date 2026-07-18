@@ -12,6 +12,7 @@
     "@slidev/cli": "^52.5.0",
     "@slidev/client": "^52.5.0",
     "@slidev/theme-default": "latest",
+    "shiki": "^4.3.1",
     "vue": "^3.5.39"
   },
   "devDependencies": {

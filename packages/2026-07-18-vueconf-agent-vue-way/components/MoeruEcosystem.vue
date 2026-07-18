@@ -45,7 +45,7 @@ const coreProjects: readonly EcosystemProject[] = [
     logo: publicAsset('/ecosystem/velin-logo.svg'),
   },
   {
-    name: 'VieVal',
+    name: 'Vieval',
     capability: '评测框架',
     visual: 'logo',
     logo: publicAsset('/ecosystem/vieval-logo.svg'),

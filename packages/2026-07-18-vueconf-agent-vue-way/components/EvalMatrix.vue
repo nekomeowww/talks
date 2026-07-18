@@ -1,7 +1,7 @@
 <script setup lang="ts">
+import type { AutoLayout } from 'animejs'
 import { useSlideContext } from '@slidev/client'
 import { animate, createLayout, stagger, utils } from 'animejs'
-import type { AutoLayout } from 'animejs'
 import { nextTick, onMounted, onUnmounted, ref, shallowRef, useTemplateRef, watch } from 'vue'
 
 interface MatrixRun {
@@ -95,7 +95,7 @@ watch($clicks, async (clicks) => {
   if (layout)
     layout.record()
 
-  syncRuns(clicks)
+  syncRuns(clicks.value)
   await nextTick()
 
   if (layout) {
@@ -123,11 +123,15 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <section aria-label="VieVal Matrix 调度展开" class="flex h-full w-full flex-col rounded-xl bg-white/4 p-5">
+  <section aria-label="Vieval Matrix 调度展开" class="flex h-full w-full flex-col rounded-xl bg-white/4 p-5">
     <div class="mb-4 flex items-end justify-between">
       <div>
-        <div class="text-sm text-white/45">运行组合</div>
-        <div class="mt-1 text-xs text-white/30">2 个 Task × 每个 4 个 Case × 配置组合</div>
+        <div class="text-sm text-white/45">
+          运行组合
+        </div>
+        <div class="mt-1 text-xs text-white/30">
+          2 个 Task × 每个 4 个 Case × 配置组合
+        </div>
       </div>
       <div class="font-mono text-xl text-orange-300">
         {{ displayedRuns }} runs

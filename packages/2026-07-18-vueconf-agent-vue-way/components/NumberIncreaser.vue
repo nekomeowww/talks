@@ -45,7 +45,6 @@ function shouldResetInactiveSlide({ currentPage, slidePage }: InactiveSlideReset
   return currentPage <= slidePage
 }
 
-
 const formattedValue = computed(() =>
   new Intl.NumberFormat(props.locale).format(displayedValue.value),
 )
@@ -137,13 +136,15 @@ watch(isSlideActive, (isActive) => {
   if (props.trigger !== 'slide')
     return
 
-  if (isActive)
+  if (isActive) {
     startAnimation({ restart: true })
+  }
   else if (shouldResetInactiveSlide({
     currentPage: $nav.value.currentSlideNo,
     slidePage: $page.value,
-  }))
+  })) {
     resetToInitial()
+  }
 }, {
   immediate: true,
 })
