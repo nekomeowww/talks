@@ -8,13 +8,13 @@
 
 |  |  |
 | --- | --- |
-| ![](./packages/2026-vueconf-agent-vue-way/public/cover.png) | 2026.07 @ Vue + ViteConf |
-| 不可控下的可控 (🇨🇳) | [Slides](https://talks.ayaka.io/nekoayaka/2026-vueconf-agent-vue-way) |
 
 ## Presented...
 
 |  |  |
 | --- | --- |
+| ![](./packages/2026-07-18-vueconf-agent-vue-way/public/cover.png) | 2026.07 @ Vue + ViteConf |
+| 不可控下的可控 (🇨🇳) | [Slides](https://talks.ayaka.io/nekoayaka/2026-07-18-vueconf-agent-vue-way) |
 | ![](./packages/2026-05-15-attempts-of-gaming-agent/public/cover.png) | 2026.05 @ Shanghai |
 | Attempts of Gaming Agent, What We Learned (🇨🇳 & 🇬🇧) | [Slides](https://talks.ayaka.io/nekoayaka/2026-05-15-attempts-of-gaming-agent) |
 | ![](./packages/2026-01-24-ai-rust-robot/public/cover.gif) | 2026.01 @ Shanghai x Kong |
