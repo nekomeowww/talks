@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "build": "NODE_OPTIONS=--no-experimental-webstorage slidev build",
-    "build-base": "NODE_OPTIONS=--no-experimental-webstorage slidev build --out ../../dist/nekoayaka/2026-07-18-vueconf-agent-vue-way --base /nekoayaka/2026-07-18-vueconf-agent-vue-way/",
+    "build-base": "slidev build --out ../../dist/nekoayaka/2026-07-18-vueconf-agent-vue-way --base /nekoayaka/2026-07-18-vueconf-agent-vue-way/",
     "dev": "NODE_OPTIONS=--no-experimental-webstorage slidev --open --remote",
     "export": "NODE_OPTIONS=--no-experimental-webstorage slidev export --with-clicks --per-slide --wait-until none"
   },
