@@ -9,14 +9,6 @@
     "export": "NODE_OPTIONS=--no-experimental-webstorage slidev export --with-clicks --per-slide --wait-until none",
     "test:airi-speak": "tsx --test components/airi-speak/*.test.ts"
   },
-  "devDependencies": {
-    "@iconify-json/devicon": "^1.2.45",
-    "@iconify-json/logos": "^1.2.9",
-    "@iconify-json/simple-icons": "^1.2.55",
-    "@iconify-json/solar": "^1.2.4",
-    "@iconify/utils": "^3.0.2",
-    "@proj-airi/lobe-icons": "^1.0.13"
-  },
   "dependencies": {
     "@fontsource-variable/comfortaa": "^5.2.8",
     "@fontsource-variable/dm-sans": "^5.2.8",
@@ -25,5 +17,14 @@
     "@proj-airi/font-chillroundm": "^0.10.2",
     "@proj-airi/server-sdk": "^0.10.2",
     "animejs": "^4.2.2"
+  },
+  "devDependencies": {
+    "@iconify-json/devicon": "^1.2.45",
+    "@iconify-json/logos": "^1.2.9",
+    "@iconify-json/simple-icons": "^1.2.55",
+    "@iconify-json/solar": "^1.2.4",
+    "@iconify/utils": "^3.0.2",
+    "@proj-airi/lobe-icons": "^1.0.13",
+    "unplugin-basemove": "0.0.1"
   }
 }
