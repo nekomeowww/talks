@@ -28,13 +28,13 @@ Minecraft, Factorio, Balatro, Dome Keeper, KSP, and AIRI
 </p>
 
 <div mt-8 flex items-center gap-4 text-lg>
-  <img src="/proj-airi-logo.svg" size="10">
+  <img src="./public/proj-airi-logo.svg" size="10">
   <span>Neko / LemonNeko</span>
 </div>
 
 </div>
 
-<img src="/airi-logo-grayscaled-light-2.svg" class="w-170 opacity-25" absolute right="[-30%]" bottom="[-210%]">
+<img src="./public/airi-logo-grayscaled-light-2.svg" class="w-170 opacity-25" absolute right="[-30%]" bottom="[-210%]">
 
 <!--
 Activity: https://luma.com/71bdapoj
@@ -51,7 +51,7 @@ glowSeed: 205
     v-click="1" flex flex-col items-start transition duration-500 ease-in-out
     :class="$clicks < 1 ? 'translate-x--20' : 'translate-x-0'"
   >
-    <img src="/person/neko.jpeg" w-50 h-50 rounded-full object-cover mb-5>
+    <img src="./public/person/neko.jpeg" w-50 h-50 rounded-full object-cover mb-5>
     <span font-semibold text-3xl>奶扣</span>
     <div>
       <div>
@@ -67,7 +67,7 @@ glowSeed: 205
     v-click="2" flex flex-col items-end transition duration-500 ease-in-out
     :class="$clicks < 2 ? 'translate-x-20' : 'translate-x-0'"
   >
-    <img src="/person/lemon-neko.png" w-50 h-50 rounded-full object-cover mb-5>
+    <img src="./public/person/lemon-neko.png" w-50 h-50 rounded-full object-cover mb-5>
     <span font-semibold text-3xl>Lemon Neko</span>
     <div flex-col items-end>
       <div>
@@ -97,8 +97,8 @@ glowSeed: 203
       rounded-lg overflow-hidden bg="black" h-fit
       transition="all duration-250 ease-in-out"
     >
-      <img src="/session-1.png" class="img" opacity-100 transition="all duration-250 ease-in-out">
-      <img src="/session-1-qr.png" class="qr" w-60 absolute top-0 left="0" translate-x="[40%]" opacity-0 transition="all duration-250 ease-in-out">
+      <img src="./public/session-1.png" class="img" opacity-100 transition="all duration-250 ease-in-out">
+      <img src="./public/session-1-qr.png" class="qr" w-60 absolute top-0 left="0" translate-x="[40%]" opacity-0 transition="all duration-250 ease-in-out">
     </div>
     <div
       relative
@@ -106,8 +106,8 @@ glowSeed: 203
       rounded-lg overflow-hidden bg="black" h-fit
       transition="all duration-250 ease-in-out"
     >
-      <img src="/session-2.png" class="img" opacity-100 transition="all duration-250 ease-in-out">
-      <img src="/session-2-qr.png" class="qr" w-60 absolute top-0 left="0" translate-x="[40%]" opacity-0 transition="all duration-250 ease-in-out">
+      <img src="./public/session-2.png" class="img" opacity-100 transition="all duration-250 ease-in-out">
+      <img src="./public/session-2-qr.png" class="qr" w-60 absolute top-0 left="0" translate-x="[40%]" opacity-0 transition="all duration-250 ease-in-out">
     </div>
     <div
       relative
@@ -115,8 +115,8 @@ glowSeed: 203
       rounded-lg overflow-hidden bg="black" h-fit
       transition="all duration-250 ease-in-out"
     >
-      <img src="/session-3.png" class="img" opacity-100 transition="all duration-250 ease-in-out">
-      <img src="/session-3-qr.png" class="qr" w-60 absolute top-0 left="0" translate-x="[40%]" opacity-0 transition="all duration-250 ease-in-out">
+      <img src="./public/session-3.png" class="img" opacity-100 transition="all duration-250 ease-in-out">
+      <img src="./public/session-3-qr.png" class="qr" w-60 absolute top-0 left="0" translate-x="[40%]" opacity-0 transition="all duration-250 ease-in-out">
     </div>
     <div
       relative
@@ -124,8 +124,8 @@ glowSeed: 203
       rounded-lg overflow-hidden bg="black" h-fit
       transition="all duration-250 ease-in-out"
     >
-      <img src="/session-4.gif" class="img" opacity-100 transition="all duration-250 ease-in-out">
-      <img src="/session-4-qr.png" class="qr" w-60 absolute top-0 left="0" translate-x="[40%]" opacity-0 transition="all duration-250 ease-in-out">
+      <img src="./public/session-4.gif" class="img" opacity-100 transition="all duration-250 ease-in-out">
+      <img src="./public/session-4-qr.png" class="qr" w-60 absolute top-0 left="0" translate-x="[40%]" opacity-0 transition="all duration-250 ease-in-out">
     </div>
   </div>
 </div>
@@ -218,7 +218,7 @@ clicks: 1
   </div>
   <img
     :class="[$clicks < 1 ? '' : 'blur-lg scale-120']"
-    src="/Neuro-sama_v2_character_sheet.webp"
+    src="./public/Neuro-sama_v2_character_sheet.webp"
     transition duration-1200 ease-in-out
   >
   <div
@@ -263,7 +263,7 @@ Project AIRI
 从「想要一个能一起玩的 AI 伙伴」开始，到尝试给角色接入真实的游戏世界。
 </div>
 
-<img src="/airi-screenshot-2.png" w-full rounded-xl mt-8 />
+<img src="./public/airi-screenshot-2.png" w-full rounded-xl mt-8 />
 
 <!--
 Source note: AIRI vision is referenced from DreamLog 0x1 and existing AIRI talks.
@@ -380,7 +380,7 @@ Minecraft is fun! While here you could see Neko was typing to me while we actual
 
 <div class="fade-video-slide">
   <video autoplay muted loop>
-    <source src="/airi-plays-minecraft.mp4" />
+    <source src="./public/airi-plays-minecraft.mp4" />
   </video>
   <div class="fade-heading">
     <div flex items-center gap-3 text-2xl font-semibold>
@@ -490,7 +490,7 @@ glowSeed: 611
 
 <div class="fade-video-slide">
   <video autoplay muted loop>
-    <source src="/airi-plays-factorio.mp4" />
+    <source src="./public/airi-plays-factorio.mp4" />
   </video>
   <div class="fade-heading">
     <div flex items-center gap-3 text-2xl font-semibold>
@@ -567,7 +567,7 @@ glowSeed: 711
 
 <div class="fade-video-slide">
   <video autoplay muted loop>
-    <source src="/airi-factorio-auto-labeling.mp4" />
+    <source src="./public/airi-factorio-auto-labeling.mp4" />
   </video>
   <div class="fade-heading">
     <div flex items-center gap-3 text-2xl font-semibold>
@@ -585,7 +585,7 @@ glowSeed: 711
 
 <div class="fade-video-slide">
   <video autoplay muted loop>
-    <source src="/airi-factorio-yolo-v0-playground-vnc.mp4" />
+    <source src="./public/airi-factorio-yolo-v0-playground-vnc.mp4" />
   </video>
   <div class="fade-heading text-shadow-none!">
     <div class="text-neutral-900" flex items-center gap-3 text-2xl font-semibold>
@@ -609,7 +609,7 @@ both the complexity of the real-time strategy, planning and designing, and trace
 
 <div class="fade-video-slide">
   <video autoplay muted loop>
-    <source src="/airi-plays-balatro.mp4" />
+    <source src="./public/airi-plays-balatro.mp4" />
   </video>
   <div class="fade-heading">
     <div flex items-center gap-3 text-2xl font-semibold>
@@ -720,7 +720,7 @@ clicks: 4
       <div v-click><div i-carbon:warning-alt /> current repo is data-first, not live planner</div>
     </div>
   </div>
-  <img src="/game-banners/dome-keeper-cover.png">
+  <img src="./public/game-banners/dome-keeper-cover.png">
 </div>
 
 ---
@@ -751,7 +751,7 @@ glowSeed: 612
 
 <div class="fade-video-slide">
   <video autoplay muted loop>
-    <source src="/airi-demo-airicraft.mp4" />
+    <source src="./public/airi-demo-airicraft.mp4" />
   </video>
   <div class="fade-heading">
     <div flex items-center gap-3 text-2xl font-semibold>
@@ -785,7 +785,7 @@ glowSeed: 715
 
 <div class="fade-video-slide">
   <video autoplay muted loop>
-    <source src="/ksp-demo.mp4" />
+    <source src="./public/ksp-demo.mp4" />
   </video>
   <div class="fade-heading">
     <div flex items-center gap-3 text-2xl font-semibold>
@@ -930,15 +930,15 @@ glowSeed: 1298
 <div flex>
   <div text-sm text="zinc-300" text-right flex flex-row gap-2 mt-6 translate-x-2>
     <div flex items-center flex-col font-bold text-xl>
-      <img src="/github_qr.png" w-70 />
+      <img src="./public/github_qr.png" w-70 />
       <div translate-y--4>GitHub</div>
     </div>
     <div flex items-center flex-col font-bold text-xl>
-      <img src="/discord_qr.png" w-70 style="filter: brightness(1.5);" />
+      <img src="./public/discord_qr.png" w-70 style="filter: brightness(1.5);" />
       <div translate-y--4>Discord</div>
     </div>
     <div flex items-center flex-col font-bold text-xl>
-      <img src="/telegram_qr.png" w-70 style="filter: brightness(1.5);" />
+      <img src="./public/telegram_qr.png" w-70 style="filter: brightness(1.5);" />
       <div translate-y--4>Telegram</div>
     </div>
   </div>
@@ -962,7 +962,7 @@ glowSeed: 230
           Thank you
         </div>
       </div>
-      <img src="/relu-art-6.gif" size-50 rounded-2xl overflow-hidden translate-y--20>
+      <img src="./public/relu-art-6.gif" size-50 rounded-2xl overflow-hidden translate-y--20>
     </div>
   </div>
   <div text-lg text="zinc-300" text-right flex flex-col gap-3 mt-3>
@@ -973,7 +973,7 @@ glowSeed: 230
       演示文稿使用 <a href="https://sli.dev"><div inline-block mr-1 translate-y-0.8 i-logos:slidev />sli.dev</a> 构建
     </div>
     <div self-end mt-16 translate-x-14 translate-y--9>
-      <img src="/slide_qr.png" w-100 />
+      <img src="./public/slide_qr.png" w-100 />
     </div>
   </div>
 </div>

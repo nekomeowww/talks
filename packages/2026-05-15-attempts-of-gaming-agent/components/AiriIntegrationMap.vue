@@ -1,6 +1,13 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 
+import balatroCoverUrl from '../public/game-banners/balatro-cover.png'
+import domeKeeperCoverUrl from '../public/game-banners/dome-keeper-cover.png'
+import factorioBannerUrl from '../public/game-banners/factorio-banner.png'
+import kspBannerUrl from '../public/game-banners/ksp-banner.png'
+import minecraftBannerUrl from '../public/game-banners/minecraft-banner.png'
+import projAiriLogoUrl from '../public/proj-airi-logo.svg'
+
 interface GameNode {
   key: string
   click: number
@@ -36,7 +43,7 @@ const games: GameNode[] = [
     key: 'minecraft',
     click: 1,
     className: 'minecraft',
-    image: '/game-banners/minecraft-banner.png',
+    image: minecraftBannerUrl,
     icon: 'i-carbon:cube',
     label: 'Minecraft',
     x: 48,
@@ -46,7 +53,7 @@ const games: GameNode[] = [
     key: 'factorio',
     click: 2,
     className: 'factorio',
-    image: '/game-banners/factorio-banner.png',
+    image: factorioBannerUrl,
     icon: 'i-carbon:industry',
     label: 'Factorio',
     x: 230,
@@ -56,7 +63,7 @@ const games: GameNode[] = [
     key: 'balatro',
     click: 3,
     className: 'balatro',
-    image: '/game-banners/balatro-cover.png',
+    image: balatroCoverUrl,
     icon: 'i-carbon:game-console',
     label: 'Balatro',
     x: 430,
@@ -66,7 +73,7 @@ const games: GameNode[] = [
     key: 'dome',
     click: 4,
     className: 'dome',
-    image: '/game-banners/dome-keeper-cover.png',
+    image: domeKeeperCoverUrl,
     icon: 'i-carbon:search-locate',
     label: 'Dome Keeper',
     x: 632,
@@ -76,7 +83,7 @@ const games: GameNode[] = [
     key: 'ksp',
     click: 5,
     className: 'ksp',
-    image: '/game-banners/ksp-banner.png',
+    image: kspBannerUrl,
     icon: 'i-carbon:rocket',
     label: 'KSP',
     x: 694,
@@ -144,7 +151,7 @@ const visibleGames = computed(() =>
     <div
       v-for="game in visibleGames"
       :key="game.key"
-    class="game-card"
+      class="game-card"
       :class="[game.className, game.visible ? 'is-visible' : '']"
       :style="{ left: `${game.x}px`, top: `${game.y}px` }"
     >
@@ -153,7 +160,7 @@ const visibleGames = computed(() =>
     </div>
 
     <div class="airi-core">
-      <img src="/proj-airi-logo.svg">
+      <img :src="projAiriLogoUrl">
       <div>
         <div text-2xl font-semibold>
           Project AIRI
