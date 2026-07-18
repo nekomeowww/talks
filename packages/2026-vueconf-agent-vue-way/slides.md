@@ -219,7 +219,7 @@ glow: bottom
 
 <div>
 
-# 过往一段时间里有什么火呢？
+# 过往一段时间里有什么比较火呢？
 
 </div>
 
@@ -444,6 +444,7 @@ Velin 没有让我们去学一套全新的组织方式，而是直接用 Vue 已
 layout: default
 class: flex flex-col
 ---
+
 <!-- slide:B5 -->
 # 把 Context 写成 Vue 组件
 
@@ -505,7 +506,7 @@ result: await actionReadMessages({
 [洛灵]
 回到刚才那个 Telegram 机器人，我们把这段拼字符串的代码改造成 Vue 组件。
 
-[click] 先把业务代码里的长字符串挪到 `.velin.md` 文件，动态内容用 Props 声明。
+[click] 先把业务代码里的长字符串挪到后缀名为 `velin.md` 的文件，动态内容用 Props 声明。
 
 [click] 调用侧就只剩一个有类型的函数调用。代码表达的意思没变，但文本结构和输入边界都清楚多了。
 -->
