@@ -1,0 +1,38 @@
+{
+  "name": "2026-07-18-vueconf-agent-vue-way",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "build": "NODE_OPTIONS=--no-experimental-webstorage slidev build",
+    "build-base": "NODE_OPTIONS=--no-experimental-webstorage slidev build --out ../../dist/nekoayaka/2026-07-18-vueconf-agent-vue-way --base /nekoayaka/2026-07-18-vueconf-agent-vue-way/",
+    "dev": "NODE_OPTIONS=--no-experimental-webstorage slidev --open --remote",
+    "export": "NODE_OPTIONS=--no-experimental-webstorage slidev export --with-clicks --per-slide --wait-until none"
+  },
+  "dependencies": {
+    "@slidev/cli": "^52.5.0",
+    "@slidev/client": "^52.5.0",
+    "@slidev/theme-default": "latest",
+    "vue": "^3.5.39"
+  },
+  "devDependencies": {
+    "@fontsource-variable/comfortaa": "^5.2.8",
+    "@fontsource-variable/dm-sans": "^5.2.8",
+    "@fontsource-variable/nunito": "^5.2.7",
+    "@fontsource/kiwi-maru": "^5.2.8",
+    "@fontsource/momo-trust-display": "^5.2.1",
+    "@iconify-json/logos": "^1.2.11",
+    "@iconify-json/mdi": "^1.2.3",
+    "@iconify-json/mingcute": "^1.2.7",
+    "@iconify-json/ph": "^1.2.2",
+    "@iconify-json/ri": "^1.2.6",
+    "@iconify-json/simple-icons": "^1.2.55",
+    "@iconify-json/twemoji": "^1.2.5",
+    "@iconify-json/unjs": "^1.2.4",
+    "@iconify/utils": "^3.0.2",
+    "@proj-airi/font-chillroundm": "^0.10.2",
+    "@proj-airi/lobe-icons": "^1.0.13",
+    "@types/seedrandom": "^3.0.8",
+    "animejs": "^4.2.2",
+    "seedrandom": "^3.0.5"
+  }
+}

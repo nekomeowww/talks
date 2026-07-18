@@ -1,0 +1,1 @@
+Vue 3.5 introduced improvements to reactivity, server-side rendering, and developer ergonomics. The release reduced memory use in the reactivity system and added APIs for controlling hydration. These changes help applications with large reactive graphs and server-rendered interfaces while preserving Vue's component model.
