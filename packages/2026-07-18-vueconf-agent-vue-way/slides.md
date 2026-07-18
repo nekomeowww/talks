@@ -1404,7 +1404,7 @@ expect(coverage.score).toScoreRubricGreaterThan(0.8)
 <aside class="rounded-xl bg-white/6 p-5 text-sm leading-6">
   <div class="mb-3 flex items-center justify-between">
     <span class="text-blue-300">article.txt</span>
-    <a href="/vieval/article.txt" class="text-xs text-white/45 no-underline">打开原文 ↗</a>
+    <a href="./vieval/article.txt" class="text-xs text-white/45 no-underline">打开原文 ↗</a>
   </div>
   <p class="text-white/70">
     Vue 3.5 introduced improvements to reactivity, server-side rendering,

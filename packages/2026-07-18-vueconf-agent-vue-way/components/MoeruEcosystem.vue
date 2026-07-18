@@ -21,6 +21,10 @@ interface IconProject extends EcosystemProjectBase {
 
 type EcosystemProject = LogoProject | IconProject | TextProject
 
+function publicAsset(path: `/${string}`) {
+  return `${import.meta.env.BASE_URL}${path.slice(1)}`
+}
+
 const coreProjects: readonly EcosystemProject[] = [
   {
     name: 'xsAI',
@@ -32,31 +36,31 @@ const coreProjects: readonly EcosystemProject[] = [
     name: 'AIRI',
     capability: '虚拟角色',
     visual: 'logo',
-    logo: '/ecosystem/airi-icon-dark-rounded.png',
+    logo: publicAsset('/ecosystem/airi-icon-dark-rounded.png'),
   },
   {
     name: 'Velin',
     capability: '上下文编排',
     visual: 'logo',
-    logo: '/ecosystem/velin-logo.svg',
+    logo: publicAsset('/ecosystem/velin-logo.svg'),
   },
   {
     name: 'VieVal',
     capability: '评测框架',
     visual: 'logo',
-    logo: '/ecosystem/vieval-logo.svg',
+    logo: publicAsset('/ecosystem/vieval-logo.svg'),
   },
   {
     name: 'AUV',
     capability: '计算机操作',
     visual: 'logo',
-    logo: '/ecosystem/auv-logo.svg',
+    logo: publicAsset('/ecosystem/auv-logo.svg'),
   },
   {
     name: 'alint',
     capability: '意图检查',
     visual: 'logo',
-    logo: '/alint-logo.svg',
+    logo: publicAsset('/alint-logo.svg'),
   },
 ] as const
 
@@ -120,7 +124,7 @@ function projectId(project: EcosystemProject) {
   <section class="ecosystem" aria-label="Moeru AI 项目生态">
     <div class="ecosystem-grid ecosystem-grid--core">
       <article
-        v-for="(project, index) in coreProjects"
+        v-for="(project) in coreProjects"
         :id="projectId(project)"
         :key="project.name"
         class="project-tile project-tile--core"
@@ -165,7 +169,7 @@ function projectId(project: EcosystemProject) {
 
     <div class="ecosystem-grid ecosystem-grid--extended">
       <article
-        v-for="(project, index) in extendedProjects"
+        v-for="(project) in extendedProjects"
         :id="projectId(project)"
         :key="project.name"
         class="project-tile project-tile--extended"
@@ -378,5 +382,4 @@ function projectId(project: EcosystemProject) {
     font-size: 0.65rem;
   }
 }
-
 </style>
