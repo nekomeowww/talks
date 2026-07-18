@@ -12,7 +12,7 @@ export default mergeConfigs([
     rules: [
       ['font-math', { 'font-family': 'Latin Modern Roman, ui-serif, Georgia, Cambria, "Times New Roman", Times, serif' }],
       ['font-cover', { 'font-family': `${roundedFontFamily} !important` }],
-      ['font-vieval', { 'font-family': `"Momo Trust Display", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"` }]
+      ['font-vieval', { 'font-family': `"Momo Trust Display", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"` }],
     ],
     safelist: [
       'font-sans',
