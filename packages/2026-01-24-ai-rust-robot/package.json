@@ -17,6 +17,6 @@
     "@iconify-json/solar": "^1.2.4",
     "@iconify/utils": "^3.0.2",
     "@proj-airi/lobe-icons": "^1.0.13",
-    "animejs": "^4.2.2"
+    "animejs": "^4.5.0"
   }
 }

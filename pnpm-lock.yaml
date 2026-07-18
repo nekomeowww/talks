@@ -355,8 +355,8 @@ importers:
         specifier: ^1.0.13
         version: 1.0.13
       animejs:
-        specifier: ^4.2.2
-        version: 4.2.2
+        specifier: ^4.5.0
+        version: 4.5.0(@types/three@0.180.0)(three@0.180.0)
 
   packages/2026-05-15-attempts-of-gaming-agent:
     dependencies:
@@ -379,8 +379,8 @@ importers:
         specifier: ^0.10.2
         version: 0.10.2
       animejs:
-        specifier: ^4.2.2
-        version: 4.2.2
+        specifier: ^4.5.0
+        version: 4.5.0(@types/three@0.180.0)(three@0.180.0)
     devDependencies:
       '@iconify-json/devicon':
         specifier: ^1.2.45
@@ -471,8 +471,8 @@ importers:
         specifier: ^3.0.8
         version: 3.0.8
       animejs:
-        specifier: ^4.2.2
-        version: 4.2.2
+        specifier: ^4.5.0
+        version: 4.5.0(@types/three@0.180.0)(three@0.180.0)
       seedrandom:
         specifier: ^3.0.5
         version: 3.0.5
@@ -2406,8 +2406,16 @@ packages:
   alien-signals@2.0.6:
     resolution: {integrity: sha512-P3TxJSe31bUHBiblg59oU1PpaWPtmxF9GhJ/cB7OkgJ0qN/ifFSKUI25/v8ZhsT+lIG6ac8DpTOplXxORX6F3Q==}
 
-  animejs@4.2.2:
-    resolution: {integrity: sha512-Ys3RuvLdAeI14fsdKCQy7ytu4057QX6Bb7m4jwmfd6iKmUmLquTwk1ut0e4NtRQgCeq/s2Lv5+oMBjz6c7ZuIg==}
+  animejs@4.5.0:
+    resolution: {integrity: sha512-NQimYX+lz8WaXonGS9zVVoviCIAjONeJayxacUditaivYLqyXgGjFKjuyl0aUUhFKm5MriX9ty1TGovNzoJQWA==}
+    peerDependencies:
+      '@types/three': '>=0.150.0'
+      three: '>=0.150.0'
+    peerDependenciesMeta:
+      '@types/three':
+        optional: true
+      three:
+        optional: true
 
   ansi-regex@5.0.1:
     resolution: {integrity: sha512-quJQXlTSUGL2LH9SUXo8VwsY4soanhgo6LNSm84E1LBcE8s3O0wpdiRzyR9z/ZZJMlMWv37qOOb9pdJlMUEKFQ==}
@@ -7760,7 +7768,10 @@ snapshots:
 
   alien-signals@2.0.6: {}
 
-  animejs@4.2.2: {}
+  animejs@4.5.0(@types/three@0.180.0)(three@0.180.0):
+    optionalDependencies:
+      '@types/three': 0.180.0
+      three: 0.180.0
 
   ansi-regex@5.0.1: {}
 
@@ -10818,7 +10829,7 @@ snapshots:
       '@types/markdown-it': 14.1.2
       '@vitejs/plugin-vue': 5.2.4(vite@5.4.14(@types/node@22.18.12)(less@4.4.2))(vue@3.5.40(typescript@5.9.3))
       '@vue/devtools-api': 7.3.8
-      '@vue/shared': 3.5.22
+      '@vue/shared': 3.5.40
       '@vueuse/core': 11.3.0(vue@3.5.40(typescript@5.9.3))
       '@vueuse/integrations': 11.0.1(axios@1.7.3)(change-case@5.4.4)(drauu@0.4.3)(focus-trap@7.5.4)(fuse.js@7.1.0)(vue@3.5.40(typescript@5.9.3))
       focus-trap: 7.5.4
