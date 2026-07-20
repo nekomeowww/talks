@@ -500,7 +500,7 @@ result: ''
   + `${relevantChatMessagesOneliner || 'No relevant messages'}`
 ```
 
-```velin
+```sfc
 <!-- action-read-messages.velin.md:prompt 是一个独立文件 -->
 <script setup lang="ts">
 const props = defineProps<{
@@ -553,7 +553,7 @@ class: flex flex-col
 <div class="mt-10">
 
 ````md magic-move {at:1}
-```velin
+```sfc
 <script setup lang="ts">
 import Persona from './persona.velin.md'
 </script>
@@ -561,7 +561,7 @@ import Persona from './persona.velin.md'
 <Persona />
 ```
 
-```velin
+```sfc
 <script setup lang="ts">
 import Persona from './persona.velin.md'
 import ActionReadMessages from './action-read-messages.velin.md'
@@ -571,7 +571,7 @@ import ActionReadMessages from './action-read-messages.velin.md'
 <ActionReadMessages />
 ```
 
-```velin
+```sfc
 <script setup lang="ts">
 import Persona from './persona.velin.md'
 import ActionReadMessages from './action-read-messages.velin.md'

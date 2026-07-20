@@ -1,7 +1,4 @@
-import type { LanguageRegistration } from 'shiki'
 import { defineShikiSetup } from '@slidev/types'
-
-import velin from './velin.tmLanguage.json'
 
 export default defineShikiSetup(() => {
   return {
@@ -18,7 +15,6 @@ export default defineShikiSetup(() => {
       'json',
       'yaml',
       'bash',
-      velin as unknown as LanguageRegistration,
     ],
   }
 })
