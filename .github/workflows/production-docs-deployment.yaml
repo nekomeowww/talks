@@ -9,36 +9,28 @@ concurrency:
   group: pages
   cancel-in-progress: false
 
-env:
-  STORE_PATH: ''
-
 jobs:
   build:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      deployments: write
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
 
-      - uses: actions/setup-node@v4
+      - uses: pnpm/setup@v2
         with:
-          node-version: 'lts/*'
+          runtime: node@24
+          cache: true
+          install: false
 
-      - uses: pnpm/action-setup@v2
-        with:
-          run_install: false
-
-      - name: Obtain pnpm store directory
-        shell: bash
-        run: |
-          echo "STORE_PATH=$(pnpm store path --silent)" >> $GITHUB_ENV
-
-      - name: Configure pnpm cache
-        uses: actions/cache@v4
-        with:
-          path: ${{ env.STORE_PATH }}
-          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
-          restore-keys: |
-            ${{ runner.os }}-pnpm-store-
+      # NOTICE:
+      #
+      # Same as moeru-ai/airi: cloudflare/wrangler-action needs a usable
+      # wrangler binary, and installing it into the workspace root fails with
+      # ERR_PNPM_ADDING_TO_ROOT, so install it globally first.
+      - run: pnpm i -g wrangler@4
 
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
@@ -54,9 +46,9 @@ jobs:
           BASEMOVE_PREFIX: ${{ vars.BASEMOVE_PREFIX }}
 
       - name: Deploy
-        uses: cloudflare/pages-action@v1
+        uses: cloudflare/wrangler-action@v4
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          projectName: talks-nekomeowww
-          directory: dist
+          command: pages deploy dist --project-name=talks-nekomeowww --branch=main
+          gitHubToken: ${{ secrets.GITHUB_TOKEN }}
