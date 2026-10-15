@@ -39,7 +39,7 @@ const lines: Line[] = [
   { at: 2, delay: 2300, who: 'airi', en: '10 obsidian and a flint and steel. Want me to build the portal?', zh: '10 块黑曜石加打火石，要我来搭门吗？', dur: 2200 },
   { at: 3, delay: 1000, who: 'you', en: 'Any diamonds around here?', zh: '附近有钻石吗？' },
   { at: 3, delay: 1500, who: 'think', en: '' },
-  { at: 3, delay: 2300, who: 'airi', en: 'I can\'t see through walls. But you liked the river cave, dig there?', zh: '我可不会透视。不过你上次喜欢河边那个洞，去那儿挖挖？', dur: 2400 },
+  { at: 3, delay: 2300, who: 'airi', en: 'I can\'t see through walls. But you liked the river cave. Dig there?', zh: '我可不会透视。不过你上次喜欢河边那个洞，去那儿挖挖？', dur: 2400 },
 ]
 
 // Elapsed ms since the current click started; Infinity = settled.
@@ -118,7 +118,7 @@ const bars = Array.from({ length: 30 }, (_, i) => ({
           <rect x="5" y="7" width="1" height="1" fill="#0d1a0e" />
         </svg>
         <div class="creeper-tag">
-          {{ creeperHandled ? '✓ backed off' : '3 blocks away' }}
+          {{ creeperHandled ? '✓ moved away' : '3 blocks away' }}
         </div>
       </div>
     </div>

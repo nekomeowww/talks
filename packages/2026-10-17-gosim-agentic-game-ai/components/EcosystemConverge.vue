@@ -216,6 +216,11 @@ watch(() => props.clicks >= at, (on) => {
   overflow: hidden;
 }
 
+/* Everything below the title sits a little higher than the 980x552 layout. */
+.stage > * {
+  translate: 0 -44px;
+}
+
 .links {
   position: absolute;
   inset: 0;

@@ -149,7 +149,7 @@ const shownLog = computed(() => (running.value ? log.value : LOG0))
 
       <div class="why fade" :class="{ on: c >= 1 }">
         <div class="why-en">
-          An LLM call on every click is too slow. Repeated work should be code.
+          An LLM call on every click is too slow. Put repeated work in code.
         </div>
         <div class="zh">
           每点一下都去问一次 LLM，太慢了。重复的操作就写成代码。

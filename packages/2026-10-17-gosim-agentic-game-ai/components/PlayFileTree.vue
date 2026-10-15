@@ -52,8 +52,8 @@ interface Group {
 
 // The three principles live on the tree itself instead of in cards.
 const groups: Group[] = [
-  { from: 2, to: 4, showAt: 1, label: 'server-authoritative', zh: '服务端录，只追加', color: '#456E95' },
-  { from: 5, to: 8, showAt: 3, label: 'derived, never mutated', zh: '派生出来，原始数据不动', color: '#CEAA5B' },
+  { from: 2, to: 4, showAt: 1, label: 'recorded on the server', zh: '服务端录，只追加', color: '#456E95' },
+  { from: 5, to: 8, showAt: 3, label: 'derived, never changed', zh: '派生出来，原始数据不动', color: '#CEAA5B' },
   { from: 9, to: 10, showAt: 4, label: 'same clock', zh: '模型调用也对齐 tick', color: '#E87AA4' },
 ]
 

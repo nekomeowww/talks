@@ -66,7 +66,7 @@ watch(() => props.clicks, (n, o) => {
       <span>{{ r.text }}</span><em>{{ r.kind }}</em>
     </div>
     <div class="cap">
-      The provenance ladder <span>每往上一格，都是一次推断</span>
+      The evidence ladder <span>每往上一格，都是一次推断</span>
     </div>
   </div>
 </template>

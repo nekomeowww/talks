@@ -43,33 +43,52 @@ From playable demos to environments and datasets for reinforcement learning
 -->
 
 ---
-clicks: 1
+layout: intro
+class: px-35
+clicks: 2
 ---
 
 <!-- slide:A2 -->
 
-<div flex items-center gap-14 h-full pl-8>
-  <img src="./public/person/neko.jpeg" w-56 h-56 rounded-full object-cover shrink-0>
-  <div>
-    <div text-5xl font-bold mt-1>Neko Ayaka</div>
-    <div class="zh">Project AIRI 发起人 · Moeru AI</div>
-    <div text-sm flex items-center gap-2 mt-2 class="muted"><div i-ri:github-fill /><span font-mono>nekomeowww</span></div>
-    <div mt-7 flex flex-col gap-3 text-lg>
-      <div flex items-center gap-3><div i-twemoji:video-game text-xl /> AIRI: an open-source AI companion that plays games with you</div>
-      <div flex items-center gap-3><div i-twemoji:bar-chart text-xl /> Co-first author & maintainer of MCPMark (ICLR 2026)</div>
-      <div flex items-center gap-3><div i-twemoji:mechanical-arm text-xl /> Agents in games, and lately robots too</div>
+<div flex>
+  <div
+    v-click="1" flex flex-col items-start transition duration-500 ease-in-out
+    :class="$clicks < 1 ? 'translate-x--20' : 'translate-x-0'"
+  >
+    <img src="./public/team/nekomeowww.png" w-50 h-50 rounded-full object-cover mb-5>
+    <span font-semibold text-3xl>Neko Ayaka</span>
+    <div>
+      <div>
+        <span class="opacity-70">Creator of Project AIRI · LobeHub</span>
+      </div>
+      <div text-sm flex items-center gap-2 mt-4>
+        <div i-ri:github-fill /><span underline decoration-dashed font-mono decoration-zinc-300>nekomeowww</span>
+      </div>
     </div>
-    <div v-click mt-6 text-sm class="muted">
-      Airicraft is mostly built by <b>Rin (shinohara-rin)</b>; the game integrations by <b>LemonNeko</b> and the AIRI community.
+  </div>
+  <div flex-1 />
+  <div
+    v-click="2" flex flex-col items-end transition duration-500 ease-in-out
+    :class="$clicks < 2 ? 'translate-x-20' : 'translate-x-0'"
+  >
+    <img src="./public/team/shinohara-rin.png" w-50 h-50 rounded-full object-cover mb-5>
+    <span font-semibold text-3xl>Rin</span>
+    <div flex-col items-end>
+      <div text-right>
+        <span class="opacity-70">Airicraft, recorder-minecraft</span>
+      </div>
+      <div text-sm flex items-center justify-end gap-2 mt-4>
+        <div i-ri:github-fill /><span underline decoration-dashed font-mono decoration-zinc-300>shinohara-rin</span>
+      </div>
     </div>
   </div>
 </div>
 
 <!--
 [Neko]
-简单介绍一下自己。我是 Project AIRI 的发起人，也在 Moeru AI 做一系列开源项目。我是 MCPMark 的共同第一作者和维护者，这是一个 MCP Agent 的 Benchmark，今年中了 ICLR。年初我们也开始玩机器人，后面会提到为什么。
+[click] 我是 Neko，Project AIRI 的发起人，平时在 LobeHub 工作。
 
-[click] 今天展示的很多东西不是我一个人做的：Airicraft 主要是 Rin 写的，很多游戏的集成是 LemonNeko 和社区一起做的。
+[click] 这位是 Rin，英文名 Claudia Wang。今天你们在 Minecraft 里看到的东西，Airicraft、recorder，还有周边很多生态，主要都是她做的。团队里其他伙伴，最后一起介绍。
 -->
 
 ---
@@ -100,12 +119,12 @@ clicks: 2
     <h1>A friend who plays games with you</h1>
     <span class="zh">我们想做一个日常陪我们一起玩的数字生命。</span>
     <div v-click="1" mt-8 text-xl leading-9 font-medium>
-      Chat is solved, more or less.<br>
+      Chat mostly works today.<br>
       <span class="text-gradient">But can it sit next to you and <b>play</b>?</span>
     </div>
     <div v-click="2" mt-5 class="muted" text-sm leading-6>
-      Playing together means sharing a world: seeing what you see, acting in real time, and knowing what you meant.
-      <div class="zh">一起玩，意味着要在同一个世界里：看到你看到的，实时行动，还要听懂你的意思。</div>
+      To play together, it must share your world: see what you see, act in real time, and understand what you mean.
+      <div class="zh">一起玩，就得在同一个世界里：看到你看到的，跟得上节奏，还要听懂你在说什么。</div>
     </div>
   </div>
   <div relative h-90>
@@ -181,7 +200,7 @@ glow: center
 
 <div flex flex-col h-full>
   <div class="corner-soft" self-start>
-    <h1 mt-1 mb-0!>AIRI grew up in the open</h1>
+    <h1 mt-1 mb-0!>AIRI grew as open source</h1>
     <span class="zh">一个小众的 side project，长成了五万星的开源项目</span>
   </div>
   <div flex-1 flex items-end>
@@ -211,7 +230,7 @@ glow: left
 <div h-full flex flex-col justify-center pl-6>
   <div class="eyebrow">Part 01</div>
   <div text="[64px]" font-bold leading-none mt-3>A short history<br>of <span class="text-gradient">game AI</span></div>
-  <div class="zh" text-lg!>游戏一直是 AI 的考场</div>
+  <div class="zh" text-lg!>大家一直有在尝试用 AI 玩各种游戏</div>
 </div>
 
 <!--
@@ -231,7 +250,7 @@ chrome: false
 
 <!--
 [Neko]
-游戏一直是 AI 的考场：有画面，有规则，有分数，也有输赢。我们从一块屏幕开始。
+大家一直有在尝试用 AI 玩各种游戏，因为游戏有画面、有规则、有分数，也有输赢。我们从一块屏幕开始。
 
 2013 年，DeepMind 的 DQN。一个网络只看画面和分数，2015 年的 Nature 论文里，它用同一套超参数学会了 49 款雅达利游戏。
 
@@ -279,7 +298,7 @@ glow: right
     <div mt-4 text-base font-semibold>DQN · VPT · SIMA · NitroGen · Open P2P</div>
     <div mt-4 flex flex-col gap-2 text-base>
       <div flex items-center gap-2 whitespace-nowrap><div i-ph:plus-circle-bold text-gosim-sky /> Fast and general <span class="muted" text-sm>快，能泛化</span></div>
-      <div flex items-center gap-2 whitespace-nowrap><div i-ph:minus-circle-bold text-gosim-rose /> Data hungry, opaque <span class="muted" text-sm>吃数据，难解释</span></div>
+      <div flex items-center gap-2 whitespace-nowrap><div i-ph:minus-circle-bold text-gosim-rose /> Needs lots of data, hard to explain <span class="muted" text-sm>吃数据，难解释</span></div>
     </div>
   </div>
   <div v-click="2" flex flex-col items-center>
@@ -296,7 +315,7 @@ glow: right
     <div mt-4 text-base font-semibold>Voyager · CodeAct · Pokémon harnesses</div>
     <div mt-4 flex flex-col gap-2 text-base>
       <div flex items-center gap-2 whitespace-nowrap><div i-ph:plus-circle-bold text-gosim-sky /> Plans and talks <span class="muted" text-sm>会规划，能聊天</span></div>
-      <div flex items-center gap-2 whitespace-nowrap><div i-ph:minus-circle-bold text-gosim-rose /> Slow, capped by its tools <span class="muted" text-sm>慢，上限看工具</span></div>
+      <div flex items-center gap-2 whitespace-nowrap><div i-ph:minus-circle-bold text-gosim-rose /> Slow, limited by its tools <span class="muted" text-sm>慢，上限看工具</span></div>
     </div>
   </div>
 </div>
@@ -307,7 +326,7 @@ glow: right
   </div>
   <div>
     <div text="[22px]" font-bold whitespace-nowrap>A companion needs <span style="color: #E87AA4">both</span>: a slow mind to plan, a fast body to play.</div>
-    <div class="zh">陪你玩的伙伴两样都要：慢的脑子负责想，快的身体负责玩。</div>
+    <div class="zh">想当一个陪玩，这两样我们都得要。</div>
   </div>
 </div>
 
@@ -331,7 +350,7 @@ glow: left
 <div h-full flex flex-col justify-center pl-6>
   <div class="eyebrow">Part 02</div>
   <div text="[64px]" font-bold leading-none mt-3>Seven games,<br><span class="text-gradient">seven problems</span></div>
-  <div class="zh" text-lg!>我们玩过的每个游戏，都逼着我们解决一个新问题</div>
+  <div class="zh" text-lg!>每一个游戏都有一本难念的经</div>
 </div>
 
 <!--
@@ -346,22 +365,22 @@ glow: right
 
 <!-- slide:C1 -->
 
-<h1>AIRI meets Minecraft, through Mineflayer</h1>
-<span class="zh">2025 年初，AIRI 第一次进入游戏：用 Mineflayer 起一个机器人</span>
+<h1>AIRI plays Minecraft with Mineflayer</h1>
+<span class="zh">受 Voyager 和 Mindcraft 启发，我们决定试试 Mineflayer</span>
 
 <div grid="~ cols-[1.25fr_1fr]" gap-8 mt-8 items-start>
   <div v-click="1">
   <div class="glass c1-layers">
     <div class="c1-row"><div i-twemoji:eye class="c1-icon" /><b>Perception</b><span>events → YAML rules → signals</span></div>
-    <div class="c1-row"><div i-twemoji:high-voltage class="c1-icon" /><b>Reflex</b><span>a state machine that holds back the LLM</span></div>
+    <div class="c1-row"><div i-twemoji:high-voltage class="c1-icon" /><b>Reflex</b><span>a state machine that can block LLM calls</span></div>
     <div class="c1-row"><div i-twemoji:brain class="c1-icon" /><b>Conscious</b><span>event queue + sandboxed JS planner</span></div>
-    <div class="c1-row"><div i-twemoji:hammer-and-wrench class="c1-icon" /><b>Action</b><span>task executor over Mineflayer skills</span></div>
+    <div class="c1-row"><div i-twemoji:hammer-and-wrench class="c1-icon" /><b>Action</b><span>runs tasks with Mineflayer skills</span></div>
   </div>
-  <div class="c1-source">Old bot's 4-layer architecture · from <code>airi/integrations/minecraft</code></div>
+  <div class="c1-source">The 4 layers of the old bot · from <code>airi/integrations/minecraft</code></div>
   </div>
   <div flex flex-col gap-4>
     <div v-click="2">
-      <div text-2xl font-bold leading-tight>It worked. Then the real world showed up.</div>
+      <div text-2xl font-bold leading-tight>It worked, then problems came.</div>
       <div class="zh" text-base!>能跑，但真实世界里问题一个接一个</div>
     </div>
     <div v-click="3" grid="~ cols-2" gap-2 text-sm>
@@ -373,7 +392,7 @@ glow: right
       <div class="pill" justify-start>📺 not first-person</div>
     </div>
     <div v-click="4" text-xs class="muted" leading-5>
-      Mineflayer also powers Voyager and Mindcraft. Research stacks like MineRL / MineDojo build on Malmo. Players, though, are on modded servers.
+      Voyager and Mindcraft also use Mineflayer. MineRL and MineDojo use Malmo. But players use modded servers.
     </div>
   </div>
 </div>
@@ -472,8 +491,8 @@ glow: right
 
 <!-- slide:C3 -->
 
-<h1>Seeing the cards is not playing the game</h1>
-<span class="zh">看得见牌，不等于会打牌</span>
+<h1>You can read every card and still lose</h1>
+<span class="zh">看清点数也不一定打得过纯随机的盲注呀</span>
 
 <BalatroLoop :clicks="$clicks" />
 
@@ -502,7 +521,7 @@ glow: left
 <!-- slide:C4 -->
 
 <h1>Each integration taught us one thing</h1>
-<span class="zh">每接一个游戏，就专门啃下一个问题</span>
+<span class="zh">每一类游戏都会有其对应的难题</span>
 
 <OneGameOneProblem :clicks="$clicks" />
 
@@ -596,7 +615,7 @@ chrome: false
 ::caption::
 
 <div flex items-center gap-3 text-2xl font-semibold><div i-ph:cube-bold /> Airicraft</div>
-<div mt-2 text-base>The planner sees and holds a native Minecraft client.</div>
+<div mt-2 text-base>The planner sees and controls a native Minecraft client.</div>
 <div class="zh">AI 伙伴用的，就是一个真正的 Minecraft 客户端</div>
 
 <!--
@@ -612,7 +631,7 @@ glow: right
 <!-- slide:D3 -->
 
 <h1>The LLM never touches a key</h1>
-<span class="zh">大模型从来不碰按键：它只负责发起任务，剩下的交给快系统每个 tick 去做</span>
+<span class="zh">大模型只管下命令，按键这件事交给快系统</span>
 
 <div mt-18 flex justify-center>
   <SystemFlow :clicks="$clicks" />
@@ -638,8 +657,8 @@ glow: left
 
 <!-- slide:D4 -->
 
-<h1>Every fast skill is a failure we watched</h1>
-<span class="zh">每个快技能，都是先眼看着模型翻车，才写出来的</span>
+<h1>Each fast skill fixes a failure we saw</h1>
+<span class="zh">模型跟不上的地方，我们就写成快技能</span>
 
 <div class="d4-rows" mt-8>
   <div v-click="1" class="d4-row">
@@ -660,7 +679,7 @@ glow: left
     <div class="d4-icon"><div i-twemoji:dragon /></div>
     <div>
       <div class="d4-tag">playtest stall 8</div>
-      <div class="d4-fail">Killed by dragon breath, ~40 s in</div>
+      <div class="d4-fail">Killed by dragon breath after ~40 s</div>
       <div class="d4-zh">进末地四十秒左右就被龙息喷死，大模型根本来不及想</div>
     </div>
     <div class="d4-arrow"><div i-ph:arrow-right-bold /></div>
@@ -673,7 +692,7 @@ glow: left
 </div>
 
 <div v-click="3" mt-8 text-center>
-  <div text-2xl font-bold>The demo got better because the harness got thicker.</div>
+  <div text-2xl font-bold>The demo got better because the harness got bigger.</div>
   <span class="zh">demo 越来越好看，很大程度上是因为外面这层 harness 越写越厚</span>
 </div>
 
@@ -726,7 +745,7 @@ glow: left
 <div h-full flex flex-col justify-center pl-6>
   <div class="eyebrow">Part 04</div>
   <div text="[64px]" font-bold leading-none mt-3>From evidence<br><span class="text-gradient">to minds</span></div>
-  <div class="zh" text-lg!>怎样才能让 agent 真正玩得好？</div>
+  <div class="zh" text-lg!>怎么才能让 agent 玩得好一点？</div>
 </div>
 
 <!--
@@ -742,7 +761,7 @@ glow: right
 <!-- slide:E1 -->
 
 <h1>Playing well is not just moving well</h1>
-<span class="zh">机器人给我们上的一课：会动，不等于会玩</span>
+<span class="zh">做机器人的时候我们发现：光会动，还远远不够</span>
 
 <div class="e1-cols" mt-16>
   <div v-click="1" class="e1-col">
@@ -773,7 +792,7 @@ glow: right
 
 <div v-click="5" mt-12 text-center>
   <div text-2xl font-bold>Robots or games, we got stuck on <span class="text-gradient">data, recording and evaluation</span>.</div>
-  <span class="zh">不管是机器人还是游戏，最后都卡在同一个地方：数据、录制和评测</span>
+  <span class="zh">机器人也好，游戏也好，最后缺的都是数据、录制和评测</span>
 </div>
 
 <style>
@@ -805,8 +824,8 @@ glow: left
 
 <!-- slide:E5 -->
 
-<h1>We built a benchmark</h1>
-<span class="zh">冻结的存档，加上读世界的检查。每个场景，其实就是一个强化学习环境</span>
+<h1>Every saved world is a test case</h1>
+<span class="zh">每一个固定的存档就是一个 case，RL 就依赖这个</span>
 
 <div mt-6>
   <GymLoop :clicks="$clicks" />
@@ -832,35 +851,37 @@ glow: right
 
 <!-- slide:D5 -->
 
-<h1>Then we ran it, and the results wobbled</h1>
-<span class="zh">同一份代码、同一个模型，再跑一遍，结果就变了</span>
+<h1>Easy ones pass. Hard ones fail.</h1>
+<span class="zh">简单的次次都过，难的次次都挂</span>
 
-<div mt-4>
+<div mt-6>
   <RunMatrix :clicks="$clicks" />
 </div>
 
 <!--
 [Neko]
-评测有了，我们就拿它来跑。
+有了评测，我们就把 9 个场景、同一个构建、同一个模型，各跑了三批。简单的那几个每次都过，难的那几个每次都挂。挂在哪，比通过率更有用。
 
-[click] 这是一次基线：9 个场景，同一份构建、同一个模型，跑了三批。通过数是 5、4、5。
+[click] 第一类：长任务跑不完。两个种田的场景，80 轮、30 轮的 planner 预算都用完了，田还没种完。
 
-[click] 看铁镐这一行：第一批过了，第二批没过，第三批又过了。代码一行没改，模型也没换。其实第三批就是因为前两批对不上才加跑的。
+[click] 第二类：它不会等。做面包那个场景，麦子刚种下还没长，它就把目标标成做不了，没有去等麦子长大。
 
-[click] 就算两次都成功，花费也能差一倍。同一个 commit、同一个铁镐任务，一次用了 38 个请求、160 万输入 token，另一次用了 71 个请求、310 万。
+[click] 第三类：放弃得太早。采海草的场景，照明检查失败、又找不到路，五轮左右就放弃了。
 
-[click] 所以跑一次只能算个例。要说「这个 prompt 有用」「A 模型比 B 强」，就得多跑几次，每次用隔离的客户端，判定读世界，不读对话记录。
+[click] 第四类：同一个任务结果会变。铁镐第一批过、第二批把轮次用完没过、第三批又过了。所以跑一次不算数，要多跑几次才能下结论。
+
+这几类问题，就是我们接下来要往下做的方向：长程规划、等待和时间、失败后的恢复。
 -->
 
 ---
-clicks: 3
+clicks: 2
 glow: left
 ---
 
 <!-- slide:E5b -->
 
-<h1>Same environment, many policies</h1>
-<span class="zh">环境不变，换模型来跑。离真正的 RL 环境，还差几样</span>
+<h1>Swapping models is easy. The world is not.</h1>
+<span class="zh">切换模型是挺简单的，但是这个世界可就多变了</span>
 
 <div mt-7>
   <PolicyLanes :clicks="$clicks" />
@@ -868,15 +889,12 @@ glow: left
 
 <!--
 [Neko]
-既然一次不算数，就得能方便地多跑、换着跑。左边是同一个环境，就是那个铁镐任务；右边接了三种后端：OpenAI 兼容接口、Anthropic 和 Codex。DeepSeek、Qwen、GLM、Nemotron 都在上面跑过。
-
-[click] 跑起来是这样：每个模型在自己独立的客户端和游戏目录里，并行跑，互不干扰，各跑各的一局，最后都用同一套检查来判。
+既然跑一次不算数，就得能方便地多跑、换着模型跑。同一个铁镐环境，世界存档和检查都不变，后面可以接三种后端：OpenAI 兼容接口、Anthropic 和 Codex。DeepSeek、Qwen、GLM、Nemotron 都在上面跑过。每次运行都在独立的客户端里，互不干扰。
 
 [click] 不过离真正的 RL 环境还差几样：过程奖励，现在只看终点；一个能一步步推进的 step 接口；把录制导成数据集的工具；还有每个模型都跑够次数的排行榜。
 
 [click] 我们手上已经有三层数据：规划层的轨迹，给会用工具的大模型；20 Hz 的按键和视角，给动作模型，也就是一直缺的那层快系统；还有它当时能看到什么，给感知模型。这些数据从哪来？就是接下来要讲的 recorder。
 -->
-
 ---
 clicks: 5
 glow: right
@@ -884,8 +902,8 @@ glow: right
 
 <!-- slide:E2 -->
 
-<h1>Record the world, not the screen</h1>
-<span class="zh">录的不是画面，而是世界：服务端真正发生了什么，每个玩家能看到什么</span>
+<h1>What if we recorded the whole world?</h1>
+<span class="zh">如果记录下来整个世界呢？</span>
 
 <div class="e2-grid">
 <div>
@@ -922,7 +940,7 @@ glow: right
 </div>
 
 <div class="e2-pane" :class="{ on: $clicks === 3 }">
-<div class="e2-file">post-process <span>· reads capture/, writes beside it</span></div>
+<div class="e2-file">post-process <span>· reads capture/, writes next to it</span></div>
 
 ```shell
 recorder-minecraft actions extract \
@@ -938,7 +956,7 @@ recorder-minecraft render \
 </div>
 
 <div class="e2-pane" :class="{ on: $clicks === 4 }">
-<div class="e2-file">…/airicraft.planner/planner-calls.jsonl <span>· fixture values</span></div>
+<div class="e2-file">…/airicraft.planner/planner-calls.jsonl <span>· test values</span></div>
 
 ```jsonc {7-10}
 { "schemaVersion": 1, "callId": "planner-call-0001",
@@ -953,7 +971,7 @@ recorder-minecraft render \
     "applied":   { "serverTick": "105" } } }
 ```
 
-<div class="e2-note">submitted ≤ completed ≤ applied, on the server's clock</div>
+<div class="e2-note">submitted ≤ completed ≤ applied, on the server clock</div>
 </div>
 
 <div class="e2-pane" :class="{ on: $clicks >= 5 }">
@@ -967,7 +985,7 @@ recorder-minecraft render \
 ```
 
 <div class="e2-gap">
-<div><b>Gaps are declared, never invented.</b></div>
+<div><b>We record gaps. We never invent data.</b></div>
 <div>An unknown cell is not air. An unopened chest is not empty.</div>
 <div class="zh" text-sm!>没录到就写「没录到」：不知道的格子不是空气，没打开的箱子不是空箱子</div>
 </div>
@@ -1107,7 +1125,7 @@ glow: left
 <!-- slide:E3 -->
 
 <h1>What was true, and what Alice could know</h1>
-<span class="zh">在 recorder 的网页上，把世界、感知、动作和模型的想法放在同一条时间线上</span>
+<span class="zh">世界、她看到的、她做的、模型想的，都在同一条时间线上</span>
 
 <div mt-7>
   <EvidenceTimeline :clicks="$clicks" />
@@ -1156,7 +1174,7 @@ glow: right
 <!-- slide:E4 -->
 
 <h1>Behavior → evidence → mind</h1>
-<span class="zh">把行为压缩成证据，再去推断背后的那个「心智」</span>
+<span class="zh">从她做了什么，反推她在想什么</span>
 
 <div class="e4-grid">
 <ProvenanceLadder :clicks="$clicks" />
@@ -1271,8 +1289,8 @@ glow: center
 />
 
 <div class="f1-title" :class="{ away: $clicks >= 1 }">
-  <h1 mt-1 class="f1-fade">We started primitive.<br>Some turned green.</h1>
-  <span class="zh f1-fade">一开始都很原始。拿着 agent 一个个试，有些分支慢慢变绿了</span>
+  <h1 mt-1 class="f1-fade">We started simple.<br>Some turned green.</h1>
+  <span class="zh f1-fade">一开始都挺原始的，拿着 agent 一个个试，慢慢有些分支变绿了</span>
 </div>
 
 <style>
@@ -1314,7 +1332,7 @@ glow: right
 <!-- slide:F2 -->
 
 <h1>A companion is a voice agent, not a bot</h1>
-<span class="zh">陪伴不只是 agent harness 的事，还有人机交互和心理学的问题</span>
+<span class="zh">陪玩主打一个实时，还得能猜测对方的心境，非常 Psychology 了</span>
 
 <div mt-5>
   <CompanionScene :clicks="$clicks" />
@@ -1345,7 +1363,7 @@ chrome: false
 <EcosystemConverge :clicks="$clicks" />
 
 <div class="f3-title">
-  <h1>Throwing a brick to attract jade</h1>
+  <h1>This is a start. Come build with us.</h1>
   <span class="zh">抛砖引玉。这些都开源，欢迎一起来玩</span>
 </div>
 
@@ -1368,6 +1386,26 @@ chrome: false
 我们还有很多东西没有尝试、没有解决，今天就点到为止，主要是一个抛砖引玉。
 
 [click] 这些都是 Moeru AI 的项目。AIRI 在中间；左边是我们玩过的游戏，Minecraft 的 Airicraft 和 recorder，还有小丑牌、异星工厂、坎巴拉、Dome Keeper、osu!；右边是一路上攒下来的工具：AUV、xsAI、Velin、Vieval、alint，还有语音和运行时这一层。全部开源，欢迎来看看，一起来玩。
+-->
+
+---
+glow: center
+---
+
+<!-- slide:F3b -->
+
+<div text-center>
+  <h1>The others behind all of this</h1>
+  <span class="zh">做这些东西的人</span>
+</div>
+
+<div class="mt-9">
+  <TeamGrid />
+</div>
+
+<!--
+[Neko]
+最后想介绍一下团队里的其他伙伴。藍+85CD，Moeru AI 很多 agent 和 agent infra；RainbowBird，产品；LemonNeko，Dome Keeper 和异星工厂；Makito，主要的管线；Lulu，城市天际线里的 AIRI Mayor；刘梓恒，AUV 的主要维护者。大家都很天才，今天我只是替大家来讲。
 -->
 
 ---

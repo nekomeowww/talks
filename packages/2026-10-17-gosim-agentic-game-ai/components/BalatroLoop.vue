@@ -49,7 +49,7 @@ const chip = computed(() => {
 })
 
 const steps = [
-  { en: 'Mod stages exact cards', zh: 'mod 直接把指定的牌发到手上' },
+  { en: 'The mod deals exact cards', zh: 'mod 直接把指定的牌发到手上' },
   { en: 'Same frame: pixels + true labels', zh: '同一帧里截图，标签由 mod 给' },
   { en: 'Train YOLO', zh: '拿这些标签训练 YOLO' },
   { en: 'Run live in AUV, misses become labels', zh: '在 AUV 里实战，认错的就是下一批标注' },
@@ -223,7 +223,7 @@ onUnmounted(() => {
 
       <div class="honest" :class="{ on: c >= 5 }">
         <div class="honest-en">
-          It sees much better. It still can't <i>play</i>.
+          It sees much better. It still can’t <i>play</i>.
         </div>
         <div class="honest-zh">
           看得更准了，打法还是输给 Boss 盲注。

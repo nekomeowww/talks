@@ -37,7 +37,7 @@ defineProps<{ clicks: number }>()
           PrismarineJS
         </div>
         <div class="line">
-          A bot that speaks the protocol. Mods, pathfinding and spatial reasoning kept breaking.
+          A bot on the network protocol. Mods, pathfinding and spatial reasoning often broke.
         </div>
         <div class="zh-s">
           在协议层假装成玩家，遇到 mod、寻路和空间推理就频频出问题。
@@ -66,7 +66,7 @@ defineProps<{ clicks: number }>()
           FabricMC · cabaletta/baritone
         </div>
         <div class="line">
-          The agent holds a real client, so modded servers just work. Baritone walks.
+          The agent uses a real client, so modded servers work. Baritone does the walking.
         </div>
         <div class="zh-s">
           AI 直接用真正的客户端，服务器装了 mod 也照常进。寻路先交给 Baritone。

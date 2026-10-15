@@ -18,8 +18,8 @@ const games = [
     logoH: 54,
     problem: 'Planning & math',
     num: '<1%',
-    numCap: 'of launches made it, early 2026',
-    line: 'kRPC and MechJeb do the physics; the model runs the mission.',
+    numCap: 'of launches worked, early 2026',
+    line: 'kRPC and MechJeb do the physics. The model runs the mission.',
     zh: '早期模型算不好轨道。物理交给工具，模型只管排任务。',
   },
   {
@@ -28,8 +28,8 @@ const games = [
     logoH: 30,
     problem: 'Macro planning & code',
     num: '1st',
-    numCap: 'auto-labelling pipeline',
-    line: 'A TypeScript → Lua mod; the model writes code over RCON.',
+    numCap: 'auto-labeling pipeline',
+    line: 'A TypeScript → Lua mod. The model writes code over RCON.',
     zh: '模型通过 RCON 写代码。自动打标也是从这里开始的。',
   },
   {

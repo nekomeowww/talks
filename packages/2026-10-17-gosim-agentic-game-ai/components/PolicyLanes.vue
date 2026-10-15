@@ -6,18 +6,17 @@ import { nextTick, ref, watch } from 'vue'
  * what is still missing before it is a real RL environment; and the three
  * layers of data a Play already records.
  *
- * Click 0: the environment and three backends, idle. Click 1: each lane runs
- * its episode once (bars fill at different speeds and stop). Click 2: what is
- * missing. Click 3: the data layers. Every state is static once settled.
+ * Click 0: one environment and the three backends it can run. Click 1: what
+ * is missing. Click 2: the data layers. Every state is static once settled.
  */
 const props = defineProps<{
   clicks: number
 }>()
 
 const lanes = [
-  { icon: 'i-ph:plugs-connected-bold', name: 'OpenAI-compatible', models: 'DeepSeek · Qwen · GLM · Nemotron', speed: 1.9 },
-  { icon: 'i-ph:asterisk-bold', name: 'Anthropic', models: 'Messages API', speed: 2.6 },
-  { icon: 'i-ph:terminal-window-bold', name: 'Codex', models: 'app-server', speed: 2.2 },
+  { icon: 'i-ph:plugs-connected-bold', name: 'OpenAI-compatible', models: 'DeepSeek · Qwen · GLM · Nemotron' },
+  { icon: 'i-ph:asterisk-bold', name: 'Anthropic', models: 'Messages API' },
+  { icon: 'i-ph:terminal-window-bold', name: 'Codex', models: 'app-server' },
 ]
 
 const missing = [
@@ -30,7 +29,7 @@ const missing = [
 const layers = [
   { en: 'Planner traces', zh: '规划轨迹', who: 'tool-using LLMs' },
   { en: '20 Hz actions', zh: '每 tick 的按键和视角', who: 'action models' },
-  { en: 'Honest visibility', zh: '它当时真能看到什么', who: 'perception' },
+  { en: 'What it could see', zh: '它当时真能看到什么', who: 'perception' },
 ]
 
 const instant = ref(false)
@@ -71,30 +70,20 @@ watch(() => props.clicks, async (n, o) => {
               {{ l.models }}
             </div>
           </div>
-          <div class="run">
-            <div
-              class="cursor"
-              :class="{ done: clicks >= 1 }"
-              :style="{ transitionDuration: clicks >= 1 ? `${l.speed}s` : '300ms' }"
-            />
-          </div>
-          <div class="client">
-            client {{ i + 1 }}
-          </div>
         </div>
         <div class="lanes-cap">
-          each in its own client and game dir · <code>--jobs 3</code> · 互不干扰
+          Swap the model. Keep the same world and the same checks.
         </div>
       </div>
     </div>
 
     <div class="bottom">
-      <div class="missing" :class="{ on: clicks >= 2 }">
+      <div class="missing" :class="{ on: clicks >= 1 }">
         <div class="h">
           <div i-ph:circle-dashed-bold class="h-i rose" /> Not there yet <span class="h-z">还没有的</span>
         </div>
         <div class="miss-grid">
-          <div v-for="(m, i) in missing" :key="m.en" class="miss" :style="{ transitionDelay: clicks >= 2 ? `${i * 90}ms` : '0ms' }">
+          <div v-for="(m, i) in missing" :key="m.en" class="miss" :style="{ transitionDelay: clicks >= 1 ? `${i * 90}ms` : '0ms' }">
             <div class="me">
               {{ m.en }}
             </div>
@@ -105,11 +94,11 @@ watch(() => props.clicks, async (n, o) => {
         </div>
       </div>
 
-      <div class="layers" :class="{ on: clicks >= 3 }">
+      <div class="layers" :class="{ on: clicks >= 2 }">
         <div class="h">
           <div i-ph:stack-bold class="h-i blue" /> Data, three layers <span class="h-z">数据分三层</span>
         </div>
-        <div v-for="(d, i) in layers" :key="d.en" class="layer" :style="{ transitionDelay: clicks >= 3 ? `${i * 110}ms` : '0ms' }">
+        <div v-for="(d, i) in layers" :key="d.en" class="layer" :style="{ transitionDelay: clicks >= 2 ? `${i * 110}ms` : '0ms' }">
           <span class="le">{{ d.en }}</span>
           <span class="lz">{{ d.zh }}</span>
           <span class="lw">→ {{ d.who }}</span>

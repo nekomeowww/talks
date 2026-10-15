@@ -22,9 +22,9 @@ interface Station {
 }
 
 const stations: Station[] = [
-  { icon: 'i-twemoji:brain', title: 'Deliberation', zh: '大模型：定目标、调工具', speed: 'seconds', desc: 'LLM planner, ~60 tools. Sees diffs, not dumps.' },
+  { icon: 'i-twemoji:brain', title: 'Thinking', zh: '大模型：定目标、调工具', speed: 'seconds', desc: 'LLM planner, ~60 tools. Sees changes, not full state.' },
   { icon: 'i-twemoji:hammer-and-wrench', title: 'Skills', zh: '技能：把任务一步步做完', speed: 'ticks', desc: 'Jobs, action graphs: portal, dragon, blueprints.' },
-  { icon: 'i-twemoji:high-voltage', title: 'Reflexes', zh: '反射：岩浆、溺水、怪物', speed: 'same tick', desc: 'Preempt everything upstream, in the same tick.' },
+  { icon: 'i-twemoji:high-voltage', title: 'Reflexes', zh: '反射：岩浆、溺水、怪物', speed: 'same tick', desc: 'Override everything above, in the same tick.' },
   { icon: 'i-twemoji:locked', title: 'Control arbiter', zh: '仲裁：一个键只有一个主人', speed: '20 Hz', desc: 'REFLEX › FOREGROUND › BACKGROUND', dark: true },
 ]
 
