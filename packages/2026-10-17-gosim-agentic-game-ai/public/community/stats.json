@@ -1,0 +1,134 @@
+{
+  "proj_airi_followers": 1772,
+  "moeru_ai_followers": 1089,
+  "airi_stars": 50411,
+  "airi_forks": 5060,
+  "airi_contributors": 201,
+  "top_repos": {
+    "proj-airi": [
+      {
+        "full_name": "proj-airi/awesome-ai-vtubers",
+        "stars": 508,
+        "description": "🧾🧸 A curated list of AI VTubers and their related projects"
+      },
+      {
+        "full_name": "proj-airi/webai-example-realtime-voice-chat",
+        "stars": 187,
+        "description": "🎤💬 Full example of implementing ChatGPT's realtime voice from scratch with VAD + STT + LLM + TTS technology stack within almost one file!"
+      },
+      {
+        "full_name": "proj-airi/duckdb-wasm",
+        "stars": 49,
+        "description": "🦆📊 Easy to use wrapper and Drizzle ORM driver for DuckDB WASM"
+      },
+      {
+        "full_name": "proj-airi/game-playing-ai-balatro",
+        "stars": 44,
+        "description": "🎮 AI plays the game Balatro with CV & LLM combined. Powered by YOLO / RapidOCR (PaddleOCR) / LLM."
+      },
+      {
+        "full_name": "proj-airi/webai-examples",
+        "stars": 37,
+        "description": "🧠 Web AI / LLM in browser / Whisper in browser / WebGPU inference Examples"
+      },
+      {
+        "full_name": "proj-airi/chromatic",
+        "stars": 36,
+        "description": "🎨 Readability enhanced, clean, nice looking colors palette we used across our Project AIRI projects!"
+      },
+      {
+        "full_name": "proj-airi/candle-examples",
+        "stars": 32,
+        "description": "🦀 Rust powered LLM, Whisper, Embedding inference, backed by 🤗 candle from HuggingFace"
+      },
+      {
+        "full_name": "proj-airi/drizzle-orm-browser",
+        "stars": 18,
+        "description": "🌧️ Drizzle ORM migrations during runtime, in browser!"
+      },
+      {
+        "full_name": "proj-airi/airi-android",
+        "stars": 17,
+        "description": "Allow LLM to use Android Device"
+      },
+      {
+        "full_name": "proj-airi/iconify-lobe-icons",
+        "stars": 15,
+        "description": "Iconify port of @lobehub's wonderful lobe-icons assets"
+      }
+    ],
+    "moeru-ai": [
+      {
+        "full_name": "moeru-ai/airi",
+        "stars": 50411,
+        "description": "💖🧸 Self hosted, you-owned Grok Companion, a container of souls of waifu, cyber livings to bring them into our worlds, wishing to achieve Neuro-sama's altitude. Capable of realtime voice chat, Minecraft, Factorio playing. Web / macOS / Windows supported."
+      },
+      {
+        "full_name": "moeru-ai/xsai",
+        "stars": 665,
+        "description": "🤖💬 AI SDK, extra small."
+      },
+      {
+        "full_name": "moeru-ai/auv",
+        "stars": 115,
+        "description": "📱🐭 No we are not computer use, it's Application Use Via... a unified orchestration layer of OS automation, 0 token cost"
+      },
+      {
+        "full_name": "moeru-ai/unspeech",
+        "stars": 106,
+        "description": "🗣️🔊 Your Text-to-Speech Services, All-in-One."
+      },
+      {
+        "full_name": "moeru-ai/airi-factorio",
+        "stars": 103,
+        "description": "🎮🏭 AI plays the game Factorio with CV & LLM combined. Powered by YOLO / LLM."
+      },
+      {
+        "full_name": "moeru-ai/chat",
+        "stars": 79,
+        "description": "🥽🖼️ WebXR Voice Call UI, Make AI-Powered characters appear to you."
+      },
+      {
+        "full_name": "moeru-ai/velin",
+        "stars": 78,
+        "description": "👩‍💻✍️ Prompt orchestration with Vue/React components. Compatible on any Node.js/browser runtime. No more context rendering and templating"
+      },
+      {
+        "full_name": "moeru-ai/plast-mem",
+        "stars": 74,
+        "description": "♻️💾 Yet Another Memory Layer, inspired by Cognitive Science, designed for Cyber Waifu"
+      },
+      {
+        "full_name": "moeru-ai/xsai-transformers",
+        "stars": 71,
+        "description": "🤗💬 Transformers.js provider for xsAI. Running Embedding, Whisper, and LLMs right in your browser!"
+      },
+      {
+        "full_name": "moeru-ai/mcp-launcher",
+        "stars": 47,
+        "description": "🐳🧩 Easy to use MCP builder & launcher for all possible MCP servers, just like Ollama for models!"
+      }
+    ]
+  },
+  "org_public_stars_total": {
+    "proj-airi": 970,
+    "moeru-ai": 52162
+  },
+  "fetched_at": "2026-10-15T19:25:22+00:00",
+  "wall_avatar_count": 2952,
+  "unique_people_collected": 5763,
+  "wall_sources": {
+    "contributors": 201,
+    "proj-airi_followers_listed": 1772,
+    "moeru-ai_followers_listed": 1089,
+    "recent_airi_stargazers": 3000
+  },
+  "wall_tile": {
+    "width": 3168,
+    "height": 1804,
+    "cols": 72,
+    "rows": 41,
+    "avatar_px": 40,
+    "gap_px": 4
+  }
+}

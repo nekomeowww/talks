@@ -8,6 +8,8 @@
 
 |  |  |
 | --- | --- |
+|  | 2026.10 @ Shenzhen x GOSIM |
+| Agentic in Game AI, did we get any far? (🇬🇧) | [Slides](https://talks.ayaka.io/nekoayaka/2026-10-17-gosim-agentic-game-ai) |
 
 ## Presented...
 

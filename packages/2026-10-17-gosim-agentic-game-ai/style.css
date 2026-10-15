@@ -1,0 +1,414 @@
+/*
+ * Agentic in Game AI, did we get any far? (GOSIM Shenzhen 2026)
+ *
+ * Light glow theme from the previous talks, GOSIM palette, and the motion
+ * tokens from transitions.dev. Ordinary reveals are plain fades; motion is
+ * kept for the moments where it carries meaning.
+ */
+
+:root {
+  --ink: #0a2540;
+  --ink-muted: rgb(10 37 64 / 58%);
+  --ink-faint: rgb(10 37 64 / 8%);
+
+  --gosim-footer: linear-gradient(90deg, #293655 0%, #456e95 50%, #f7db8f 85%, #ceaa5b 100%);
+  --gosim-heading: linear-gradient(90deg, #285091 0%, #6292bf 55%, #91d2dd 100%);
+
+  /* transitions.dev motion tokens */
+  --duration-stagger: 40ms;
+  --duration-fast: 250ms;
+  --duration-slow: 400ms;
+  --duration-very-slow: 500ms;
+  --ease-smooth-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-bounce: cubic-bezier(0.34, 1.36, 0.64, 1);
+  --ease-bounce-strong: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --stagger-dur: 500ms;
+  --stagger-distance: 12px;
+  --stagger-blur: 3px;
+  --stagger-ease: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Base */
+
+.slidev-layout {
+  color: var(--ink);
+  font-family: 'Quicksand Variable', 'Quicksand', 'ChillRoundM', 'Noto Sans SC Variable', 'Noto Sans SC', ui-sans-serif, system-ui, sans-serif;
+  font-weight: 500;
+}
+
+.slidev-layout h1 {
+  font-size: 2.55rem;
+  font-weight: 700;
+  line-height: 1.12;
+  letter-spacing: -0.015em;
+  color: var(--ink);
+  margin-bottom: 0;
+}
+
+.slidev-layout .zh {
+  display: block;
+  margin-top: 0.45rem;
+  font-family: 'ChillRoundM', 'Noto Sans SC Variable', 'Noto Sans SC', sans-serif;
+  font-size: 0.98rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  color: var(--ink-muted);
+}
+
+.slidev-layout .eyebrow {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #456e95;
+}
+
+/* Less air above the title on content slides */
+.slidev-layout.default {
+  padding-top: 2.4rem;
+}
+
+.slidev-layout p {
+  color: var(--ink-muted);
+}
+
+.slidev-layout a {
+  color: #285091;
+  border-bottom: none;
+}
+
+.slidev-layout pre,
+.slidev-layout pre code {
+  font-size: 11.5px !important;
+  line-height: 1.5 !important;
+}
+
+.slidev-layout .slidev-code {
+  border-radius: 14px !important;
+  background: rgb(255 255 255 / 72%) !important;
+  backdrop-filter: blur(12px);
+  border: 1px solid rgb(255 255 255 / 70%);
+  box-shadow: 0 10px 30px rgb(10 37 64 / 8%);
+}
+
+/* Accent text. Solid colours on purpose: the glow background is the only
+   gradient in the deck. The class names stay for existing markup. */
+.text-gradient {
+  color: #285091;
+}
+
+.text-gradient-warm {
+  color: #d9608f;
+}
+
+.muted {
+  color: var(--ink-muted);
+}
+
+/*
+ * v-click and slide transitions: the blurred enter / leave used across the
+ * previous talks (copied from 2026-07-18-vueconf-agent-vue-way/style.css).
+ */
+.slidev-vclick-target {
+  transition:
+    opacity 500ms ease,
+    filter 500ms ease,
+    color 300ms ease,
+    translate 500ms cubic-bezier(0.16, 1, 0.3, 1);
+  translate: 0 0;
+}
+
+.slidev-vclick-hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.slidev-vclick-hidden:not(.slidev-vclick-anim-none) {
+  filter: blur(6px);
+  translate: 0 2rem;
+}
+
+.fade-out-leave-active {
+  transition:
+    opacity calc(var(--slidev-transition-duration) * 0.6) ease-out,
+    filter 300ms ease,
+    transform 400ms ease;
+}
+
+.fade-out-enter-active {
+  transition:
+    opacity calc(var(--slidev-transition-duration) * 0.8) ease-in,
+    filter 300ms ease,
+    transform 500ms cubic-bezier(0.16, 1, 0.3, 1);
+  transition-delay: calc(var(--slidev-transition-duration) * 0.6);
+}
+
+.fade-out-enter-from,
+.fade-out-leave-to {
+  opacity: 0;
+  filter: blur(9px);
+  transform: translateY(0.6rem) scale(0.99);
+}
+
+/* Glass cards */
+
+.glass {
+  border-radius: 20px;
+  background: rgb(255 255 255 / 62%);
+  border: 1px solid rgb(255 255 255 / 85%);
+  box-shadow:
+    0 1px 0 rgb(255 255 255 / 90%) inset,
+    0 12px 32px rgb(10 37 64 / 8%);
+  backdrop-filter: blur(16px) saturate(140%);
+  -webkit-backdrop-filter: blur(16px) saturate(140%);
+}
+
+.glass-dark {
+  border-radius: 20px;
+  background: rgb(10 37 64 / 82%);
+  color: #fff;
+  box-shadow: 0 16px 40px rgb(10 37 64 / 22%);
+  backdrop-filter: blur(16px);
+}
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border-radius: 999px;
+  padding: 3px 12px;
+  font-size: 12px;
+  font-weight: 600;
+  background: rgb(255 255 255 / 70%);
+  border: 1px solid rgb(10 37 64 / 8%);
+  color: var(--ink);
+}
+
+.big-number {
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  font-variant-numeric: tabular-nums;
+}
+
+.footnote {
+  font-size: 10.5px;
+  color: rgb(10 37 64 / 42%);
+}
+
+/* Q-bounce: a playful idle wobble for mascots and stickers */
+
+@keyframes q-bob {
+  0%,
+  100% {
+    transform: translateY(0) rotate(-1deg);
+  }
+  50% {
+    transform: translateY(-6px) rotate(1.5deg);
+  }
+}
+
+.q-bob {
+  animation: q-bob 3.2s var(--ease-smooth-out) infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .slidev-vclick-target,
+  .fade-out-enter-active,
+  .fade-out-leave-active {
+    transition-duration: 1ms !important;
+  }
+
+  .q-bob {
+    animation: none;
+  }
+}
+
+/* GOSIM layouts kept from the template (cover, closing, full-bleed video) */
+
+.gosim-dark {
+  position: relative;
+  background-size: cover;
+  background-position: center bottom;
+  color: #fff;
+  padding: 0 !important;
+  overflow: hidden;
+}
+
+.gosim-dark h1,
+.gosim-dark p {
+  color: #fff;
+}
+
+.gosim-cover-logo {
+  position: absolute;
+  left: 4.5%;
+  top: 7.5%;
+  width: 14%;
+}
+
+.gosim-cover-body {
+  position: absolute;
+  left: 4.5%;
+  top: 19%;
+  width: 62%;
+}
+
+.gosim-cover-date {
+  display: block;
+  margin-top: 18px;
+  width: 40%;
+  opacity: 0.9;
+}
+
+.gosim-top-logo {
+  position: absolute;
+  left: 4.5%;
+  top: 6.9%;
+  width: 11.5%;
+}
+
+.gosim-top-wordmark {
+  position: absolute;
+  right: 3%;
+  top: 7.5%;
+  width: 24.9%;
+}
+
+.gosim-end-body {
+  position: absolute;
+  left: 4.5%;
+  right: 4.5%;
+  top: 22%;
+  bottom: 6%;
+}
+
+.gosim-video {
+  position: relative;
+  padding: 0 !important;
+  background: #0a2540;
+  overflow: hidden;
+}
+
+.gosim-video video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Same treatment as the May talk: a soft blurred corner behind the caption */
+.gosim-video::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  width: 700px;
+  height: 300px;
+  pointer-events: none;
+  background:
+    radial-gradient(105% 92% at 0% 0%, rgb(10 37 64 / 38%), rgb(10 37 64 / 14%) 42%, transparent 76%),
+    linear-gradient(135deg, rgb(255 255 255 / 6%), transparent 62%);
+}
+
+.gosim-video::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  width: 720px;
+  height: 320px;
+  pointer-events: none;
+  backdrop-filter: blur(10px);
+  mask-image: radial-gradient(112% 94% at top left, black 0%, black 38%, transparent 82%);
+  -webkit-mask-image: radial-gradient(112% 94% at top left, black 0%, black 38%, transparent 82%);
+}
+
+.gosim-video-caption {
+  position: absolute;
+  top: 18px;
+  left: 0;
+  z-index: 2;
+  max-width: 540px;
+  padding: 14px 24px 16px 34px;
+  color: #fff;
+  text-shadow: 0 2px 18px rgb(0 0 0 / 70%), 0 1px 4px rgb(0 0 0 / 80%);
+}
+
+.gosim-video-caption .zh {
+  color: rgb(255 255 255 / 82%);
+}
+
+.gosim-video-logo {
+  position: absolute;
+  right: 3%;
+  bottom: 5%;
+  z-index: 2;
+  width: 9%;
+  opacity: 0.85;
+  filter: drop-shadow(0 2px 8px rgb(0 0 0 / 50%));
+}
+
+/*
+ * Frosted corner: the blurred, tinted top-left corner from the video slides,
+ * reusable on any element that sits over busy imagery. Put the heading inside
+ * an element with `corner-frost`; the corner behind it blurs and tints.
+ * `corner-frost-light` is the same over light content.
+ */
+.corner-frost,
+.corner-frost-light {
+  position: relative;
+  isolation: isolate;
+}
+
+.corner-frost::before,
+.corner-frost-light::before {
+  content: '';
+  position: absolute;
+  left: -48px;
+  top: -40px;
+  z-index: -1;
+  width: 720px;
+  height: 320px;
+  pointer-events: none;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  mask-image: radial-gradient(112% 94% at top left, black 0%, black 38%, transparent 82%);
+  -webkit-mask-image: radial-gradient(112% 94% at top left, black 0%, black 38%, transparent 82%);
+  background: radial-gradient(105% 92% at 0% 0%, rgb(10 37 64 / 38%), rgb(10 37 64 / 14%) 42%, transparent 76%);
+}
+
+.corner-frost-light::before {
+  background: radial-gradient(105% 92% at 0% 0%, rgb(255 255 255 / 80%), rgb(255 255 255 / 40%) 42%, transparent 76%);
+}
+
+.corner-frost {
+  color: #fff;
+  text-shadow: 0 2px 18px rgb(0 0 0 / 60%), 0 1px 4px rgb(0 0 0 / 70%);
+}
+
+/*
+ * Soft corner: the same white fade as corner-frost-light but without
+ * backdrop-filter. Over busy backdrops Chrome clips the masked backdrop blur
+ * with a visible hard edge, so use this one there.
+ */
+.corner-soft {
+  position: relative;
+  isolation: isolate;
+}
+
+.corner-soft::before {
+  content: '';
+  position: absolute;
+  left: -64px;
+  top: -56px;
+  z-index: -1;
+  width: 820px;
+  height: 300px;
+  pointer-events: none;
+  background: radial-gradient(60% 70% at 0% 0%, rgb(255 255 255 / 92%), rgb(255 255 255 / 70%) 45%, rgb(255 255 255 / 0%) 100%);
+}

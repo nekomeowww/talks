@@ -1,0 +1,31 @@
+{
+  "name": "2026-10-17-gosim-agentic-game-ai",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "build": "NODE_OPTIONS=--no-experimental-webstorage slidev build",
+    "build-base": "NODE_OPTIONS=--no-experimental-webstorage slidev build --out ../../dist/nekoayaka/2026-10-17-gosim-agentic-game-ai --base /nekoayaka/2026-10-17-gosim-agentic-game-ai/",
+    "dev": "NODE_OPTIONS=--no-experimental-webstorage slidev --open --remote",
+    "export": "NODE_OPTIONS=--no-experimental-webstorage slidev export --with-clicks --per-slide --wait-until none"
+  },
+  "dependencies": {
+    "@fontsource-variable/noto-sans-sc": "^5.3.1",
+    "@fontsource-variable/quicksand": "^5.3.0",
+    "@proj-airi/font-chillroundm": "^0.10.2",
+    "animejs": "^4.5.0",
+    "seedrandom": "^3.0.5"
+  },
+  "devDependencies": {
+    "@iconify-json/carbon": "^1.2.14",
+    "@iconify-json/devicon": "^1.2.45",
+    "@iconify-json/logos": "^1.2.9",
+    "@iconify-json/ph": "^1.2.2",
+    "@iconify-json/ri": "^1.2.6",
+    "@iconify-json/simple-icons": "^1.2.55",
+    "@iconify-json/twemoji": "^1.2.5",
+    "@iconify/utils": "^3.0.2",
+    "@proj-airi/lobe-icons": "^1.0.13",
+    "@types/seedrandom": "^3.0.8",
+    "unplugin-basemove": "0.0.1"
+  }
+}
