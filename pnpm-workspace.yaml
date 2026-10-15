@@ -1,7 +1,7 @@
 packages:
   - packages/**
   - '!dist/**'
-onlyBuiltDependencies:
-  - esbuild
-  - playwright-chromium
-  - vue-demi
+allowBuilds:
+  esbuild: true
+  playwright-chromium: true
+  vue-demi: true
