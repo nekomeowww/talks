@@ -16,7 +16,7 @@ type Region = [number, number, number, number]
 interface Step {
   region?: Region
   /** Regions outlined with their number on the closing overview. */
-  outlines?: { n: number, region: Region }[]
+  outlines?: { n: number, region: Region, badge?: 'top' | 'left' }[]
   title: string
   zh: string
 }
@@ -27,42 +27,51 @@ const props = defineProps<{
 
 // Fractions of the screenshot (x0, y0, x1, y1), measured on the 3840 x 2400 capture.
 const R = {
-  timeline: [0.154, 0.506, 0.796, 0.992] as Region,
-  monitor: [0.155, 0.185, 0.795, 0.378] as Region,
-  inputs: [0.802, 0.098, 0.996, 0.468] as Region,
-  seen: [0.155, 0.098, 0.996, 0.468] as Region,
-  visibility: [0.154, 0.705, 0.796, 0.896] as Region,
+  timeline: [0.154, 0.396, 0.797, 0.994] as Region,
+  monitor: [0.156, 0.086, 0.794, 0.371] as Region,
+  inputs: [0.803, 0.100, 0.994, 0.367] as Region,
+  seen: [0.155, 0.080, 0.996, 0.375] as Region,
+  perception: [0.154, 0.602, 0.797, 0.948] as Region,
+  planner: [0.154, 0.950, 0.797, 0.974] as Region,
 }
 
 const steps: Step[] = [
   {
-    title: 'Three players, one clock',
-    zh: '10 月 14 日的一局，将近 4 小时，三个玩家，其中一个是 Airi',
+    title: 'Two workers, one timeline',
+    zh: '10 月 15 号跑的两局 Airicraft 评测，每局都是 AI 自己在玩',
   },
   {
     region: R.timeline,
-    title: 'Tracks aligned by server tick',
-    zh: '每个玩家一条轨道，横轴是服务端 tick，不是墙上的时钟',
+    title: 'Sessions on one clock',
+    zh: '两局按实际时间排在一起，一个 AI 一条轨道',
   },
   {
     region: R.seen,
-    title: 'What each one saw and pressed',
-    zh: '同一个 tick 下，每个人的第一人称画面，和他按着的键',
+    title: 'What it saw and pressed',
+    zh: '它这一刻看到了什么、按了哪些键、手里拿着啥',
   },
   {
-    region: R.visibility,
-    title: 'Missing is not empty',
-    zh: '还没算可见性的 Play，网页上写「未知」，不写「没看到」',
+    region: R.perception,
+    title: 'What it could see',
+    zh: '哪条鱼、哪只狐狸什么时候进了它的视野，一行一行都记着',
+  },
+  {
+    region: R.planner,
+    title: 'Every planner call is a track',
+    zh: '模型每想一次，时间线上就多一段',
   },
   {
     outlines: [
       { n: 1, region: R.timeline },
       { n: 2, region: R.monitor },
       { n: 3, region: R.inputs },
-      { n: 4, region: R.visibility },
+      // The perception and planner rows sit close to each other and to the
+      // timeline's own corner, so their badges go to other corners.
+      { n: 4, region: R.perception, badge: 'top' },
+      { n: 5, region: R.planner, badge: 'left' },
     ],
     title: 'One screen, one clock',
-    zh: '发生了什么、看到了什么、按了什么，还有哪里不知道',
+    zh: '发生了什么、看到了什么、按了什么，还有模型在想什么',
   },
 ]
 
@@ -120,7 +129,7 @@ const rings = computed(() => {
     const key = region.join()
     const focused = step.value.region?.join() === key
     const outline = step.value.outlines?.find(o => o.region.join() === key)
-    const nested = key === R.visibility.join()
+    const nested = key === R.perception.join() || key === R.planner.join()
     return { key, region, focused, outline, nested }
   })
 })
@@ -145,7 +154,7 @@ const rings = computed(() => {
         :class="{ focused: ring.focused, outlined: !!ring.outline, nested: ring.nested }"
         :style="box(ring.region)"
       >
-        <span v-if="ring.outline" class="num">{{ ring.outline.n }}</span>
+        <span v-if="ring.outline" class="num" :class="ring.outline.badge">{{ ring.outline.n }}</span>
       </div>
     </div>
 
@@ -210,7 +219,7 @@ const rings = computed(() => {
   border-color: rgb(247 219 143 / 90%);
 }
 
-/* The visibility rows sit inside the timeline box: dashed so the two read apart. */
+/* The perception and planner rows sit inside the timeline box: dashed so they read apart. */
 .ring.outlined.nested {
   border-style: dashed;
 }
@@ -231,6 +240,18 @@ const rings = computed(() => {
   background: #f7db8f;
   box-shadow: 0 4px 12px rgb(0 0 0 / 35%);
   animation: num-in 400ms ease both;
+}
+
+.num.top {
+  top: 0;
+  bottom: auto;
+  transform: translate(45%, -45%) scale(calc(1 / var(--s)));
+}
+
+.num.left {
+  right: auto;
+  left: 0;
+  transform: translate(-45%, 45%) scale(calc(1 / var(--s)));
 }
 
 @keyframes num-in {

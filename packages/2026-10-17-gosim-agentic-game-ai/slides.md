@@ -1146,7 +1146,7 @@ glow: left
 
 ---
 layout: gosim-video
-clicks: 4
+clicks: 5
 ---
 
 <!-- slide:E3b -->
@@ -1155,15 +1155,17 @@ clicks: 4
 
 <!--
 [Neko]
-刚才是示意图。这是 recorder 网页端真实的样子，录的是 10 月 14 号的一局：将近 4 个小时，三个玩家，其中 Airi 是我们的 AI 伙伴。
+刚才是示意图。这是 recorder 网页端真实的样子，录的是 10 月 15 号跑的两局 Airicraft 评测，每局都是 AI 自己在玩。
 
-[click] 先看下面的时间线。每个玩家一条轨道，每次连上服务器是一段。左上角写着「按服务端 tick 对齐」：横轴是服务器的 tick，不是墙上的时钟。
+[click] 先看下面的时间线。两局按实际时间排在一起，一个 AI 一条轨道，每次连上服务器是一段。
 
-[click] 上面是每个人的第一人称画面，同一个 tick 并排放，角上标着 tick，这里两个人都是 30149。右边是他们这一刻按着哪些键、朝哪看、快捷栏选的哪格，还有血量和饱食度。
+[click] 上面是它的第一人称画面，角上标着 tick，这里是 247。右边是它这一刻按着哪些键、朝哪看、快捷栏选的哪格，手里拿着 8 个小麦种子，还有血量和饱食度。
 
-[click] 轨道下面这几行黄字：这几个 Play 还没跑可见性。网页不会假装「她什么都没看到」，写的是：未知，不是空。
+[click] 回到时间线，视频下面这一排是它的视野：哪条鱼、哪只狐狸什么时候出现在画面里，一行一行都记着。以后回头看「它当时为什么这么做」，就先看它当时能看到什么。
 
-[click] 一屏就是这四件事：发生了什么，每个人看到了什么，按了什么，还有哪里我们不知道。左边还有资源面板，每个 Play 进来前都会先校验。Airicraft 的模型调用以后也会挂成一条轨道，这几局还没有，我就不拿假数据演示了。
+[click] 最下面这行是 Planner。Airicraft 的模型每想一次，这里就多一段，跟画面、按键用的是同一个时钟。
+
+[click] 所以一屏能看到这几件事：发生了什么，它看到了什么、按了什么，还有模型在想什么。左边还有资源面板，每个 Play 进来前都会先校验。
 -->
 
 ---
@@ -1453,7 +1455,15 @@ glow: center
 <div h-full flex flex-col items-center justify-center text-center>
   <div text-5xl font-bold>Interested?</div>
   <div class="zh" mt-2 text-lg>欢迎设计师、产品经理、工程师一起来做</div>
-  <div mt-8 flex gap-10>
+  <div mt-8 flex gap-6>
+    <div flex flex-col items-center gap-3>
+      <div class="f5-qr"><img src="./public/closing/airicraft_qr.png" alt="Airicraft QR code"></div>
+      <div font-bold text-xl>Airicraft</div>
+    </div>
+    <div flex flex-col items-center gap-3>
+      <div class="f5-qr"><img src="./public/closing/recorder_qr.png" alt="recorder-minecraft QR code"></div>
+      <div font-bold text-xl>Recorder</div>
+    </div>
     <div flex flex-col items-center gap-3>
       <div class="f5-qr"><img src="./public/closing/github_qr.png" alt="GitHub QR code"></div>
       <div font-bold text-xl>GitHub</div>
@@ -1471,9 +1481,9 @@ glow: center
 
 <style>
 .f5-qr {
-  width: 216px;
-  height: 216px;
-  border-radius: 28px;
+  width: 156px;
+  height: 156px;
+  border-radius: 22px;
   background: #fff;
   box-shadow: 0 12px 32px rgb(10 37 64 / 10%);
   overflow: hidden;
@@ -1487,7 +1497,7 @@ glow: center
 
 <!--
 [Neko]
-如果你感兴趣，扫码就能找到我们：GitHub、Discord 和 Telegram 都在这儿。今天提到的代码都开源，不管你做设计、做产品还是写代码，都欢迎来一起玩。
+如果你感兴趣，扫码就能找到我们：今天讲的 Airicraft 和 recorder 的仓库，还有 GitHub、Discord 和 Telegram 都在这儿。今天提到的代码都开源，不管你做设计、做产品还是写代码，都欢迎来一起玩。
 -->
 
 ---
