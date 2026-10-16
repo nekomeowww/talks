@@ -9,8 +9,8 @@
     "export": "slidev export --with-clicks --per-slide --wait-until none"
   },
   "dependencies": {
-    "@slidev/cli": "^52.5.0",
-    "@slidev/client": "^52.5.0",
+    "@slidev/cli": "^53.0.0",
+    "@slidev/client": "^53.0.0",
     "@slidev/theme-default": "latest",
     "shiki": "^4.3.1",
     "vue": "^3.5.39"
