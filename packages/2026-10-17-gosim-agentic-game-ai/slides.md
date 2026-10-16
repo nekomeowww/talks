@@ -44,41 +44,71 @@ From playable demos to environments and datasets for reinforcement learning
 
 ---
 layout: intro
-class: px-35
-clicks: 2
+class: px-30
+clicks: 3
 ---
 
 <!-- slide:A2 -->
 
-<div flex>
+<div flex items-center gap-10>
   <div
-    v-click="1" flex flex-col items-start transition duration-500 ease-in-out
-    :class="$clicks < 1 ? 'translate-x--20' : 'translate-x-0'"
+    v-click="1" flex flex-col items-start transition duration-500 ease-in-out min-w-60
+    :class="$clicks < 1 ? 'translate-x--10' : 'translate-x-0'"
   >
-    <img src="./public/team/nekomeowww.png" w-50 h-50 rounded-full object-cover mb-5>
+    <img src="./public/team/nekomeowww.png" w-44 h-44 rounded-full object-cover mb-5>
     <span font-semibold text-3xl>Neko Ayaka</span>
-    <div>
-      <div>
-        <span class="opacity-70">Creator of Project AIRI · LobeHub</span>
-      </div>
-      <div text-sm flex items-center gap-2 mt-4>
-        <div i-ri:github-fill /><span underline decoration-dashed font-mono decoration-zinc-300>nekomeowww</span>
-      </div>
+    <div mt-1 flex items-center gap-2 whitespace-nowrap class="opacity-70">
+      <img src="./public/logos/lobehub.svg" size-5>
+      <span>Software Engineer @ LobeHub</span>
+    </div>
+    <div class="opacity-70">Creator of Project AIRI</div>
+    <div text-sm flex items-center gap-2 mt-4>
+      <div i-ri:github-fill /><span underline decoration-dashed font-mono decoration-zinc-300>nekomeowww</span>
     </div>
   </div>
   <div flex-1 />
-  <div
-    v-click="2" flex flex-col items-end transition duration-500 ease-in-out
-    :class="$clicks < 2 ? 'translate-x-20' : 'translate-x-0'"
-  >
-    <img src="./public/team/shinohara-rin.png" w-50 h-50 rounded-full object-cover mb-5>
-    <span font-semibold text-3xl>Rin</span>
-    <div flex-col items-end>
-      <div text-right>
-        <span class="opacity-70">Airicraft, recorder-minecraft</span>
+  <div flex flex-col gap-8 max-w-110>
+    <div v-click="2">
+      <div mb-4 text-zinc-400>组织 / Organizations</div>
+      <div
+        flex flex-wrap items-start content-start gap-x-6 gap-y-4 transition duration-500 ease-in-out
+        :class="$clicks < 2 ? 'translate-y-5' : 'translate-y-0'"
+      >
+        <div flex items-center gap-2 text-2xl>
+          <img src="./public/logos/lobehub.svg" size="6.5"><div>LobeHub</div>
+        </div>
+        <div flex items-center gap-2 text-2xl>
+          <img src="./public/ecosystem/moeru-ai-logo.png" size="6.5"><div>Moeru AI</div>
+        </div>
+        <div flex items-center gap-2 text-2xl>
+          <img src="./public/proj-airi-logo.svg" size="6.5"><div>Project AIRI</div>
+        </div>
       </div>
-      <div text-sm flex items-center justify-end gap-2 mt-4>
-        <div i-ri:github-fill /><span underline decoration-dashed font-mono decoration-zinc-300>shinohara-rin</span>
+    </div>
+    <div v-click="3">
+      <div mb-4 text-zinc-400>社区 / Communities</div>
+      <div
+        flex flex-wrap items-start content-start gap-x-6 gap-y-4 transition duration-500 ease-in-out
+        :class="$clicks < 3 ? 'translate-y-5' : 'translate-y-0'"
+      >
+        <div flex items-center gap-2 text-2xl>
+          <div i-logos:hugging-face-icon /><div>Hugging Face</div>
+        </div>
+        <div flex items-center gap-2 text-2xl>
+          <div i-logos:vue /><div>Vue</div>
+        </div>
+        <div flex items-center gap-2 text-2xl>
+          <div i-simple-icons:ollama /><div>Ollama</div>
+        </div>
+        <div flex items-center gap-2 text-2xl>
+          <div i-devicon:go /><div>Golang</div>
+        </div>
+        <div flex items-center gap-2 text-2xl>
+          <div i-devicon:kubernetes /><div>Kubernetes</div>
+        </div>
+        <div flex items-center gap-2 text-2xl>
+          <div i-twemoji:notebook-with-decorative-cover /><div>Nolebase</div>
+        </div>
       </div>
     </div>
   </div>
@@ -86,9 +116,80 @@ clicks: 2
 
 <!--
 [Neko]
-[click] 我是 Neko，Project AIRI 的发起人，平时在 LobeHub 工作。
+[click] 先介绍一下我自己。我是 Neko，平时在 LobeHub 做软件工程师，同时也是 Project AIRI 的发起人。
 
-[click] 这位是 Rin，英文名 Claudia Wang。今天你们在 Minecraft 里看到的东西，Airicraft、recorder，还有周边很多生态，主要都是她做的。团队里其他伙伴，最后一起介绍。
+[click] 除了 LobeHub，我主要在 Moeru AI 和 Project AIRI 这两个组织里，和大家一起做 AI 应用的基础设施，还有 AIRI 本身。
+
+[click] 社区这边，我在 Hugging Face、Vue、Ollama、Golang、Kubernetes 这些社区都有过一些贡献，还有几年前做的 Obsidian 知识库工作流 Nolebase。
+-->
+
+---
+layout: intro
+class: px-30
+clicks: 2
+---
+
+<!-- slide:A2a -->
+
+<div flex items-center gap-10>
+  <div
+    v-click="1" flex flex-col items-start transition duration-500 ease-in-out min-w-60
+    :class="$clicks < 1 ? 'translate-x--10' : 'translate-x-0'"
+  >
+    <img src="./public/team/shinohara-rin.png" w-44 h-44 rounded-full object-cover mb-5>
+    <span font-semibold text-3xl>Rin</span>
+    <div mt-1 flex items-center gap-2 whitespace-nowrap class="opacity-70">
+      <img src="./public/proj-airi-logo.svg" size-5>
+      <span>Core member of Project AIRI</span>
+    </div>
+    <div text-sm flex items-center gap-2 mt-4>
+      <div i-ri:github-fill /><span underline decoration-dashed font-mono decoration-zinc-300>shinohara-rin</span>
+    </div>
+  </div>
+  <div flex-1 />
+  <div v-click="2" max-w-120>
+    <div mb-4 text-zinc-400>在 Project AIRI 里 / In Project AIRI</div>
+    <div
+      flex flex-col gap-4 transition duration-500 ease-in-out
+      :class="$clicks < 2 ? 'translate-y-5' : 'translate-y-0'"
+    >
+      <div flex items-start gap-3>
+        <div i-twemoji:pick text-2xl shrink-0 mt-1 />
+        <div>
+          <div text-2xl>Airicraft</div>
+          <div text-sm class="opacity-60">Minecraft companion living in a real Fabric client</div>
+        </div>
+      </div>
+      <div flex items-start gap-3>
+        <div i-twemoji:film-frames text-2xl shrink-0 mt-1 />
+        <div>
+          <div text-2xl>recorder-minecraft</div>
+          <div text-sm class="opacity-60">Recording gameplay as evidence and datasets</div>
+        </div>
+      </div>
+      <div flex items-start gap-3>
+        <div i-twemoji:brain text-2xl shrink-0 mt-1 />
+        <div>
+          <div text-2xl>Minecraft agent</div>
+          <div text-sm class="opacity-60">REPL planner, perception, debug dashboard</div>
+        </div>
+      </div>
+      <div flex items-start gap-3>
+        <div i-twemoji:woman-dancing text-2xl shrink-0 mt-1 />
+        <div>
+          <div text-2xl>Live2D motion</div>
+          <div text-sm class="opacity-60">Procedural motion generation for the desktop pet</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--
+[Neko]
+[click] 这位是 Rin，英文名 Claudia Wang，Project AIRI 的核心成员。
+
+[click] 今天你们在 Minecraft 里看到的东西，基本都是她做的：住在原版 Fabric 客户端里的 Airicraft，把游戏过程录成证据和数据集的 recorder，还有之前 Mineflayer 时期 Minecraft agent 的 planner、感知和调试面板。除了游戏，她还给 AIRI 桌宠做了 Live2D 的程序化动作生成。团队里其他伙伴，最后一起介绍。
 -->
 
 ---
